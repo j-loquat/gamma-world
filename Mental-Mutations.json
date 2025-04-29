@@ -1,0 +1,516 @@
+{
+  "mentalMutations": [
+    {
+      "number": 1,
+      "humanPercentage": "01%",
+      "name": "Absorption",
+      "animalPercentage": "01%",
+      "isDefect": false,
+      "description": "1. ABSORPTION: A being with absorption is able to withstand an additional number of hit points of damage, equal to its current hit point total, of one of the following types of damage: Roll die (d6): 1 = cold, 2 = heat, 3 = light, 4 = paralysis rays, 5 = radiation, 6 = mental blasts.",
+      "hasTable": false
+    },
+    {
+      "number": 2,
+      "humanPercentage": "02%",
+      "name": "Anti-reflection",
+      "animalPercentage": "02%",
+      "isDefect": true,
+      "description": "2. ANTI-REFLECTION (D): This dangerous defect gives the mutant a 25% chance, each time he uses a mental power, of having the attack or defense reversed. This would cause a mental attack to come back and damage the mutant instead of his target, and a mental defense to apply to the opponent instead of the mutant.",
+      "hasTable": false
+    },
+    {
+      "number": 3,
+      "humanPercentage": "03-06%",
+      "name": "Complete Mental Block",
+      "animalPercentage": "03-04%",
+      "isDefect": true,
+      "description": "3. COMPLETE MENTAL BLOCK (D): This is the inability of the mutant to see or even come near (intentionally) one of the following types of things or creatures: Robotic, Technological (non-robotic), Plant, or Animal. While the mutant is able to operate logically in the presence of his block, he cannot use or touch, or even be aware of attacks on his person originated from his block. Only one creature of the types mentioned, i.e. a security robot, as determined by the referee, should constitute a mutant's mental block.",
+      "hasTable": false
+    },
+    {
+      "number": 4,
+      "humanPercentage": "07%",
+      "name": "Cryokinesis",
+      "animalPercentage": "05%",
+      "isDefect": false,
+      "description": "4. CRYOKINESIS: This is the ability to cause living matter, water, or anything else that will freeze, to suffer cold damage and possibly freeze solid (referee's discretion). On the first melee turn, 1 die (d6) of damage is done, and through undisturbed concentration, up to 10 dice (10d6) of damage may be inflicted on the 10th melee turn by a mutant with cryokinesis. The effective range of this mutation is 25 meters.",
+      "hasTable": false
+    },
+    {
+      "number": 5,
+      "humanPercentage": "08%",
+      "name": "Death Field Generation",
+      "animalPercentage": "06%",
+      "isDefect": false,
+      "description": "5. DEATH FIELD GENERATION: In one melee turn, this mutation drains all but one of the hit points from all beings within 20 meters. When a being uses a death field, he is not affected by it except that he can do nothing else for 1-20 (d20) melee turns, as he will be lying on the ground, nearly unconscious.",
+      "hasTable": false
+    },
+    {
+      "number": 6,
+      "humanPercentage": "09-10%",
+      "name": "De-evolution",
+      "animalPercentage": "07-09%",
+      "isDefect": false,
+      "description": "6. DE-EVOLUTION: This is the power to strip abilities from a mutant opponent by regressing it along its ancestral lines. If this power works (treat as a mental attack), it begins by taking away, permanently, the opponent's greatest special ability (referee's choice). On every subsequent melee turn, another special ability is thus removed, until the mutant's opponent is returned to its original stock. This power lasts for the duration of one combat situation, however long that may take, has a range of up to 30 meters, and may be used once per week.",
+      "hasTable": false
+    },
+    {
+      "number": 7,
+      "humanPercentage": "11%",
+      "name": "Density Control (others)",
+      "animalPercentage": "10%",
+      "isDefect": false,
+      "description": "7. DENSITY CONTROL (others): Note the definition of Density Control (Self), #4 under PHYSICAL MUTATIONS, give it a range of 30 meters, and use it as an offensive or defensive power on other beings. Definition (Self version): A mutant with this ability can change the molecular structure of his body to increase his armor class or move more rapidly. To achieve a better armor class, the mutant's body shrinks and becomes more dense. Shrinking raises the armor class in direct proportion to the size change. A one-half size mutant has twice the normal armor class. A one-eighth size mutant is too dense to be punctured by any type of sword, spear, arrow, etc. However, becoming more dense also decreases movement and reflex actions by the same amount, so that one-eighth size mutants are slowed to one-eighth normal speed.\nTo become less dense involves a size change the other way, and the mutant becomes larger. This lowers the armor class and strength, but allows faster movement. A twice normal size mutant is four armor classes lower than normal, but can move four times as fast as usual. A mutant may only expand to twice its normal size. There is no limit to the number of times a mutant may change its density and the change is instantaneous.",
+      "hasTable": false
+    },
+    {
+      "number": 8,
+      "humanPercentage": "12%",
+      "name": "Directional Sense",
+      "animalPercentage": "11-13%",
+      "isDefect": false,
+      "description": "8. DIRECTIONAL SENSE: This allows the mutant to know exactly where it is in relation to where it has been. Such mutants will be able to retrace their path at any time, even if blindfolded.",
+      "hasTable": false
+    },
+    {
+      "number": 9,
+      "humanPercentage": "13%",
+      "name": "Dual Brain",
+      "animalPercentage": "14%",
+      "isDefect": false,
+      "description": "9. DUAL BRAIN: Any mutant with this power has 2 brains (not necessarily 2 heads), both of which function normally and which may have, between them, up to 3 additional mental mutations. This allows the mutant a minus 1 on all die rolls when trying to figure out any ancient artifacts (see ARTIFACT USE). When under mental attack, one brain may suffer the effects while the other keeps the mutant functioning normally (moving, striking, attacking, etc.). A Dual Brain allows two mental saving throws and if either one is successful, the mental attack on the mutant fails. Both brains have the same mental strength (rolled at the start of the campaign by the player), but any increase in mental strength due to surviving mental attacks is awarded at one-half the normal rate.",
+      "hasTable": false
+    },
+    {
+      "number": 10,
+      "humanPercentage": "14%",
+      "name": "Empathy",
+      "animalPercentage": "15%",
+      "isDefect": false,
+      "description": "10. EMPATHY: This allows the mutant to sense the feelings (hate, fear, hunger, pain, etc.) of others. An empathetic mutant can force emotions on non-intelligent beings of any type (treat non-intelligent creatures as having a 12 for mental resistance). Thus a mutant could force a pack of wild dogs away in fear, or entice a food animal closer for the kill. Range: 30 meters.",
+      "hasTable": false
+    },
+    {
+      "number": 11,
+      "humanPercentage": "15-18%",
+      "name": "Epilepsy",
+      "animalPercentage": "16-18%",
+      "isDefect": true,
+      "description": "11. EPILEPSY (D): This is a body paralysis that occurs for various reasons. When attacks come on, the body is unable to respond to the environment around it and remains motionless. The referee should set up a consistent set of variables to determine when these attacks come on (i.e. 10% chance per melee turn during physical combat, or 25% chance immediately preceding any combat situation, etc.).",
+      "hasTable": false
+    },
+    {
+      "number": 12,
+      "humanPercentage": "19-22%",
+      "name": "Fear Impulse",
+      "animalPercentage": "19-20%",
+      "isDefect": true,
+      "description": "12. FEAR IMPULSE (D): This mutation, for one reason or another, simply causes unreasonable fear of an object or animal and makes the mutant unable, for any reason, to look at that thing without feeling total fear and running away (dropping everything in the process). A six sided die is rolled to determine the object of fear: 1 = random mutated animal, 2 = random mutated insect, 3 = random non-mutated creature, 4 = any robot, 5 = any computer, 6 = any talking plant. The referee is to determine the specific creature involved, if any, in this fear impulse.",
+      "hasTable": false
+    },
+    {
+      "number": 13,
+      "humanPercentage": "23-25%",
+      "name": "Force Field Generation",
+      "animalPercentage": "21-24%",
+      "isDefect": false,
+      "description": "13. FORCE FIELD GENERATION: This endows the mutant with the power to create an invisible wall of energy through which physical objects may not pass. The wall forms around the body of the mutant (about 15 centimeters out) and will take 5 dice of accumulated damage (as though it were the mutant) before being forced down. The force field requires no effort to maintain once it is established and will last up to one hour (unless it is driven down by damage) before it dissipates. Only one such force field may be generated by the mutant in a 24 hour period.",
+      "hasTable": false
+    },
+    {
+      "number": 14,
+      "humanPercentage": "26%",
+      "name": "Genius Capability",
+      "animalPercentage": "25%",
+      "isDefect": false,
+      "description": "14. GENIUS CAPABILITY: Roll a six-sided die. The mutant becomes one of the following:",
+      "hasTable": true,
+      "tableData": [
+        {
+          "dieRoll": "1,2",
+          "result": "A military genius with a plus 4 chance \"to hit\" with any weapon, and causes one extra die of damage to be inflicted."
+        },
+        {
+          "dieRoll": "3,4",
+          "result": "A scientific genius who may subtract 1 point from each die roll when trying to figure out ancient artifacts (see ARTIFACTS & EQUIPMENT). Any weapon this mutant makes, such as a crossbow, sling, trap, etc., will do 4 extra points of damage with each hit. However, it takes three times as long for this mutant to make any given weapon of this type."
+        },
+        {
+          "dieRoll": "5,6",
+          "result": "An economic genius who will be able to turn a triple profit on anything he or she tries to sell, and possesses the charisma bonus (+3) of a Pure Strain Human."
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "humanPercentage": "27-31%",
+      "name": "Heightened Brain Talent",
+      "animalPercentage": "26-28%",
+      "isDefect": false,
+      "description": "15. HEIGHTENED BRAIN TALENT: Mutants with this ability will be able to figure out the workings of any artifact in one-third the normal time (i.e. 40 minutes for 10 die rolls on the ARTIFACT USE & OPERATION chart instead of 2 hours) and they receive 2 saving throws against mental attacks. Note, however, that if this mutant has a double brain, he does not get four saving throws. It is impossible to tell an undetected lie to a mutant with heightened brain talent.",
+      "hasTable": false
+    },
+    {
+      "number": 16,
+      "humanPercentage": "32-41%",
+      "name": "Heightened Intelligence",
+      "animalPercentage": "29-43%",
+      "isDefect": false,
+      "description": "16. HEIGHTENED INTELLIGENCE: Add 4 points to the mutant's mental resistance rating (not to exceed 18) and subtract 2 points from the die rolls when this mutant is trying to figure out an artifact (see ARTIFACT USE & OPERATION).",
+      "hasTable": false
+    },
+    {
+      "number": 17,
+      "humanPercentage": "42-45%",
+      "name": "Hostility Field",
+      "animalPercentage": "44%",
+      "isDefect": true,
+      "description": "17. HOSTILITY FIELD (D): This is a repugnant unconscious field set up in a 30 meter radius around the mutant. Any being with an intelligence of 16 or less, friend or foe, will have a 20% chance of wanting to attack the mutant upon first entering the field.",
+      "hasTable": false
+    },
+    {
+      "number": 18,
+      "humanPercentage": "46%",
+      "name": "Illusion Generation",
+      "animalPercentage": "45%",
+      "isDefect": false,
+      "description": "18. ILLUSION GENERATION: This is the ability to create images in the minds of other beings who are within 30 meters of the mutant. Such illusions will have any visual, audible, and olfactory aspects the sender wishes, and are dispelled only when a viewer attempts to touch the illusion.",
+      "hasTable": false
+    },
+    {
+      "number": 19,
+      "humanPercentage": "47%",
+      "name": "Intuition",
+      "animalPercentage": "46-49%",
+      "isDefect": false,
+      "description": "19. INTUITION: This allows the mutant to be subconsciously aware of what any opponent intends to do. This results in adding one point to the mutant's \"to hit\" probability with any weapon, and 3 points to each die of damage he inflicts. This mutation cannot be used while other mental powers are being used.",
+      "hasTable": false
+    },
+    {
+      "number": 20,
+      "humanPercentage": "48-52%",
+      "name": "Life Leech",
+      "animalPercentage": "50-52%",
+      "isDefect": false,
+      "description": "20. LIFE LEECH: This is the power to drain life energy from all semi-intelligent or intelligent beings, friend and foe alike, within a 10 meter radius of the mutant. This range is increased by 3 meters for every 4 points of mental strength possessed by the mutant. Life leech will drain away 6 hit points per melee turn (i.e., cause 6 points of damage) from each being in range and add a like number of hit points to the mutant's total. If the mutant with life leech takes damage, the hit points are first subtracted from those points leeched. Those leeched hit points that are not destroyed in combat dissipate after 24 hours.",
+      "hasTable": false
+    },
+    {
+      "number": 21,
+      "humanPercentage": "53%",
+      "name": "Light Wave Manipulation",
+      "animalPercentage": "53%",
+      "isDefect": false,
+      "description": "21. LIGHT WAVE MANIPULATION: This allows the mutant and everything he is wearing or carrying, to become invisible at will, to negate the effect of a laser, or to create a patch of total darkness (2 meter radius) anywhere within 10 meters of the mutant. Although this mutant can only make himself invisible, the ability to create darkness or stop laser blasts may be used anywhere within his 10 meter range.",
+      "hasTable": false
+    },
+    {
+      "number": 22,
+      "humanPercentage": "54%",
+      "name": "Magnetic Control",
+      "animalPercentage": "54%",
+      "isDefect": false,
+      "description": "22. MAGNETIC CONTROL: This is the power, through the control of magnetic fields, to repel, attract, or utilize any inanimate ferrous object. The effects on powered objects are to be determined by the referee. Treat any object to be controlled as having a mental resistance of 12 to determine whether control is successful. There is no weight restriction, and the mutation has a range of 100 meters. Magnetic control lasts up to 25 melee turns and may be used once every 24 hours.",
+      "hasTable": false
+    },
+    {
+      "number": 23,
+      "humanPercentage": "55%",
+      "name": "Mass Mind",
+      "animalPercentage": "55%",
+      "isDefect": false,
+      "description": "23. MASS MIND: This allows the mutant to empathize with creatures of a like nature (same type) or like power (mental control, mass mind, telepathy, etc.) in order to amplify the effects of its own powers. Mass mind works in direct proportion to the number of minds participating. A mutant with mass mind and mental blast abilities could get together with another creature with mental blast and, together, deliver a double strength mental blast twice the normal distance.",
+      "hasTable": false
+    },
+    {
+      "number": 24,
+      "humanPercentage": "56-58%",
+      "name": "Mental Blast",
+      "animalPercentage": "56%",
+      "isDefect": false,
+      "description": "24. MENTAL BLAST: This is the ability to launch a mental assault worth 3 dice (d6) of damage on any being within 15 meters. It may be used every other melee turn.",
+      "hasTable": false
+    },
+    {
+      "number": 25,
+      "humanPercentage": "59%",
+      "name": "Mental Control",
+      "animalPercentage": "57%",
+      "isDefect": false,
+      "description": "25. MENTAL CONTROL: This mutation allows the takeover of another being's body. While in control, the mutant experiences all the sensory impressions of the controlled being, and is totally unaware of his own body (which remains motionless). If the being under control is knocked unconscious or dies, the controller suffers the same fate. To establish control, the mutant must be within 15 meters of his intended victim. Thereafter, there is no range restriction to this mutation. The mutant may break off control and \"return\" to his own body at any time.",
+      "hasTable": false
+    },
+    {
+      "number": 26,
+      "humanPercentage": "60%",
+      "name": "Mental Control over Physical State",
+      "animalPercentage": "58%",
+      "isDefect": false,
+      "description": "26. MENTAL CONTROL OVER PHYSICAL STATE: This is the ability to unconsciously disregard things like pain warnings and override problems such as blood loss or fatigue for up to one full day. This control enables the mutant to heal wounds (recover lost hit points) four times as fast as normal. In situations of overwhelming danger (referee's decision), the mutant will have double his normal strength, dexterity, and speed for 5-50 melee turns (5d10). This mutation may be used only once per week.",
+      "hasTable": false
+    },
+    {
+      "number": 27,
+      "humanPercentage": "61-62%",
+      "name": "Mental Defenselessness",
+      "animalPercentage": "59-61%",
+      "isDefect": true,
+      "description": "27. MENTAL DEFENSELESSNESS (D): Disregard the mental strength of the mutant as rolled. It is now 3.",
+      "hasTable": false
+    },
+    {
+      "number": 28,
+      "humanPercentage": "63%",
+      "name": "Mental Defense Shield",
+      "animalPercentage": "62-66%",
+      "isDefect": false,
+      "description": "28. MENTAL DEFENSE SHIELD: This ability adds 4 points (not to exceed 18) to the mutant's mental resistance rating. In addition, this mutant will sense any other being with mental powers within a 30 meter radius, whether those powers are being used or not.",
+      "hasTable": false
+    },
+    {
+      "number": 29,
+      "humanPercentage": "64%",
+      "name": "Molecular Disruption",
+      "animalPercentage": "67%",
+      "isDefect": false,
+      "description": "29. MOLECULAR DISRUPTION: This is a dangerous but powerful ability that may only be used infrequently. Upon attempting molecular disruption, whether it works or not, the mutant is reduced to 1 hit point and one-half movement for 1 full day. The chance of success varies with the subject matter involved: metal and dense material have a 3% chance of being disrupted per point of mental strength, stone and non-living material has a 4% chance per point of mental strength, and living organisms have a 5% chance of being disrupted per point of mental strength possessed by the mutant. Up to 50 kilograms of contiguous matter, within a range of 30 meters, may be destroyed in this manner. For example: A mutant with a mental strength of 15 would have a 75% chance of disrupting an obb (see CREATURES) and a 45% chance of disrupting a metal door. Once this ability is employed, a varying number of days (referee rolls d6, with result unknown to player) must pass before it will have any chance of succeeding again.",
+      "hasTable": false
+    },
+    {
+      "number": 30,
+      "humanPercentage": "65-66%",
+      "name": "Molecular Understanding",
+      "animalPercentage": "68%",
+      "isDefect": false,
+      "description": "30. MOLECULAR UNDERSTANDING: This power allows the mutant to know the weaknesses of any object and its separate parts. Because of this, the mutant does 1 extra die of damage, over and above any damage he would normally inflict in combat. Mutants with this power are also able to instantly figure out the use of any artifact on CHART A, and subtract 2 points from the die roll on the other charts (see ARTIFACT USE & OPERATION).",
+      "hasTable": false
+    },
+    {
+      "number": 31,
+      "humanPercentage": "67-69%",
+      "name": "Multiple Damage",
+      "animalPercentage": "69-71%",
+      "isDefect": true,
+      "description": "31. MULTIPLE DAMAGE (D): This causes the mutant involved to double, or even triple (referee's option) any damage sustained by the mutant. This occurs not because the damage has really been inflicted, but because the mutant thinks it has.",
+      "hasTable": false
+    },
+    {
+      "number": 32,
+      "humanPercentage": "70%",
+      "name": "Planar Travel",
+      "animalPercentage": "72%",
+      "isDefect": false,
+      "description": "32. PLANAR TRAVEL: This is the ability to open doors to alternate planes of existence. The mutation manifests itself as a 3 x 3 meter opening lasting up to 3 full melee turns at the discretion of the mutant. These planes of existence may or may not be populated (with referee-inspired creatures), but once entered, there is no way to leave them (unless the mutant re-opens the door), so they make perfect places of exile. Only one such door may be opened per week.",
+      "hasTable": false
+    },
+    {
+      "number": 33,
+      "humanPercentage": "71-73%",
+      "name": "Poor Dual Brain",
+      "animalPercentage": "73-75%",
+      "isDefect": true,
+      "description": "33. POOR DUAL BRAIN (D): This is a second brain which handicaps the function of the primary brain. It may take over the body at strange times, have several defects, or even counteract a mental power of the good brain in difficult situations. The extent and effects of this mutation should be determined by the referee and may be kept a secret from the mutant until the moment of truth.",
+      "hasTable": false
+    },
+    {
+      "number": 34,
+      "humanPercentage": "74%",
+      "name": "Precognition",
+      "animalPercentage": "76%",
+      "isDefect": false,
+      "description": "34. PRECOGNITION: This is the power to sense dangerous situations which will affect, personally, the mutant having the power. It is effective only 3 minutes into the future and requires intense concentration to work. For instance, if the mutant is about to open a door, he may use precognition to see what would happen if he did open the door. It is perfectly legal to change the course of history by acting on such information and not, for example, open the door to receive the ambush waiting on the other side. When a mutant with precognition foresees damage about to be done to his own body, the shock to his nervous system is such that he receives one die (d6) of damage immediately. If the mutant should foresee his own death, he immediately takes two dice (d6) of damage and falls unconscious for 3-18 (3d6) minutes. The referee may wish to limit the number of times this ability can be used in a day (perhaps by rolling d4 or d6).",
+      "hasTable": false
+    },
+    {
+      "number": 35,
+      "humanPercentage": "75%",
+      "name": "Pyrokinesis",
+      "animalPercentage": "77%",
+      "isDefect": false,
+      "description": "35. PYROKINESIS: This is the ability to cause living matter or anything that is reasonably flammable, such as wood, or plastic, to suffer heat damage and eventually burst into flame. On the first melee turn 1 die (d6) of damage is done (not necessarily fire) and through undisturbed concentration, up to 10 dice (d6) of damage may be inflicted on the 10th melee turn by a mutant with pyrokinesis. The referee determines when and if a fire starts. The effective range of this mutation is 25 meters.",
+      "hasTable": false
+    },
+    {
+      "number": 36,
+      "humanPercentage": "76%",
+      "name": "Radar/Sonar",
+      "animalPercentage": "78%",
+      "isDefect": false,
+      "description": "36. RADAR/SONAR: Creatures with radar or sonar have large ears, antennae, or hearing orifices. Much like bats or dolphins, they can walk or fly day and night, \"seeing\" without using their eyes. They also receive a bonus of plus 2 on all \"to-hit\" probabilities. The range of this mutation is usually 30 meters, but is tripled if the mutant has heightened hearing.",
+      "hasTable": false
+    },
+    {
+      "number": 37,
+      "humanPercentage": "77%",
+      "name": "Reflection",
+      "animalPercentage": "79%",
+      "isDefect": false,
+      "description": "37. REFLECTION: This mutation requires great concentration, and the mutant must remain motionless while exercising it. On the first melee turn of concentration, up to 3 dice of damage (of any type) is sent back to the beings who inflicted it. On the second melee turn of concentration up to 4 dice of damage is reflected, and so on, until, on the 18th and final turn of this power, up to 20 dice of damage may be reflected. Note: Reflected damage may not exceed damage inflicted. Reflection is usable only once every 24 hours, and while in use, the mutant is subject to simple attacks, such as light generation, which incapacitate, but do no dice of damage. This mutant can maintain concentration and reflection powers even if it takes damage, so long as no other action (combat, fleeing) is initiated. While reflecting, the mutant receives no damage unless damage inflicted exceeds reflecting ability. For example, if the mutant is hit by a laser pistol (which does 5 dice of damage) on the first melee turn of concentration, 3 dice will be reflected and the mutant will receive 2 dice of damage.",
+      "hasTable": false
+    },
+    {
+      "number": 38,
+      "humanPercentage": "78%",
+      "name": "Repulsion Field",
+      "animalPercentage": "80%",
+      "isDefect": false,
+      "description": "38. REPULSION FIELD: This is similar to a force field, only a repulsion field may be formed up to 15 meters away from the mutant and may be used to surround or trap other beings. In all other respects it functions like a force field. Indeed, a mutant with this ability could use it exactly like a force field if he so desires, and it could be termed an improved force field.",
+      "hasTable": false
+    },
+    {
+      "number": 39,
+      "humanPercentage": "79%",
+      "name": "Sound Imitation",
+      "animalPercentage": "81%",
+      "isDefect": false,
+      "description": "39. SOUND IMITATION: Similar to thought imitation, this allows a mutant to recreate sounds that it hears and throw back sonic attacks immediately after hearing (and surviving) them. This mutant cannot remember how to recreate sounds, it merely repeats what it hears.",
+      "hasTable": false
+    },
+    {
+      "number": 40,
+      "humanPercentage": "80-82%",
+      "name": "Telekinesis",
+      "animalPercentage": "82%",
+      "isDefect": false,
+      "description": "40. TELEKINESIS: This enables a mutant to lift objects, other than the mutant himself, into the air and move them about. The mutant can only telekinese as much weight as he could normally lift, and he must strain as though he were actually carrying the object of his telekinesis. Only objects within 15 meters may be thus lifted, and the mutant may only keep them aloft for 5 melee turns, after which time he must rest for another 5 melee turns before again using this power. When telekinesis is attempted on living creatures, or things that they are holding, the referee should treat it as a mental attack on that being, which must succeed before the object may be lifted.",
+      "hasTable": false
+    },
+    {
+      "number": 41,
+      "humanPercentage": "83%",
+      "name": "Telekinetic Arm",
+      "animalPercentage": "83%",
+      "isDefect": false,
+      "description": "41. TELEKINETIC ARM: This mutation manifests itself as a 20 meter long human arm (complete with hand), capable of doing anything a normal human arm and hand can do, with a strength of 18. To function, it must always be visible to the mutant. This arm cannot be hit by non-powered weapons, while powered weapons will do normal damage to the mutant if they hit this arm.",
+      "hasTable": false
+    },
+    {
+      "number": 42,
+      "humanPercentage": "84%",
+      "name": "Telekinetic Flight",
+      "animalPercentage": "84%",
+      "isDefect": false,
+      "description": "42. TELEKINETIC FLIGHT: Mutants with this ability can fly through the air at a variable speed (1-20 meters per second), carrying only as much as they could carry normally.",
+      "hasTable": false
+    },
+    {
+      "number": 43,
+      "humanPercentage": "85%",
+      "name": "Telepathy",
+      "animalPercentage": "85%",
+      "isDefect": false,
+      "description": "43. TELEPATHY: This is the power to read another creature's thoughts and/or emotions and send your own in return. This power transcends language and works on all beings up to 10 meters away.",
+      "hasTable": false
+    },
+    {
+      "number": 44,
+      "humanPercentage": "86%",
+      "name": "Teleportation",
+      "animalPercentage": "86%",
+      "isDefect": false,
+      "description": "44. TELEPORTATION: The mental transference of the mutant's physical self to another place is called teleportation, and works up to a range of 30 kilometers. The mutant may only teleport himself, not others. If he has not spent at least 8 hours memorizing his destination, the mutant stands a 25% chance of sustaining 10 dice (d6) of damage upon arrival.",
+      "hasTable": false
+    },
+    {
+      "number": 45,
+      "humanPercentage": "87%",
+      "name": "Thought Imitation",
+      "animalPercentage": "87%",
+      "isDefect": false,
+      "description": "45. THOUGHT IMITATION: This power allows mutants to immediately return any thought or mental attack directed at them, although it does not negate the effects of such attacks on themselves. A mutant with thought imitation is able, any time he wishes, to exactly copy the communication patterns of those creatures with whose thought patterns he is familiar, even if those creatures do not speak a language known by the mutant. Note: The power to return a mental attack is temporary. Once a mental blast has been returned, the mutant does not know how to repeat it. This mutant can, however, recall communications patterns at a later date.",
+      "hasTable": false
+    },
+    {
+      "number": 46,
+      "humanPercentage": "88%",
+      "name": "Time Field Manipulation",
+      "animalPercentage": "88%",
+      "isDefect": false,
+      "description": "46. TIME FIELD MANIPULATION: This is the ability to travel or send objects through the currents of time. The use of this mutation requires an 18 intelligence and a \"heightened intelligence\" on the part of the mutant (i.e. this is rare). If the mutant does not have both, roll another mutation. The ability to send objects through time varies with the material involved, and distance in time required. The material travels through time, but remains in the same spot on GAMMA WORLD. The energy required, whether or not the attempt succeeds, drains one-half the hit points from the mutant for 1-8 (d8) days and reduces the mutant's speed to one-half for 1-12 (d12) days. The percentile dice are used to determine the success of time travel:\nThe preceding chart is for the mutant and/or any inanimate object not belonging to another being sent into the past. Material which is part of or belongs to another being is more difficult to send through time: subtract 10% for metal or powered items, subtract 15% for stone and other inorganic material, and subtract 20% for biological material (such as another being). To send objects into the future, subtract 25% from each increment on the above table. The mutant must be able to touch whatever he is attempting to send through time and the energy drain occurs even if the attempt fails.",
+      "hasTable": true,
+      "tableData": [
+        {"distanceTraveled": "1 week", "percentChance": "1-95%"},
+        {"distanceTraveled": "25 weeks", "percentChance": "1-85%"},
+        {"distanceTraveled": "1 year", "percentChance": "1-80%"},
+        {"distanceTraveled": "5 years", "percentChance": "1-75%"},
+        {"distanceTraveled": "10 years", "percentChance": "1-60%"},
+        {"distanceTraveled": "25 years", "percentChance": "1-50%"},
+        {"distanceTraveled": "50 years", "percentChance": "1-30%"},
+        {"distanceTraveled": "100 years", "percentChance": "1-20%"},
+        {"distanceTraveled": "250 years", "percentChance": "1-10%"}
+      ]
+    },
+    {
+      "number": 47,
+      "humanPercentage": "89%",
+      "name": "Total Healing",
+      "animalPercentage": "89%",
+      "isDefect": false,
+      "description": "47. TOTAL HEALING: This allows the mutant to heal all its own lost hit points, up to four times a week, once per 24-hour period.",
+      "hasTable": false
+    },
+    {
+      "number": 48,
+      "humanPercentage": "90%",
+      "name": "Weather Manipulation",
+      "animalPercentage": "90%",
+      "isDefect": false,
+      "description": "48. WEATHER MANIPULATION: This allows the mutant to manipulate the weather in the area he is in. The newly-created weather conditions will last as long as the mutant concentrates on them. (Note that if the mutant is hit in combat his concentration will be broken.) The mutant must concentrate for a full minute (6 melee turns) before the weather begins changing, and it takes another 2 minutes (12 melee turns) for the change to be completed. The weather will be affected in a 10 kilometer radius around the mutant. The weather cannot be radically changed, i.e. from below zero to a 100 degree heatwave. The extent of manipulation possible depends upon the prevailing conditions:\nAll three aspects of the weather can be manipulated, but only as shown. For example, a day which is clear and warm with a light wind can become a hazy, hot, calm day. Contradictions are not possible, fog and strong wind, for example.\nSuccess is not automatic. There is a base 90% chance of causing one of the possible changes. If it is desirable to cause a change one degree away (from clear to light rain, for example) the chance of success drops to 50%, and double the time is required (12 melee turns of initial concentration, 24 melee turns to accomplish the change). If a change two degrees away form the prevailing conditions is desired (such as warm to arctic cold), the chance of success is only 10% and triple the time is required (18 and 36 melee turns).\nThe percentile dice (2d10) are rolled after the initial concentration is completed, but the new conditions are not fully effective until the change in weather is completed. If the mutant is unsuccessful in changing the weather (either through failing the percentage roll or being interrupted after the initial concentration), he must rest a full week before attempting weather manipulation again. This mutation is usable a maximum of once per day.",
+      "hasTable": true,
+      "tableData": [
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Clear", "change": "Very clear"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Clear", "change": "Partly cloudy/Hazy"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Partly Cloudy", "change": "Clear"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Partly Cloudy", "change": "Cloudy"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Partly Cloudy", "change": "Misty/Light rain/ Light snow/Sleet/ Small hail"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Cloudy", "change": "Partly cloudy"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Cloudy", "change": "Deep clouds"},
+        {"aspect": "Cloud Cover/ Precipitation", "prevailing": "Cloudy", "change": "Fog/Heavy rain/ Heavy snow/Driving sleet/Large hail"},
+        {"aspect": "Temperature", "prevailing": "Hot", "change": "Sweltering heat"},
+        {"aspect": "Temperature", "prevailing": "Hot", "change": "Warm"},
+        {"aspect": "Temperature", "prevailing": "Warm", "change": "Hot"},
+        {"aspect": "Temperature", "prevailing": "Warm", "change": "Cool"},
+        {"aspect": "Temperature", "prevailing": "Cool", "change": "Warm"},
+        {"aspect": "Temperature", "prevailing": "Cool", "change": "Cold"},
+        {"aspect": "Temperature", "prevailing": "Cold", "change": "Cool"},
+        {"aspect": "Temperature", "prevailing": "Cold", "change": "Arctic cold"},
+        {"aspect": "Wind", "prevailing": "Calm", "change": "Dead Calm"},
+        {"aspect": "Wind", "prevailing": "Calm", "change": "Light wind"},
+        {"aspect": "Wind", "prevailing": "Light Wind", "change": "Calm"},
+        {"aspect": "Wind", "prevailing": "Light Wind", "change": "Strong wind"},
+        {"aspect": "Wind", "prevailing": "Strong Wind", "change": "Light wind"},
+        {"aspect": "Wind", "prevailing": "Strong Wind", "change": "Gale"},
+        {"aspect": "Wind", "prevailing": "Gale", "change": "Strong wind"},
+        {"aspect": "Wind", "prevailing": "Gale", "change": "Storm"},
+        {"aspect": "Wind", "prevailing": "Storm", "change": "Gale"},
+        {"aspect": "Wind", "prevailing": "Storm", "change": "Hurricane/Typhoon"}
+      ]
+    },
+    {
+      "number": 49,
+      "humanPercentage": "91-95%",
+      "name": "Will Force",
+      "animalPercentage": "91-95%",
+      "isDefect": false,
+      "description": "49. WILL FORCE: This is the ability, through sheer force of will, to double any one of a mutant's abilities. It can be used in conjunction with any other power, or it may be used to add one point to the mutant's \"to-hit\" die rolls. Will force lasts from 1-10 (d10) melee turns and may be used only once every 24 hours.",
+      "hasTable": false
+    },
+    {
+      "number": null,
+      "humanPercentage": "96-99%",
+      "name": "Roll a Good Mutation (No Defects)",
+      "animalPercentage": "96-99%",
+      "isDefect": false,
+      "description": "Roll a Good Mutation: Roll again on this table, ignoring results of 96-99% and Defects.",
+      "hasTable": false
+    },
+    {
+      "number": null,
+      "humanPercentage": "100%",
+      "name": "Pick any one Mutation",
+      "animalPercentage": "100%",
+      "isDefect": false,
+      "description": "Pick any one Mutation: Player chooses any one Mutation from this list (results 1-49).",
+      "hasTable": false
+    }
+  ]
+}

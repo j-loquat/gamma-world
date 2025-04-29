@@ -1,0 +1,414 @@
+{
+    "physicalMutations": [
+      {
+        "number": 1,
+        "humanPercentage": "01-02%",
+        "name": "Attraction Odor",
+        "animalPercentage": "01-02%",
+        "isDefect": true,
+        "description": "1. ATTRACTION ODOR (D): The mutant's body secretes a substance which will attract carnivores."
+      },
+      {
+        "number": 2,
+        "humanPercentage": "03-04%",
+        "name": "Body Structure Change",
+        "animalPercentage": "03%",
+        "isDefect": true,
+        "description": "2. BODY STRUCTURE CHANGE (D): Much latitude is left to the referee on this defect. Generally, this involves the replacement of essential elements, such as calcium in bones, with some other damaging substance that will lower the body's resistance to outside force. Possible changes might include: lack of calcium in bones - they break easily; no body hairs - anywhere - beware of dust; only one eye in center of head - no depth perception; and so on."
+      },
+      {
+        "number": 3,
+        "humanPercentage": "05%",
+        "name": "Chameleon Powers",
+        "animalPercentage": "04-06%",
+        "isDefect": false,
+        "description": "3. CHAMELEON POWERS: This is the ability to change the body color in order to blend in with the surroundings. The color change will be almost instantaneous and, once changed, the mutant need not concentrate on the color(s) desired. It is left to the referee to determine the effectiveness of this mutation in any given situation."
+      },
+      {
+        "number": 4,
+        "humanPercentage": "06%",
+        "name": "Density Control",
+        "animalPercentage": "07%",
+        "isDefect": false,
+        "description": "4. DENSITY CONTROL: A mutant with this ability can change the molecular structure of his body to increase his armor class or move more rapidly. To achieve a better armor class, the mutant's body shrinks and becomes more dense. Shrinking raises the armor class in direct proportion to the size change. A one-half size mutant has twice the normal armor class. A one-eighth size mutant is too dense to be punctured by any type of sword, spear, arrow, etc. However, becoming more dense also decreases movement and reflex actions by the same amount, so that one-eighth size mutants are slowed to one-eighth normal speed.\nTo become less dense involves a size change the other way, and the mutant becomes larger. This lowers the armor class and strength, but allows faster movement. A twice normal size mutant is four armor classes lower than normal, but can move four times as fast as usual. A mutant may only expand to twice its normal size. There is no limit to the number of times a mutant may change its density and the change is instantaneous."
+      },
+      {
+        "number": 5,
+        "humanPercentage": "07-08%",
+        "name": "Diminished Sense",
+        "animalPercentage": "08%",
+        "isDefect": true,
+        "description": "5. DIMINISHED SENSE (D): One of this mutant's senses (sight, smell, taste, etc.) will not function at normal levels (i.e., mutant may not smell an approaching predator or smell the burning woods he is in)."
+      },
+      {
+        "number": 6,
+        "humanPercentage": "09-10%",
+        "name": "Double Physical Pain",
+        "animalPercentage": "09%",
+        "isDefect": true,
+        "description": "6. DOUBLE PHYSICAL PAIN (D): This defect causes the mutant to be so sensitive to physical pain that all damage sustained will be doubled."
+      },
+      {
+        "number": 7,
+        "humanPercentage": "11-12%",
+        "name": "Electrical Generation",
+        "animalPercentage": "10-11%",
+        "isDefect": false,
+        "description": "7. ELECTRICAL GENERATION: This gives a being an \"eel-like\" ability to emit electrical shocks, each melee turn, for 3 dice (3d6) of damage to those touching the mutant."
+      },
+      {
+        "number": 8,
+        "humanPercentage": "13-14%",
+        "name": "Fat Cell Accumulation",
+        "animalPercentage": "12%",
+        "isDefect": true,
+        "description": "8. FAT CELL ACCUMULATION (D): A mutant with this problem will be fat (twice as large as normal). The referee will determine how much this impairs the mutant's movement and fighting ability. It is possible that only certain body parts, rather than the entire body, might be affected (such as the head, one arm, one thigh)."
+      },
+      {
+        "number": 9,
+        "humanPercentage": "15-16%",
+        "name": "Gas Generation - Musk",
+        "animalPercentage": "13%",
+        "isDefect": false,
+        "description": "9. GAS GENERATION - MUSK: This gives the mutant a gas, or musk gland. Much like a skunk, the mutant may expel this musk or gas, causing repulsion, unconsciousness, or even death in the beings at which it is directed. Range: 10 meters. Suggestions: obscuring gas, irritating gas, paralysis gas, poison gas, poison musk, blinding musk, and so on."
+      },
+      {
+        "number": 10,
+        "humanPercentage": "17%",
+        "name": "Heat Generation",
+        "animalPercentage": "14%",
+        "isDefect": false,
+        "description": "10. HEAT GENERATION: This allows the mutant to cast beams of heat from its hands (paws/tentacles) that do 4 dice (4d6) of searing heat damage. The beams have a maximum range of 15 meters and may be used every 3 melee turns."
+      },
+      {
+        "number": 11,
+        "humanPercentage": "18%",
+        "name": "Heightened Balance",
+        "animalPercentage": "15%",
+        "isDefect": false,
+        "description": "11. HEIGHTENED BALANCE: Beings with this mutation are able to maintain their balance in difficult circumstances and will never fall into a pit, trip over a rope or wire, or land in any way but on their feet. If undisturbed, they can climb sheer walls and walk tightwires with no chance of falling."
+      },
+      {
+        "number": 12,
+        "humanPercentage": "19-22%",
+        "name": "Heightened Constitution",
+        "animalPercentage": "16-21%",
+        "isDefect": false,
+        "description": "12. HEIGHTENED CONSTITUTION: This adds 2 additional hit points for every point of the mutant's constitution. It also gives an 18 resistance to poison and adds three points to the mutant's radiation resistance."
+      },
+      {
+        "number": 13,
+        "humanPercentage": "23%",
+        "name": "Heightened Dexterity",
+        "animalPercentage": "22%",
+        "isDefect": false,
+        "description": "13. HEIGHTENED DEXTERITY: Mutants with this ability are so agile in combat that their armor class is increased to 4. However, the referee may penalize such a mutant by reducing its armor class when it is encumbered."
+      },
+      {
+        "number": 14,
+        "humanPercentage": "24%",
+        "name": "Heightened Hearing",
+        "animalPercentage": "23%",
+        "isDefect": false,
+        "description": "14. HEIGHTENED HEARING: As the name suggests, this is the ability to detect and identify even the slightest noise up to 60 meters away. Because of this, any being with this mutation cannot be surprised (see SURPRISE)."
+      },
+      {
+        "number": 15,
+        "humanPercentage": "25%",
+        "name": "Heightened Precision",
+        "animalPercentage": "24%",
+        "isDefect": false,
+        "description": "15. HEIGHTENED PRECISION: This is the ability to determine weak points in opponents and structural weaknesses in material objects. Because of this, mutants with this ability do 2 dice of damage over and above all damage they would normally inflict with any weapon used."
+      },
+      {
+        "number": 16,
+        "humanPercentage": "26%",
+        "name": "Heightened Smell",
+        "animalPercentage": "25%",
+        "isDefect": false,
+        "description": "16. HEIGHTENED SMELL: A mutant with heightened smell is able to identify separate odors from a great distance (60 meters), and, because of this, cannot be ambushed (this is different from being surprised) by non-plant creatures from upwind. It can follow any trail less than a day old over any surface but water. After contact with another being, this mutant will subsequently be able to identify objects and places associated with that being, such as campsite or possessions."
+      },
+      {
+        "number": 17,
+        "humanPercentage": "27-32%",
+        "name": "Heightened Strength",
+        "animalPercentage": "26-29%",
+        "isDefect": false,
+        "description": "17. HEIGHTENED STRENGTH: This mutation allows its owner to cause 3 dice of damage over and above all damage he would normally inflict with non-powered weapons."
+      },
+      {
+        "number": 18,
+        "humanPercentage": "33%",
+        "name": "Heightened Taste",
+        "animalPercentage": "30-32%",
+        "isDefect": false,
+        "description": "18. HEIGHTENED TASTE: Mutants with this ability can detect poisons at a touch of the tongue and can determine whether any given substance is edible."
+      },
+      {
+        "number": 19,
+        "humanPercentage": "34%",
+        "name": "Heightened Touch",
+        "animalPercentage": "33%",
+        "isDefect": false,
+        "description": "19. HEIGHTENED TOUCH: Mutants with this power have a better chance to figure out the use of ancient devices (see ARTIFACT USE AND OPERATION). Given time, a mutant with heightened touch can \"feel\" the weak points of any given object. This ability could be very useful when trying to pick a safe, open a locked door, or escape from confinement."
+      },
+      {
+        "number": 20,
+        "humanPercentage": "35%",
+        "name": "Heightened Vision",
+        "animalPercentage": "34%",
+        "isDefect": false,
+        "description": "20. HEIGHTENED VISION: This is the ability to see clearly and identify objects over long distances (up to 3 kilometers). Mutants with heightened vision can see in the infrared and ultraviolet spectrums, but are not bothered by full daylight."
+      },
+      {
+        "number": 21,
+        "humanPercentage": "36-37%",
+        "name": "Hemophilia",
+        "animalPercentage": "35-36%",
+        "isDefect": true,
+        "description": "21. HEMOPHILIA (D): The lack of blood clotting agents in the mutant's blood causes serious bleeding in even the smallest of cuts. Once this mutant has lost even 1 hit point, he begins to bleed and loses 2 extra hit points per melee round until he has time to stop and bind his wounds."
+      },
+      {
+        "number": 22,
+        "humanPercentage": "38-39%",
+        "name": "Increased Metabolism",
+        "animalPercentage": "37%",
+        "isDefect": true,
+        "description": "22. INCREASED METABOLISM (D): This defect forces the mutant to spend great amounts of time feeding. It must carry large quantities of food when traveling, and in combat, must stop every 5th melee turn and spend one turn eating, before returning to battle, or lose 1 point of physical strength and 2 hit points each melee turn thereafter. NOTE: these losses are temporary (unless the mutant is killed) and may be replaced at the same rate if the mutant takes time out to eat."
+      },
+      {
+        "number": 23,
+        "humanPercentage": "40-42%",
+        "name": "Increased Speed",
+        "animalPercentage": "38-39%",
+        "isDefect": false,
+        "description": "23. INCREASED SPEED: Mutants with this ability are able to move at twice normal speed. They accomplish mental tasks in a much shorter time than normal and, in combat, they are allowed to strike twice each melee turn."
+      },
+      {
+        "number": 24,
+        "humanPercentage": "43%",
+        "name": "Infravision",
+        "animalPercentage": "40-41%",
+        "isDefect": false,
+        "description": "24. INFRAVISION: This power allows the mutant to see any heat-producing body. At night, everything will seem like day to this mutant. Flashes of heat, such as laser blasts, explosions, raging fires, or even torches at close range, will blind this being for a short period of time. The full light of day will also be painful if endured for any length of time."
+      },
+      {
+        "number": 25,
+        "humanPercentage": "44%",
+        "name": "Light Generation",
+        "animalPercentage": "42%",
+        "isDefect": false,
+        "description": "25. LIGHT GENERATION: This is the ability to emit high candlepower beams of light through the eyes. The blinding effect (which works even in full daylight) incapacitates the viewers by lowering both their armor class and \"to-hit\" chance by 4 points for 1-4 (d4) melee turns. This is a flash much like a camera flash bulb, and is thus not generally useful as illumination for explorers. Effective range: 10 meters."
+      },
+      {
+        "number": 26,
+        "humanPercentage": "45-46%",
+        "name": "Multiple Body Parts",
+        "animalPercentage": "43-45%",
+        "isDefect": false,
+        "description": "26. MULTIPLE BODY PARTS: Multiply any normal body part (except the brain), so that the mutant has a greater number of legs, or more eyes, or the complete use of 1-10 additional arms, etc."
+      },
+      {
+        "number": 27,
+        "humanPercentage": "47-51%",
+        "name": "New Body Parts",
+        "animalPercentage": "46-47%",
+        "isDefect": false,
+        "description": "27. NEW BODY PARTS: Add one or more parts, not usually found on the being in question, such as: third eye (back of head), feelers (radiation sensitive), antennae (light sensitive), pincers, fur coat, feathers, radiation absorbing organ, and so on."
+      },
+      {
+        "number": 28,
+        "humanPercentage": "52-53%",
+        "name": "No Resistance to Bacteria",
+        "animalPercentage": "48%",
+        "isDefect": true,
+        "description": "28. NO RESISTANCE TO BACTERIA (D): The mutant with this defect will have little or no resistance to sickness, making any infection or illness a serious thing. It is necessary to have disease-causing agents in the game if this mutation is used. A cut from a dirty sword may cause blood poisoning. The scratch of the claws of certain meat-eating creatures may cause serious infection, or a simple cold, caught from a tribesman, may turn into pneumonia. All of these examples may cause up to 10 points of damage per day, and are very hard to cure."
+      },
+      {
+        "number": 29,
+        "humanPercentage": "54-55%",
+        "name": "No Resistance to Poison",
+        "animalPercentage": "49%",
+        "isDefect": true,
+        "description": "29. NO RESISTANCE TO POISON (D): Exposure to any poison will kill this mutant unless the appropriate antidote is quickly administered."
+      },
+      {
+        "number": 30,
+        "humanPercentage": "56-57%",
+        "name": "No Sensory Nerve Endings",
+        "animalPercentage": "50-51%",
+        "isDefect": true,
+        "description": "30. NO SENSORY NERVE ENDINGS (D): This defect cancels the warning systems of the mutant's body. Although the mutant cannot feel pain, he also cannot detect a surprise attack from behind, tell if his body has been punctured, or know when to regenerate lost hit points. This defect adversely affects the mutant's ability to figure out ancient devices by adding 2 points to each die roll when trying to figure out ancient artifacts (see ARTIFACTS AND EQUIPMENT)."
+      },
+      {
+        "number": 31,
+        "humanPercentage": "58%",
+        "name": "Oversized Body Parts",
+        "animalPercentage": "52%",
+        "isDefect": false,
+        "description": "31. OVERSIZED BODY PARTS: This constitutes a beneficial increase in size to a certain part of the body which gives that part a corresponding increase in power. Example: larger eyes for greater vision, longer legs for greater speed, etc. Only one part of a being's body may be so affected."
+      },
+      {
+        "number": 32,
+        "humanPercentage": "59%",
+        "name": "Partial Carapace",
+        "animalPercentage": "53-56%",
+        "isDefect": false,
+        "description": "32. PARTIAL CARAPACE: A partial carapace is a thick shell covering the back and head that will reduce the damage done to the body by one half, if hit in those areas. It gives the mutant a basic armor class of 6."
+      },
+      {
+        "number": 33,
+        "humanPercentage": "60-61%",
+        "name": "Photosynthetic Skin",
+        "animalPercentage": "57-60%",
+        "isDefect": false,
+        "description": "33. PHOTOSYNTHETIC SKIN: This allows the mutant to produce its own food in sunlight or its equivalent. Such mutants may also heal lost hit points four times as fast as normal if they spend most of their time basking in the sun without moving. Mutants with photosynthetic skin suffer 1 extra point per die of damage from heat and cold attacks, and move at one-half speed in periods of darkness."
+      },
+      {
+        "number": 34,
+        "humanPercentage": "62%",
+        "name": "Physical Reflection",
+        "animalPercentage": "61%",
+        "isDefect": false,
+        "description": "34. PHYSICAL REFLECTION: With this mutation, the skin of the mutant reflects even the most intense forms of energy away from its body in random directions. This reflection should work for only one type of energy, such as: heat, sonic, radioactive, electrical, etc."
+      },
+      {
+        "number": 35,
+        "humanPercentage": "63-64%",
+        "name": "Poor Respiratory System",
+        "animalPercentage": "62%",
+        "isDefect": true,
+        "description": "35. POOR RESPIRATORY SYSTEM (D): This mutant has trouble getting needed oxygen into the blood stream, making him weaker and requiring him to rest after fighting for 5 melee turns. Failure to rest after 5 rounds of combat causes this mutant to faint for 1-6 minutes after the 6th melee turn."
+      },
+      {
+        "number": 36,
+        "humanPercentage": "65%",
+        "name": "Quills/Spines",
+        "animalPercentage": "63%",
+        "isDefect": false,
+        "description": "36. QUILLS/SPINES: These defensive weapons usually cover the mutant's arms or legs. Treat the touch of each quill as doing dagger damage to the victim. Some mutants may be able to throw their quills a short distance (up to 3 meters). Spines are larger and stronger than quills. Each spine does 1-12 (d12) points of damage if it strikes a target, and these can be thrown in the same manner. Growth of replacement quills or spines takes a minimum of one week."
+      },
+      {
+        "number": 37,
+        "humanPercentage": "66-67%",
+        "name": "Radiated Eyes",
+        "animalPercentage": "64%",
+        "isDefect": false,
+        "description": "37. RADIATED EYES: This gives the mutant the power to emit a damaging blast of radiation through the lenses of its eyes (roll 3d6 to determine intensity). This power may be used once every 4 melee turns and has an effective range of 10 meters."
+      },
+      {
+        "number": 38,
+        "humanPercentage": "68-69%",
+        "name": "Regeneration",
+        "animalPercentage": "65-67%",
+        "isDefect": false,
+        "description": "38. REGENERATION: This allows the being to heal itself and replace lost hit points. One hit point is regenerated per 5 kilograms of body weight per day."
+      },
+      {
+        "number": 39,
+        "humanPercentage": "70%",
+        "name": "Shapechange",
+        "animalPercentage": "68%",
+        "isDefect": false,
+        "description": "39. SHAPECHANGE: This is the ability to assume the outward appearance of a mammal, insect, or reptile, but not have the abilities of the creature being mimicked. At the start of the campaign, the mutant must choose which of the above types of creatures it is to imitate. Completing the shapechange requires 2 melee turns of relative inactivity (making no attacks) on the part of the mutant."
+      },
+      {
+        "number": 40,
+        "humanPercentage": "71-74%",
+        "name": "Shorter",
+        "animalPercentage": "69-71%",
+        "isDefect": false,
+        "description": "40. SHORTER: To determine how short to make a mutant, roll percentile dice (2d10) two times for 0-99 results. Treat 00 as zero rather than 100 as is usual. Add the two results together. This gives the mutant's height in centimeters. The change decreases the metabolic rate of the mutant and also causes a marked reduction in its ability to do damage to opponents in physical combat. Such small mutants will be very hard to hit in physical combat. The referee is to determine what these effects will be."
+      },
+      {
+        "number": 41,
+        "humanPercentage": "75-76%",
+        "name": "Skin Structure Change",
+        "animalPercentage": "72%",
+        "isDefect": true,
+        "description": "41. SKIN STRUCTURE CHANGE (D): As the name implies, the skin of the mutant changes for the worse. Suggestions: thin skin - add 1 point to each die of damage sustained; water soluble skin - contact with water does 1 die of damage per melee turn; phosphorescent skin - mutant glows in the dark (enough to reveal position, not enough to see by); light sensitive skin - skin burns for 1-3 dice of damage when exposed to bright light."
+      },
+      {
+        "number": 42,
+        "humanPercentage": "77%",
+        "name": "Sonic Attack Ability",
+        "animalPercentage": "73%",
+        "isDefect": false,
+        "description": "42. SONIC ATTACK ABILITY: This is the power to generate high-frequency sound waves that are damaging to exposed tissues at short range. The damage amounts to 3 dice (3d6) and is not selective. All beings (except the mutant) within a radius of 10 meters are affected and the dice are rolled once, with each suffering that amount. Sonic attacks may be made once very 4 melee turns."
+      },
+      {
+        "number": 43,
+        "humanPercentage": "78%",
+        "name": "Symbiotic Attachment",
+        "animalPercentage": "74%",
+        "isDefect": false,
+        "description": "43. SYMBIOTIC ATTACHMENT: This allows the mutant to link with the nervous system of another creature. The mutant must first hit its victim with an attacking appendage (claw, fang, etc.) and then maintain contact for three melee turns. The mutant will then be in complete control of both bodies. If contact is broken, the control is lost; to re-establish control requires three additional melee turns."
+      },
+      {
+        "number": 44,
+        "humanPercentage": "79-83%",
+        "name": "Taller",
+        "animalPercentage": "75-82%",
+        "isDefect": false,
+        "description": "44. TALLER: To determine how tall to make any given mutant, roll a die (d6) for a 1-6 result and add this to a basic 2 meters. This will yield beings ranging from 3 to 8 meters tall. For every additional meter of height over 2 meters, this mutant may add a bonus of 1 point to each of its damage dice when its strikes an opponent in physical combat with a non-powered weapon. However, for every 2 meters of additional height, this mutant must subtract 1 point from its \"to hit\" die roll when striking an opponent in physical combat. The number of hit points the mutant has is not affected."
+      },
+      {
+        "number": 45,
+        "humanPercentage": "84%",
+        "name": "Total Carapace",
+        "animalPercentage": "83%",
+        "isDefect": false,
+        "description": "45. TOTAL CARAPACE: The total carapace is a thick shell that covers the entire body of the mutant. It reduces all damage done to the mutant by half and raises its armor class to 4. This shell is cumbersome, and it reduces its owner's movement rate by one-fourth."
+      },
+      {
+        "number": 46,
+        "humanPercentage": "85%",
+        "name": "Ultravision",
+        "animalPercentage": "84-86%",
+        "isDefect": false,
+        "description": "46. ULTRAVISION: This allows the mutant to see the ultraviolet end of the light spectrum. In addition to UV emissions, he will be able to see such things as: radiation, energy cells, mental mutations that affect the physical environment, and the electrical workings of machines."
+      },
+      {
+        "number": 47,
+        "humanPercentage": "86-87%",
+        "name": "Vision Defect",
+        "animalPercentage": "87%",
+        "isDefect": true,
+        "description": "47. VISION DEFECT (D): Mutants with this defect suffer from one of the many possible eye problems such as myopia, astigmatism, etc., but are not blind. They must subtract 4 points from their die roll to hit opponents in combat and they have difficulty seeing objects over 15 meters away."
+      },
+      {
+        "number": 48,
+        "humanPercentage": "88-89%",
+        "name": "Weight Decrease",
+        "animalPercentage": "88%",
+        "isDefect": true,
+        "description": "48. WEIGHT DECREASE (D): This weakens the mutant so that it is slowed by one-fourth in every endeavor, with its physical strength reduced by one-fourth, as well."
+      },
+      {
+        "number": 49,
+        "humanPercentage": "90%",
+        "name": "Wings",
+        "animalPercentage": "89-90%",
+        "isDefect": false,
+        "description": "49. WINGS: The growth of usable wings allows the mutant to fly through the air at a rate of 12 meters per melee turn. When flying, the mutant may carry no more than the equivalent of one-fourth of its own body weight. Mutants weighing over 80 kilograms will probably not be able to fly but can still make wing-assisted leaps over objects such as walls or trees."
+      },
+      {
+        "number": null,
+        "humanPercentage": "91-94%",
+        "name": "Roll a Good Mutation (No Defects)",
+        "animalPercentage": "91-94%",
+        "isDefect": false,
+        "description": "Roll a Good Mutation: Roll again on this table, ignoring results of 91-94% and Defects.",
+        "hasTable": false
+      },
+      {
+        "number": null,
+        "humanPercentage": "95-100%",
+        "name": "Pick any one Mutation",
+        "animalPercentage": "95-100%",
+        "isDefect": false,
+        "description": "Pick any one Mutation: Player chooses any one Mutation from this list (results 1-49).",
+        "hasTable": false
+      }
+    ]
+  }  

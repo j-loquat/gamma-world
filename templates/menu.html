@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="forest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamma World - Main Menu</title>
+    <!-- DaisyUI v5 and Tailwind CSS v4 -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* No specific styles needed now as we use button disabled state */
+    </style>
+</head>
+<body class="bg-base-200 min-h-screen flex items-center justify-center p-4">
+    <div class="flex items-center justify-center space-x-8 w-full max-w-screen-lg"> <!-- Outer flex container -->
+
+        <!-- Left Image -->
+        <img src="/static/images/cover-art.png" alt="Gamma World Cover Art" class="hidden md:block max-w-xs lg:max-w-sm max-h-96 object-contain rounded-lg shadow-lg"> <!-- Added max-h-96, object-contain, removed h-auto -->
+
+        <!-- Center Menu Card -->
+        <div class="card bg-base-100 shadow-xl w-full max-w-md flex-shrink-0">
+            <div class="card-body items-center text-center">
+                <h1 class="card-title text-3xl md:text-4xl font-bold mb-2 text-primary">Gamma World</h1> <!-- Reduced bottom margin -->
+                <p class="text-base text-base-content text-opacity-75 mb-6">1st Edition</p> <!-- Added centered, smaller, theme-aware text -->
+                <div class="flex flex-col items-center space-y-4 w-full">
+                    <a href="/generator" class="btn btn-primary btn-lg w-full max-w-xs">Character Generator</a>
+                    <a href="/browser" class="btn btn-secondary btn-lg w-full max-w-xs">Character Browser</a>
+                    <button class="btn btn-lg w-full max-w-xs" disabled>Combat Simulator</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Image -->
+        <img src="/static/images/mutants-robots.png" alt="Mutated Human Vial" class="hidden md:block max-w-xs lg:max-w-sm max-h-96 object-contain rounded-lg shadow-lg"> <!-- Added max-h-96, object-cover, object-top, removed h-auto -->
+
+    </div>
+</body>
+</html>

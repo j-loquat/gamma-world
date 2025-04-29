@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="forest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamma World Character Generator</title>
+    <!-- DaisyUI v5 and Tailwind CSS v4 -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Basic styling for hidden elements */
+        .hidden { display: none; }
+        /* Center the main spinner */
+        #loading-spinner-container {
+            position: fixed; /* Changed from absolute for better centering */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Ensure it's on top */
+        }
+        /* Ensure dropdowns take full width in their container */
+        .mutation-slot select {
+            width: 100%;
+        }
+        /* Style for the image container */
+        #characterImageContainer {
+            min-height: 20rem;          /* 320 px  */
+            max-height: 30rem;          /* 480 px  */
+            width: 100%;
+            justify-content: center;    /* Center horizontally */
+            overflow-y: auto; /* Changed to auto for scrolling if needed */
+            background-color: hsl(var(--b2) / var(--tw-bg-opacity, 1)); /* Use DaisyUI base-200 */
+            border-radius: var(--rounded-box, 1rem); /* Use DaisyUI variable */
+            border: 1px solid hsl(var(--b3) / var(--tw-border-opacity, 0.2)); /* Subtle border */
+        }
+         #characterImageContainer img {
+            display: block;
+            max-width: 100%;            /* fill the width, shrink if needed   */
+            height: auto;               /* keep aspect ratio                  */
+            object-fit: contain;        /* never crop                         */
+            object-position: top center; /* Center image within container */
+            border-radius: var(--rounded-box, 1rem); /* Match container rounding */
+        }
+        /* Style for placeholder text inside the image container */
+        #characterImageContainer .placeholder-text {
+            color: hsl(var(--bc) / 0.6); /* DaisyUI base-content, slightly transparent */
+            font-size: 0.875rem; /* text-sm */
+            text-align: center;
+            padding: 1rem; /* Add some padding */
+        }
+        /* Style for loading spinner inside the image container */
+        #characterImageContainer .loading-placeholder {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100%; /* Ensure spinner takes up space */
+             width: 100%;
+        }
+        /* Ensure alert icons are vertically aligned */
+        .alert svg {
+            align-self: center;
+        }
+    </style>
+</head>
+<body class="bg-base-200 min-h-screen p-4 md:p-8">
+    <!-- Main Menu Button -->
+    <a href="/" class="btn btn-sm btn-outline btn-neutral fixed top-4 right-4 z-50">Main Menu</a>
+
+    <div class="container mx-auto max-w-4xl">
+        <h1 class="text-3xl md:text-4xl font-bold mb-6 text-center text-primary">Gamma World Character Generator</h1>
+
+        <!-- Configuration Form -->
+        <form id="character-form" class="bg-base-100 p-6 rounded-lg shadow-lg mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Character Name -->
+                <div>
+                    <label class="form-control w-full">
+                        <div class="label"><span class="label-text">Character Name (Optional)</span></div>
+                        <input type="text" id="name" name="name" placeholder="Enter name" class="input input-bordered w-full" />
+                    </label>
+                </div>
+                <!-- Character Type -->
+                <div>
+                    <label class="form-control w-full">
+                        <div class="label"><span class="label-text">Character Type*</span></div>
+                        <select id="character_type" name="character_type" class="select select-bordered w-full" required>
+                            {% for type in character_types %}
+                            <option value="{{ type.value }}">{{ type.value }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                </div>
+                <!-- Base Animal Species (Conditional) -->
+                <div id="animal-species-group" class="hidden md:col-span-2">
+                     <label class="form-control w-full">
+                        <div class="label"><span class="label-text">Base Animal Species*</span></div>
+                        <input type="text" id="base_animal_species" name="base_animal_species" placeholder="e.g., Bear, Cat, Wolf" class="input input-bordered w-full" />
+                    </label>
+                </div>
+                <!-- Attribute Roll Method -->
+                <div>
+                    <label class="form-control w-full">
+                        <div class="label"><span class="label-text">Attribute Roll Method</span></div>
+                        <select id="attribute_method" name="attribute_method" class="select select-bordered w-full">
+                             {% for method in attribute_methods %}
+                            <option value="{{ method.value }}" {% if method.value == 'Heroic (4d6 drop lowest)' %}selected{% endif %}>{{ method.value }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                </div>
+                <!-- Mutation Selection Method -->
+                <div>
+                    <label class="form-control w-full">
+                        <div class="label"><span class="label-text">Mutation Selection Method</span></div>
+                        <select id="mutation_method" name="mutation_method" class="select select-bordered w-full">
+                             {% for method in mutation_methods %}
+                            <option value="{{ method.value }}" {% if method.value == 'Random Roll (Method 1)' %}selected{% endif %}>{{ method.value }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <div class="mt-6 text-center">
+                <button type="submit" id="roll-button" class="btn btn-primary btn-wide">
+                    Roll Character
+                    <span id="roll-button-spinner" class="loading loading-dots loading-sm hidden"></span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Loading Spinner (Overlay) -->
+        <div id="loading-spinner-container" class="hidden">
+             <span class="loading loading-spinner loading-lg text-primary"></span>
+        </div>
+
+        <!-- Mutation Selection Area (Initially Hidden) -->
+        <div id="mutation-selection-area" class="hidden bg-base-100 p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-secondary">Select Mutations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Physical Mutations Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-accent">Physical Mutations</h3>
+                    <div id="physical-mutations-column" class="space-y-4"></div>
+                </div>
+                <!-- Mental Mutations Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-accent">Mental Mutations</h3>
+                    <div id="mental-mutations-column" class="space-y-4"></div>
+                </div>
+            </div>
+             <!-- Confirm Button -->
+            <div class="mt-6 text-center">
+                <button type="button" id="confirm-mutations-button" class="btn btn-success btn-wide">
+                    Confirm Mutations
+                    <span id="confirm-mutations-button-spinner" class="loading loading-dots loading-sm hidden"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Area -->
+        <div id="results-area" class="hidden">
+            <h2 class="text-2xl font-bold mb-4 text-secondary">Generated Character</h2>
+            <div id="character-details" class="bg-base-100 p-6 rounded-lg shadow-lg space-y-4">
+                <!-- Character details, description, and image sections will be populated here -->
+            </div>
+        </div>
+
+        <!-- Error Area -->
+        <div id="error-area" class="hidden mt-6">
+            <div role="alert" class="alert alert-error shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2 2m2-2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Error! <span id="error-message"></span></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================================================
+        //  State Management
+        // ========================================================================
+        const appState = {
+            currentIntermediateState: null, // Holds intermediate state (received with camelCase keys)
+            selectableMutationsCache: null, // Holds selectable mutations (received with camelCase keys)
+            finalizedCharacterData: null,   // Holds final character data (received with camelCase keys)
+            currentImageDataB64: null,      // Holds base64 image string
+            isGeneratingDescription: false,
+            isGeneratingImage: false,
+            isSavingCharacter: false,
+            isRollingCharacter: false,
+            isConfirmingMutations: false
+        };
+
+        // ========================================================================
+        //  DOM Element Caching
+        // ========================================================================
+        const dom = {
+            form: document.getElementById('character-form'),
+            nameInput: document.getElementById('name'),
+            characterTypeSelect: document.getElementById('character_type'),
+            animalSpeciesGroup: document.getElementById('animal-species-group'),
+            animalSpeciesInput: document.getElementById('base_animal_species'),
+            attributeMethodSelect: document.getElementById('attribute_method'),
+            mutationMethodSelect: document.getElementById('mutation_method'),
+            rollButton: document.getElementById('roll-button'),
+            rollButtonSpinner: document.getElementById('roll-button-spinner'),
+            loadingSpinnerContainer: document.getElementById('loading-spinner-container'),
+            resultsArea: document.getElementById('results-area'),
+            characterDetailsDiv: document.getElementById('character-details'),
+            errorArea: document.getElementById('error-area'),
+            errorMessageSpan: document.getElementById('error-message'),
+            mutationSelectionArea: document.getElementById('mutation-selection-area'),
+            physicalMutationsColumn: document.getElementById('physical-mutations-column'),
+            mentalMutationsColumn: document.getElementById('mental-mutations-column'),
+            confirmMutationsButton: document.getElementById('confirm-mutations-button'),
+            confirmMutationsButtonSpinner: document.getElementById('confirm-mutations-button-spinner'),
+            // Dynamic elements (will be re-queried when results are displayed)
+            characterDescriptionSection: null,
+            characterDescriptionOutput: null,
+            generateDescriptionButton: null,
+            descButtonSpinner: null,
+            descriptionErrorArea: null,
+            characterImageSection: null,
+            generateImageButton: null,
+            imageButtonSpinner: null,
+            imageErrorArea: null,
+            characterImageContainer: null,
+            saveCharacterButton: null,
+            saveButtonSpinner: null,
+            saveErrorArea: null
+        };
+
+        // ========================================================================
+        //  API Helper
+        // ========================================================================
+        /**
+         * Fetches data from the API, handling errors and JSON parsing.
+         * @param {string} url - The API endpoint URL.
+         * @param {object} options - Fetch options (method, headers, body).
+         * @param {boolean} handleErrors - If true, throws JS error on non-OK response. If false, returns raw response.
+         * @returns {Promise<object|Response>} - Parsed JSON data or the raw Response object.
+         */
+        async function fetchApi(url, options, handleErrors = true) {
+            console.debug(`API Call: ${options.method || 'GET'} ${url}`, options.body ? JSON.parse(options.body) : '');
+            try {
+                const response = await fetch(url, options);
+                console.debug(`API Response Status: ${response.status} for ${url}`);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    // IMPORTANT: Log the data received from backend to see its structure (camelCase expected)
+                    console.debug(`API Response Data for ${url}:`, JSON.parse(JSON.stringify(data))); // Deep copy for logging
+                    return data; // This data will likely have camelCase keys from Pydantic aliases
+                } else {
+                    let errorData = { detail: `API Error: ${response.status} ${response.statusText}` };
+                    try {
+                        errorData = await response.json();
+                        console.error(`API Error Data for ${url}:`, errorData);
+                    } catch (e) { /* Ignore if error response isn't JSON */ }
+
+                    const errorMsg = errorData.detail || errorData.message || `API Error: ${response.status} ${response.statusText}`;
+
+                    if (handleErrors) {
+                        throw new Error(errorMsg);
+                    } else {
+                        // Return the response object along with parsed error data if available
+                        response.errorData = errorData;
+                        return response;
+                    }
+                }
+            } catch (error) {
+                console.error(`Fetch error for ${url}:`, error);
+                // Re-throw a cleaner error message
+                throw new Error(`Network or script error: ${error.message}`);
+            }
+        }
+
+        // ========================================================================
+        //  UI Update Functions
+        // ========================================================================
+
+        /** Shows/hides the main overlay loading spinner. */
+        function setOverlayLoading(isLoading) {
+            dom.loadingSpinnerContainer.classList.toggle('hidden', !isLoading);
+        }
+
+        /** Sets the loading state for a specific button. */
+        function setButtonLoading(button, spinner, isLoading) {
+            if (button) button.disabled = isLoading;
+            if (spinner) spinner.classList.toggle('hidden', !isLoading);
+        }
+
+        /** Displays an error message in the main error area. */
+        function displayError(msg) {
+            console.error("Displaying Error:", msg);
+            dom.errorMessageSpan.textContent = msg;
+            dom.errorArea.classList.remove("hidden");
+            // Hide other sections
+            dom.resultsArea.classList.add('hidden');
+            dom.mutationSelectionArea.classList.add('hidden');
+        }
+
+        /** Hides the main error area. */
+        function hideError() {
+            dom.errorArea.classList.add("hidden");
+            dom.errorMessageSpan.textContent = '';
+        }
+
+        /** Updates the visibility of the animal species input based on character type. */
+        function updateAnimalSpeciesVisibility() {
+            const isMutatedAnimal = dom.characterTypeSelect.value === 'Mutated Animal';
+            dom.animalSpeciesGroup.classList.toggle('hidden', !isMutatedAnimal);
+            dom.animalSpeciesInput.required = isMutatedAnimal;
+            if (!isMutatedAnimal) {
+                dom.animalSpeciesInput.value = ''; // Clear value if not needed
+            }
+        }
+
+        /** Renders the main character details (attributes, mutations, log). Uses camelCase keys from character object. */
+        function renderCharacterDetails(character) { // character object has camelCase keys here
+            // Basic Info Card - Access using camelCase
+            const infoCardHTML = `
+                <div class="card bg-base-200 shadow-xl mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-xl">${character.name || 'Unnamed Character'}</h3>
+                        <p><span class="font-semibold">Type:</span> ${character.characterType ?? 'N/A'} ${character.baseAnimalSpecies ? `(${character.baseAnimalSpecies})` : ''}</p>
+                        <p><span class="font-semibold">HP:</span> ${character.hitPoints ?? 'N/A'}</p>
+                    </div>
+                </div>`;
+
+            // Attributes Stats - Access using camelCase
+            const statsHTML = `
+                <div class="stats stats-vertical lg:stats-horizontal shadow w-full mb-4">
+                    <div class="stat"><div class="stat-title">Mental Str (MS)</div><div class="stat-value text-primary">${character.attributes?.mentalStrength ?? 'N/A'}</div></div>
+                    <div class="stat"><div class="stat-title">Intelligence (IN)</div><div class="stat-value text-primary">${character.attributes?.intelligence ?? 'N/A'}</div></div>
+                    <div class="stat"><div class="stat-title">Dexterity (DX)</div><div class="stat-value text-primary">${character.attributes?.dexterity ?? 'N/A'}</div></div>
+                    <div class="stat"><div class="stat-title">Charisma (CH)</div><div class="stat-value text-primary">${character.attributes?.charisma ?? 'N/A'}</div></div>
+                    <div class="stat"><div class="stat-title">Constitution (CN)</div><div class="stat-value text-primary">${character.attributes?.constitution ?? 'N/A'}</div></div>
+                    <div class="stat"><div class="stat-title">Physical Str (PS)</div><div class="stat-value text-primary">${character.attributes?.physicalStrength ?? 'N/A'}</div></div>
+                </div>`;
+
+            // Mutations List - Access using camelCase
+            let mutationsHTML = '';
+            const physicalMutations = character.physicalMutations || []; // Use camelCase
+            const mentalMutations = character.mentalMutations || [];   // Use camelCase
+            if (physicalMutations.length > 0 || mentalMutations.length > 0) {
+                mutationsHTML += `<h4 class="text-lg font-semibold mb-2">Mutations:</h4><ul class="list-disc list-inside space-y-1">`;
+                physicalMutations.forEach(mut => { // mut object keys are likely camelCase too if nested
+                    mutationsHTML += `<li><strong>${mut.name}</strong> (Physical${mut.isDefect ? '<span class="badge badge-error badge-xs ml-1">Defect</span>' : ''}): ${mut.description}</li>`;
+                });
+                mentalMutations.forEach(mut => {
+                    mutationsHTML += `<li><strong>${mut.name}</strong> (Mental${mut.isDefect ? '<span class="badge badge-error badge-xs ml-1">Defect</span>' : ''}): ${mut.description}</li>`;
+                });
+                mutationsHTML += `</ul>`;
+            } else if (character.characterType !== 'Pure Strain Human') { // Use camelCase
+                mutationsHTML = '<p class="opacity-75">No mutations acquired.</p>';
+            }
+
+             // Generation Log - Access using camelCase
+            let logHTML = '';
+            const generationLog = character.generationLog || []; // Use camelCase
+            if (generationLog.length > 0) {
+                logHTML = `
+                    <div class="mt-4 collapse collapse-arrow border border-base-300 bg-base-200">
+                        <input type="checkbox" class="peer" />
+                        <div class="collapse-title text-md font-medium peer-checked:bg-base-300">View Generation Log (${generationLog.length} entries)</div>
+                        <div class="collapse-content peer-checked:bg-base-300">
+                            <ul class="list-disc list-inside text-xs opacity-80 space-y-1 pt-2">
+                                ${generationLog.map(entry => `<li>${entry}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>`;
+            }
+
+            // Combine all parts
+            dom.characterDetailsDiv.innerHTML = infoCardHTML + statsHTML + mutationsHTML + logHTML;
+        }
+
+        /** Renders the AI description, image, and save sections. */
+        function renderAISaveSections() {
+             const aiSectionsHTML = `
+            <!-- Description Section -->
+            <div id="character-description-section" class="mt-6 border-t border-base-300 pt-4">
+                <h4 class="text-lg font-semibold mb-2">Character Description (AI Generated)</h4>
+                <textarea id="characterDescriptionOutput" class="textarea textarea-bordered w-full bg-base-200" readonly rows="10" placeholder="Click 'Generate Description' to create an AI-powered description..."></textarea>
+                <div class="text-center mt-2">
+                    <button id="generateDescriptionButton" class="btn btn-secondary btn-sm">
+                        Generate Description
+                        <span id="desc-button-spinner" class="loading loading-dots loading-sm hidden"></span>
+                    </button>
+                </div>
+                 <div id="description-error-area" class="text-error text-sm mt-2 text-center hidden"></div>
+            </div>
+
+            <!-- Image Generation Section -->
+            <div id="character-image-section" class="mt-6 border-t border-base-300 pt-4 hidden">
+                <h4 class="text-lg font-semibold mb-2">Character Image (AI Generated)</h4>
+                <div class="text-center mb-2">
+                    <button id="generateImageButton" class="btn btn-accent btn-sm">
+                        Generate Character Image
+                        <span id="image-button-spinner" class="loading loading-dots loading-sm hidden"></span>
+                    </button>
+                </div>
+                <div id="image-error-area" class="text-error text-sm mt-2 text-center hidden"></div>
+                <div id="characterImageContainer" class="mt-2">
+                     <span class="placeholder-text">Click button above to generate image.</span>
+                </div>
+
+                <!-- Save Character Button -->
+                <div class="mt-8 text-center">
+                    <button id="saveCharacterButton" class="btn btn-success btn-wide" disabled>
+                        Save Character
+                        <span id="save-button-spinner" class="loading loading-dots loading-sm hidden"></span>
+                    </button>
+                    <div id="save-error-area" class="text-error text-sm mt-2 text-center hidden"></div>
+                </div>
+            </div>
+            `;
+            dom.characterDetailsDiv.insertAdjacentHTML('beforeend', aiSectionsHTML);
+
+            // Re-query dynamic elements after adding them
+            dom.characterDescriptionSection = document.getElementById('character-description-section');
+            dom.characterDescriptionOutput = document.getElementById('characterDescriptionOutput');
+            dom.generateDescriptionButton = document.getElementById('generateDescriptionButton');
+            dom.descButtonSpinner = document.getElementById('desc-button-spinner');
+            dom.descriptionErrorArea = document.getElementById('description-error-area');
+            dom.characterImageSection = document.getElementById('character-image-section');
+            dom.generateImageButton = document.getElementById('generateImageButton');
+            dom.imageButtonSpinner = document.getElementById('image-button-spinner');
+            dom.imageErrorArea = document.getElementById('image-error-area');
+            dom.characterImageContainer = document.getElementById('characterImageContainer');
+            dom.saveCharacterButton = document.getElementById('saveCharacterButton');
+            dom.saveButtonSpinner = document.getElementById('save-button-spinner');
+            dom.saveErrorArea = document.getElementById('save-error-area');
+
+            // Add listeners to the newly created buttons
+            if (dom.generateDescriptionButton) dom.generateDescriptionButton.addEventListener('click', handleGenerateDescription);
+            if (dom.generateImageButton) dom.generateImageButton.addEventListener('click', handleGenerateImage);
+            if (dom.saveCharacterButton) dom.saveCharacterButton.addEventListener('click', handleSaveCharacter);
+        }
+
+        /** Displays the final character results, including AI/Save sections. */
+        function displayFinalCharacter(character) { // Expects character object with camelCase keys from API
+            console.log("Displaying final character (received from API):", character);
+            appState.finalizedCharacterData = character; // Store final data (with camelCase keys)
+            appState.currentImageDataB64 = null; // Reset image data
+            appState.currentIntermediateState = null; // Clear intermediate state
+
+            dom.characterDetailsDiv.innerHTML = ''; // Clear previous details
+            dom.mutationSelectionArea.classList.add('hidden'); // Ensure selection area is hidden
+            hideError(); // Hide main error area
+
+            renderCharacterDetails(character); // Render core stats/mutations/log (using camelCase)
+            renderAISaveSections(); // Render AI/Save sections and attach listeners
+
+            // Initial state for AI/Save sections
+            resetDescriptionUI();
+            resetImageUI(true); // Reset and keep hidden initially
+            resetSaveButtonUI(false); // Reset and enable save button
+
+            dom.resultsArea.classList.remove('hidden'); // Show the results area
+        }
+
+        /** Populates the mutation selection UI based on intermediate state. Uses camelCase keys. */
+        function populateMutationUI(intermediateState, selectableMutations) { // Both args have camelCase keys
+            dom.physicalMutationsColumn.innerHTML = ''; // Clear previous content
+            dom.mentalMutationsColumn.innerHTML = '';
+            const assignedNamesSet = new Set(intermediateState.assignedMutationNames || []); // assignedMutationNames is camelCase
+
+            intermediateState.mutationSlots.forEach(slot => { // slot object has camelCase keys
+                const slotDiv = document.createElement('div');
+                slotDiv.className = 'form-control w-full mutation-slot';
+                slotDiv.innerHTML = `
+                    <label class="label">
+                        <span class="label-text">${slot.mutationType} Mutation ${slot.typeIndex}${slot.isDefectSlot ? ' (Defect)' : ''}</span>
+                    </label>
+                    <select id="${slot.slotId}" name="${slot.slotId}" class="select select-bordered w-full"></select>
+                `; // Use camelCase slotId
+                const select = slotDiv.querySelector('select');
+
+                if (slot.isChoiceRequired) { // Use camelCase
+                    select.disabled = false;
+                    select.innerHTML = `<option value="" disabled selected>-- Select ${slot.mutationType} Mutation --</option>`;
+
+                    // Access selectable mutations using camelCase keys from cached object
+                    const optionsList = slot.mutationType === 'Physical'
+                        ? selectableMutations.physicalMutations
+                        : selectableMutations.mentalMutations;
+
+                    // Filter out already assigned mutations
+                    const filteredOptions = optionsList.filter(mut => !assignedNamesSet.has(mut.name));
+
+                    if (slot.isDefectSlot) { // Use camelCase
+                        console.warn(`Slot ${slot.slotId} requires a Defect, but frontend currently only lists non-defects.`);
+                        select.innerHTML += `<option value="" disabled>(Defect Selection Not Implemented Yet)</option>`;
+                        select.disabled = true;
+                        select.classList.add('select-error');
+                    } else if (filteredOptions.length === 0) {
+                        console.warn(`No selectable options for slot ${slot.slotId} after filtering.`);
+                        select.innerHTML += `<option value="" disabled>(No available options)</option>`;
+                        select.disabled = true;
+                    } else {
+                        filteredOptions.forEach(mut => { // mut object has camelCase keys
+                            select.innerHTML += `<option value="${mut.name}">${mut.name}</option>`;
+                        });
+                    }
+                } else {
+                    // Pre-assigned mutation - access using camelCase
+                    select.disabled = true;
+                    const mutName = slot.assignedMutation?.name ?? 'Error';
+                    select.innerHTML = `<option value="${mutName}" selected>${mutName}</option>`;
+                    if (slot.assignedMutation?.isDefect) { // Use camelCase
+                        select.classList.add('select-error');
+                    }
+                }
+
+                const targetColumn = slot.mutationType === 'Physical' ? dom.physicalMutationsColumn : dom.mentalMutationsColumn;
+                targetColumn.appendChild(slotDiv);
+            });
+        }
+
+         /** Resets the description UI section to its initial state. */
+        function resetDescriptionUI() {
+            if (dom.characterDescriptionOutput) {
+                dom.characterDescriptionOutput.value = '';
+                dom.characterDescriptionOutput.placeholder = "Click 'Generate Description' to create an AI-powered description...";
+            }
+            if (dom.descriptionErrorArea) {
+                dom.descriptionErrorArea.classList.add('hidden');
+                dom.descriptionErrorArea.textContent = '';
+            }
+            setButtonLoading(dom.generateDescriptionButton, dom.descButtonSpinner, false);
+            appState.isGeneratingDescription = false;
+        }
+
+        /** Resets the image UI section. */
+        function resetImageUI(hideSection = false) {
+            if (dom.characterImageSection) dom.characterImageSection.classList.toggle('hidden', hideSection);
+            if (dom.characterImageContainer) dom.characterImageContainer.innerHTML = '<span class="placeholder-text">Click button above to generate image.</span>';
+            if (dom.imageErrorArea) {
+                dom.imageErrorArea.classList.add('hidden');
+                dom.imageErrorArea.textContent = '';
+            }
+            setButtonLoading(dom.generateImageButton, dom.imageButtonSpinner, false);
+            appState.isGeneratingImage = false;
+            appState.currentImageDataB64 = null; // Clear stored image data on reset
+        }
+
+        /** Resets the save button UI. */
+        function resetSaveButtonUI(disable = true) {
+            if (dom.saveCharacterButton) {
+                dom.saveCharacterButton.disabled = disable;
+                dom.saveCharacterButton.classList.remove("btn-ghost"); // Remove success state
+                dom.saveCharacterButton.classList.add("btn-success");
+                dom.saveCharacterButton.innerHTML = `Save Character <span id="save-button-spinner" class="loading loading-dots loading-sm hidden"></span>`; // Reset text and ensure spinner exists
+                // Re-query spinner just in case innerHTML removed it
+                dom.saveButtonSpinner = document.getElementById('save-button-spinner');
+            }
+             if (dom.saveErrorArea) {
+                dom.saveErrorArea.classList.add('hidden');
+                dom.saveErrorArea.textContent = '';
+            }
+            setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, false); // Ensure spinner is hidden
+            appState.isSavingCharacter = false;
+        }
+
+        // ========================================================================
+        //  Event Handlers
+        // ========================================================================
+
+        /** Handles the initial character generation request. */
+        async function handleRollCharacter(event) {
+            event.preventDefault();
+            console.log("Handling Roll Character submit.");
+
+            if (appState.isRollingCharacter) return; // Prevent double submit
+
+            // Client-side validation
+            if (dom.characterTypeSelect.value === 'Mutated Animal' && !dom.animalSpeciesInput.value.trim()) {
+                displayError('Base Animal Species is required for Mutated Animal type.');
+                return;
+            }
+
+            appState.isRollingCharacter = true;
+            setButtonLoading(dom.rollButton, dom.rollButtonSpinner, true);
+            setOverlayLoading(true);
+            hideError();
+            dom.resultsArea.classList.add('hidden');
+            dom.mutationSelectionArea.classList.add('hidden');
+            dom.characterDetailsDiv.innerHTML = ''; // Clear previous results
+
+            // Reset state
+            appState.currentIntermediateState = null;
+            appState.finalizedCharacterData = null;
+            appState.currentImageDataB64 = null;
+            appState.selectableMutationsCache = null; // Clear mutation cache
+
+            // Construct request body using camelCase keys expected by backend Pydantic aliases
+            const requestData = {
+                name: dom.nameInput.value.trim() || null,
+                characterType: dom.characterTypeSelect.value,
+                attributeMethod: dom.attributeMethodSelect.value,
+                mutationMethod: dom.mutationMethodSelect.value,
+                baseAnimalSpecies: dom.characterTypeSelect.value === 'Mutated Animal'
+                                    ? dom.animalSpeciesInput.value.trim()
+                                    : null
+            };
+
+            try {
+                // API response will have camelCase keys due to Pydantic aliases
+                const data = await fetchApi('/generate_character', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(requestData)
+                });
+
+                if (data.needsMutationSelection) { // Check camelCase alias from response
+                    console.log('Intermediate state received:', data.intermediateState); // Access camelCase alias
+                    await setupMutationSelectionUI(data.intermediateState); // Pass intermediate state (with camelCase)
+                } else if (data.character) {
+                    console.log('Final character received directly:', data.character); // Access camelCase alias
+                    displayFinalCharacter(data.character); // Pass character object (with camelCase)
+                } else {
+                    throw new Error("Invalid response structure from /generate_character");
+                }
+            } catch (err) {
+                displayError(err.message || "An unknown error occurred during character generation.");
+            } finally {
+                setButtonLoading(dom.rollButton, dom.rollButtonSpinner, false);
+                setOverlayLoading(false);
+                appState.isRollingCharacter = false;
+            }
+        }
+
+        /** Fetches selectable mutations and populates the UI for selection. */
+        async function setupMutationSelectionUI(intermediateState) { // intermediateState has camelCase keys
+            appState.currentIntermediateState = intermediateState; // Store state globally
+            setButtonLoading(dom.confirmMutationsButton, dom.confirmMutationsButtonSpinner, true); // Disable confirm button while loading
+
+            try {
+                // Fetch selectable mutations if not already cached
+                if (!appState.selectableMutationsCache) {
+                    console.log("Fetching selectable mutations...");
+                    // Backend response uses aliases (camelCase)
+                    appState.selectableMutationsCache = await fetchApi('/get_selectable_mutations', { method: 'GET' });
+                    console.log("Selectable mutations fetched:", appState.selectableMutationsCache);
+                }
+
+                // Pass intermediate state (with camelCase) and cached mutations (with camelCase)
+                populateMutationUI(appState.currentIntermediateState, appState.selectableMutationsCache);
+                dom.mutationSelectionArea.classList.remove('hidden'); // Show the selection UI
+                dom.resultsArea.classList.add('hidden'); // Hide results area
+            } catch (error) {
+                displayError(`Failed to setup mutation selection: ${error.message}`);
+            } finally {
+                 setButtonLoading(dom.confirmMutationsButton, dom.confirmMutationsButtonSpinner, false); // Re-enable confirm button
+            }
+        }
+
+        /** Handles the confirmation of selected mutations. */
+        async function handleConfirmMutations() {
+            console.log("Handling Confirm Mutations click.");
+            if (appState.isConfirmingMutations || !appState.currentIntermediateState) {
+                console.warn("Cannot confirm mutations: Already confirming or no intermediate state.");
+                return;
+            }
+
+            hideError(); // Clear previous main errors
+            // Clear previous selection highlights
+            document.querySelectorAll('#mutation-selection-area select.select-warning').forEach(el => el.classList.remove('select-warning'));
+            document.querySelectorAll('#mutation-selection-area select.select-error').forEach(el => el.classList.remove('select-error'));
+
+            const selectedMutations = {};
+            let validationError = null;
+
+            // Validate selections - reads from intermediateState (camelCase)
+            appState.currentIntermediateState.mutationSlots.forEach(slot => { // slot has camelCase keys
+                if (slot.isChoiceRequired) { // Use camelCase
+                    const selectElement = document.getElementById(slot.slotId); // Find by ID (camelCase from state)
+                    if (selectElement && !selectElement.disabled) {
+                        if (selectElement.value) {
+                            selectedMutations[slot.slotId] = selectElement.value; // Key is camelCase slotId
+                        } else {
+                            if (!validationError) validationError = `Please select a mutation for ${slot.mutationType} Slot ${slot.typeIndex}.`;
+                            selectElement.classList.add('select-warning');
+                        }
+                    } else if (selectElement && selectElement.disabled && !slot.assignedMutation) { // Use camelCase
+                         // Handle cases where selection is required but disabled
+                         if (!validationError) validationError = `Selection required but disabled/unavailable for ${slot.mutationType} Slot ${slot.typeIndex}. Cannot proceed.`;
+                         selectElement.classList.add(slot.isDefectSlot ? 'select-error' : 'select-warning'); // Use camelCase
+                    }
+                }
+            });
+
+            if (validationError) {
+                displayError(validationError);
+                return; // Stop processing
+            }
+
+            appState.isConfirmingMutations = true;
+            setButtonLoading(dom.confirmMutationsButton, dom.confirmMutationsButtonSpinner, true);
+            setOverlayLoading(true); // Show overlay during finalization
+            dom.mutationSelectionArea.classList.add('hidden'); // Hide selection UI
+
+            // Construct request body - intermediate_state has camelCase, selected_mutations maps camelCase slotId -> name
+            // Backend endpoint /finalize_character_mutations expects this structure via FinalizeMutationsRequest model
+            const finalizeRequestData = {
+                intermediate_state: appState.currentIntermediateState,
+                selected_mutations: selectedMutations
+            };
+
+            try {
+                // Use fetchApi but handle 409 Conflict manually
+                const response = await fetchApi('/finalize_character_mutations', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(finalizeRequestData)
+                }, false); // handleErrors = false
+
+                if (response.ok) {
+                    const responseData = await response.json(); // Already parsed by fetchApi if ok
+                    // Expect final character object in responseData.character (with camelCase keys)
+                    if (responseData.character) {
+                        console.log("Final character received after confirmation:", responseData.character);
+                        displayFinalCharacter(responseData.character); // Display character (expects camelCase)
+                    } else {
+                        throw new Error("Finalization API did not return a final character.");
+                    }
+                } else if (response.status === 409) { // Handle Duplicate Conflict
+                    const errorData = response.errorData || { detail: "Duplicate mutations selected." };
+                    console.error("Duplicate selection error:", errorData);
+                    displayError(errorData.detail || "Duplicate mutations selected. Please make unique selections.");
+                    // Highlight duplicate slots
+                    if (errorData.duplicate_slots) {
+                        Object.keys(errorData.duplicate_slots).forEach(slotId => { // slotId is camelCase from response
+                            const selectElement = document.getElementById(slotId); // Find by camelCase ID
+                            if (selectElement) selectElement.classList.add('select-warning');
+                        });
+                    }
+                    dom.mutationSelectionArea.classList.remove('hidden'); // Show selection area again
+                } else {
+                    // Handle other non-OK responses
+                    const errorData = response.errorData || { detail: `API Error: ${response.status}` };
+                    throw new Error(errorData.detail || `Finalization failed with status ${response.status}`);
+                }
+            } catch (error) {
+                console.error("Finalization error:", error);
+                displayError(`Failed to finalize mutations: ${error.message}`);
+                // Optionally show selection area again if state exists
+                if (appState.currentIntermediateState) dom.mutationSelectionArea.classList.remove('hidden');
+            } finally {
+                setButtonLoading(dom.confirmMutationsButton, dom.confirmMutationsButtonSpinner, false);
+                setOverlayLoading(false);
+                appState.isConfirmingMutations = false;
+            }
+        }
+
+        /** Handles the AI description generation request. */
+        async function handleGenerateDescription() {
+            console.log("Handling Generate Description click.");
+            if (appState.isGeneratingDescription || !appState.finalizedCharacterData) {
+                 console.warn("Cannot generate description: Already generating or no character data.");
+                 return;
+            }
+            // Ensure dynamic elements are available
+            if (!dom.generateDescriptionButton || !dom.characterDescriptionOutput || !dom.descButtonSpinner || !dom.descriptionErrorArea) {
+                displayError("Internal error: Description UI elements not ready.");
+                return;
+            }
+
+            appState.isGeneratingDescription = true;
+            setButtonLoading(dom.generateDescriptionButton, dom.descButtonSpinner, true);
+            dom.descriptionErrorArea.classList.add('hidden');
+            dom.descriptionErrorArea.textContent = '';
+            dom.characterDescriptionOutput.placeholder = 'Generating description...';
+            dom.characterDescriptionOutput.value = '';
+            // Hide image section while generating description
+            if (dom.characterImageSection) dom.characterImageSection.classList.add('hidden');
+            // Disable save button
+            setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, true);
+
+            try {
+                // Construct request using snake_case keys expected by backend Pydantic model
+                // Read values from appState using the camelCase keys it holds
+                const descriptionRequestData = {
+                    name: appState.finalizedCharacterData.name,
+                    character_type: appState.finalizedCharacterData.characterType, // Read camelCase, assign snake_case
+                    attributes: { // Read camelCase from nested attributes, assign snake_case
+                        mental_strength: appState.finalizedCharacterData.attributes?.mentalStrength,
+                        intelligence: appState.finalizedCharacterData.attributes?.intelligence,
+                        dexterity: appState.finalizedCharacterData.attributes?.dexterity,
+                        charisma: appState.finalizedCharacterData.attributes?.charisma,
+                        constitution: appState.finalizedCharacterData.attributes?.constitution,
+                        physical_strength: appState.finalizedCharacterData.attributes?.physicalStrength
+                    },
+                    physical_mutations: appState.finalizedCharacterData.physicalMutations || [], // Read camelCase, assign snake_case
+                    mental_mutations: appState.finalizedCharacterData.mentalMutations || []   // Read camelCase, assign snake_case
+                };
+                console.log("Sending description request data:", descriptionRequestData); // Log the snake_case object being sent
+
+                // Backend response keys are snake_case as defined in GenerateDescriptionResponse model (no aliases)
+                const data = await fetchApi('/generate_description', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(descriptionRequestData)
+                });
+
+                if (data.status === 'success') {
+                    const descriptionText = data.description.trim();
+                    dom.characterDescriptionOutput.value = descriptionText;
+                    // Store description in app state (using camelCase key if object has it, though 'description' has no alias)
+                    if (appState.finalizedCharacterData) appState.finalizedCharacterData.description = descriptionText;
+                    // Show and reset image section
+                    resetImageUI(false); // Reset and make visible
+                } else {
+                    const errorMsg = data.message || data.detail || `API returned status: ${data.status}`;
+                    dom.descriptionErrorArea.textContent = `Error: ${errorMsg}`;
+                    dom.descriptionErrorArea.classList.remove('hidden');
+                }
+            } catch (error) {
+                dom.descriptionErrorArea.textContent = `Error: ${error.message || "Network error or API failure."}`;
+                dom.descriptionErrorArea.classList.remove('hidden');
+            } finally {
+                setButtonLoading(dom.generateDescriptionButton, dom.descButtonSpinner, false);
+                dom.characterDescriptionOutput.placeholder = "Click 'Generate Description' to create an AI-powered description...";
+                appState.isGeneratingDescription = false;
+                // Re-enable save button only if character data exists
+                setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, !appState.finalizedCharacterData);
+            }
+        }
+
+        /** Handles the AI image generation request. */
+        async function handleGenerateImage() {
+            console.log("Handling Generate Image click.");
+            // Read description from finalizedCharacterData (camelCase key doesn't exist, use snake_case)
+            const description = appState.finalizedCharacterData?.description;
+            if (appState.isGeneratingImage || !description) {
+                console.warn("Cannot generate image: Already generating, no character data, or no description.");
+                if (dom.imageErrorArea) {
+                    dom.imageErrorArea.textContent = 'Error: Generate a description first.';
+                    dom.imageErrorArea.classList.remove('hidden');
+                }
+                return;
+            }
+             // Ensure dynamic elements are available
+            if (!dom.generateImageButton || !dom.characterImageContainer || !dom.imageButtonSpinner || !dom.imageErrorArea) {
+                displayError("Internal error: Image UI elements not ready.");
+                return;
+            }
+
+            appState.isGeneratingImage = true;
+            setButtonLoading(dom.generateImageButton, dom.imageButtonSpinner, true);
+            dom.imageErrorArea.classList.add('hidden');
+            dom.imageErrorArea.textContent = '';
+            dom.characterImageContainer.innerHTML = '<div class="loading-placeholder"><span class="loading loading-ring loading-lg text-accent"></span></div>'; // Show spinner
+            // Disable save button
+            setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, true);
+            appState.currentImageDataB64 = null; // Clear previous image
+
+            try {
+                // Backend expects snake_case 'description' key
+                const data = await fetchApi('/generate_image', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ description: description })
+                });
+
+                dom.characterImageContainer.innerHTML = ''; // Clear spinner
+
+                // Backend response uses snake_case keys (no aliases in GenerateImageResponse)
+                if (data.status === 'success' && data.image_data && data.mime_type) {
+                    const img = document.createElement('img');
+                    img.src = `data:${data.mime_type};base64,${data.image_data}`;
+                    img.alt = "Generated Character Image";
+                    dom.characterImageContainer.appendChild(img);
+                    appState.currentImageDataB64 = data.image_data; // Store new image data
+                } else {
+                    const errorMsg = data.message || data.detail || `Image generation failed (status: ${data.status})`;
+                    dom.imageErrorArea.textContent = `Error: ${errorMsg}`;
+                    dom.imageErrorArea.classList.remove('hidden');
+                    dom.characterImageContainer.innerHTML = '<span class="placeholder-text">Image generation failed.</span>';
+                }
+            } catch (error) {
+                 dom.characterImageContainer.innerHTML = ''; // Clear spinner
+                 dom.imageErrorArea.textContent = `Error: ${error.message || "Network error or API failure."}`;
+                 dom.imageErrorArea.classList.remove('hidden');
+                 dom.characterImageContainer.innerHTML = '<span class="placeholder-text">Image generation failed.</span>';
+            } finally {
+                setButtonLoading(dom.generateImageButton, dom.imageButtonSpinner, false);
+                appState.isGeneratingImage = false;
+                 // Re-enable save button only if character data exists
+                setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, !appState.finalizedCharacterData);
+            }
+        }
+
+        /** Handles the save character request. */
+        async function handleSaveCharacter() {
+            console.log("Handling Save Character click.");
+            if (appState.isSavingCharacter || !appState.finalizedCharacterData) {
+                console.warn("Cannot save character: Already saving or no character data.");
+                return;
+            }
+             // Ensure dynamic elements are available
+            if (!dom.saveCharacterButton || !dom.saveButtonSpinner || !dom.saveErrorArea) {
+                 displayError("Internal error: Save UI elements not ready.");
+                 return;
+            }
+
+            appState.isSavingCharacter = true;
+            setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, true);
+            dom.saveErrorArea.classList.add("hidden");
+            dom.saveErrorArea.textContent = '';
+
+            try {
+                // Prepare payload - Send the appState object directly.
+                // Backend Pydantic model (SaveCharacterRequest -> Character) uses aliases
+                // to parse the incoming camelCase keys correctly into internal snake_case.
+                const payload = {
+                    character: appState.finalizedCharacterData, // This object has camelCase keys
+                    image_data: appState.currentImageDataB64
+                };
+                console.log("Sending save payload (image truncated):", { character: payload.character, image_data: payload.image_data ? payload.image_data.substring(0, 30) + '...' : null });
+
+                // Backend response uses snake_case keys (no aliases in SaveCharacterResponse)
+                const result = await fetchApi("/save_character", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                console.log("Save successful:", result);
+                // Update button state to show success
+                dom.saveCharacterButton.classList.remove("btn-success");
+                dom.saveCharacterButton.classList.add("btn-ghost");
+                dom.saveCharacterButton.innerHTML = `Saved! <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 inline-block" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>`;
+                // Keep button disabled after successful save
+                dom.saveCharacterButton.disabled = true;
+
+            } catch (err) {
+                console.error("Save character error:", err);
+                dom.saveErrorArea.textContent = err.message;
+                dom.saveErrorArea.classList.remove("hidden");
+                setButtonLoading(dom.saveCharacterButton, dom.saveButtonSpinner, false); // Re-enable on error
+                appState.isSavingCharacter = false; // Reset flag on error
+            }
+            // Note: Spinner is hidden automatically by setButtonLoading(false) if error occurs
+            // If successful, the button text changes, so spinner hiding isn't strictly needed but good practice
+             if (dom.saveButtonSpinner) dom.saveButtonSpinner.classList.add("hidden");
+             // Don't reset isSavingCharacter flag on success, as button remains disabled
+        }
+
+        // ========================================================================
+        //  Initialization
+        // ========================================================================
+        function initialize() {
+            console.log("Initializing Chargen page script.");
+            // Add Event Listeners
+            dom.characterTypeSelect.addEventListener('change', updateAnimalSpeciesVisibility);
+            dom.form.addEventListener('submit', handleRollCharacter);
+            dom.confirmMutationsButton.addEventListener('click', handleConfirmMutations);
+            // AI/Save listeners are added dynamically in displayFinalCharacter
+
+            // Initial UI State
+            updateAnimalSpeciesVisibility();
+            dom.resultsArea.classList.add('hidden');
+            dom.mutationSelectionArea.classList.add('hidden');
+            hideError();
+            setOverlayLoading(false);
+
+            console.log("Chargen page script initialized.");
+        }
+
+        // --- Run Initialization ---
+        document.addEventListener('DOMContentLoaded', initialize);
+
+    </script>
+</body>
+</html>

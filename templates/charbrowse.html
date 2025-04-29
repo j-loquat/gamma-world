@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="forest">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Saved Characters – Gamma World</title>
+    <!-- DaisyUI + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-base-200 min-h-screen p-4 md:p-8">
+
+    {% if single_character %}
+        <a href="/browser" class="btn btn-sm btn-outline btn-neutral fixed top-4 right-4 z-50">Back</a>
+    {% else %}
+        <a href="/" class="btn btn-sm btn-outline btn-neutral fixed top-4 right-4 z-50">Main Menu</a>
+    {% endif %}
+
+    {% if single_character %}
+        <!-- -------------- SINGLE CHARACTER VIEW -------------- -->
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold text-center mb-2 text-primary">{{ single_character.name or 'Unnamed' }}</h1>
+<p class="text-center text-xl opacity-80 mb-6">{{ single_character.character_type | default('Type N/A') }} - HP: {{ single_character.hit_points | default('N/A') }}</p>
+
+            <div class="flex flex-col md:flex-row gap-6 mb-6">
+                {% if image_path %}
+                    <div class="flex-shrink-0"> <!-- Image container -->
+                        <img src="/static/{{ image_path }}" alt="Portrait" class="max-h-96 object-contain rounded-lg shadow-lg" />
+                    </div>
+                {% endif %}
+                <div class="flex-grow bg-base-100 p-4 rounded shadow overflow-y-auto max-h-96 text-sm"> <!-- Description box -->
+                    <h2 class="text-xl font-semibold mb-2 text-secondary">Description</h2>
+                    <p>{{ single_character.description | default('No description available.') }}</p>
+                </div>
+            </div>
+
+<!-- Character Attributes -->
+            <h4 class="text-lg font-semibold mb-2 text-secondary">Attributes</h4>
+            <div class="stats stats-vertical lg:stats-horizontal shadow w-full mb-4 bg-base-100">
+                <div class="stat">
+                    <div class="stat-title">Mental Str (MS)</div>
+                    <div class="stat-value text-primary">{{ single_character.attributes.mental_strength | default('N/A') }}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">Intelligence (IN)</div>
+                    <div class="stat-value text-primary">{{ single_character.attributes.intelligence | default('N/A') }}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">Dexterity (DX)</div>
+                    <div class="stat-value text-primary">{{ single_character.attributes.dexterity | default('N/A') }}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">Charisma (CH)</div>
+                    <div class="stat-value text-primary">{{ single_character.attributes.charisma | default('N/A') }}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">Constitution (CN)</div>
+                    <div class="stat-value text-primary">{{ single_character.attributes.constitution | default('N/A') }}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">Physical Str (PS)</div>
+                    <div class="stat-value text-primary">{{ single_character.attributes.physical_strength | default('N/A') }}</div>
+                </div>
+            </div>
+<!-- Character Mutations -->
+            {% set physical_mutations = single_character.physical_mutations | default([]) %}
+            {% set mental_mutations = single_character.mental_mutations | default([]) %}
+
+            {% if physical_mutations or mental_mutations %}
+                <div class="mb-4"> <!-- Added margin-bottom -->
+                    <h4 class="text-lg font-semibold mb-2 text-secondary">Mutations</h4>
+                    <div class="bg-base-100 p-4 rounded shadow"> <!-- Added background, padding, shadow -->
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            {% for mut in physical_mutations %}
+                                <li>
+                                    <strong>{{ mut.name }}</strong> (Physical{% if mut.isDefect %}<span class="badge badge-error badge-xs ml-1">Defect</span>{% endif %}): {{ mut.description }}
+                                </li>
+                            {% endfor %}
+                            {% for mut in mental_mutations %}
+                                <li>
+                                    <strong>{{ mut.name }}</strong> (Mental{% if mut.isDefect %}<span class="badge badge-error badge-xs ml-1">Defect</span>{% endif %}): {{ mut.description }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% elif single_character.character_type != 'Pure Strain Human' %}
+                 <div class="mb-4"> <!-- Added margin-bottom -->
+                    <h4 class="text-lg font-semibold mb-2 text-secondary">Mutations</h4>
+                    <div class="bg-base-100 p-4 rounded shadow"> <!-- Added background, padding, shadow -->
+                        <p class="text-sm opacity-80">No mutations acquired.</p>
+                     </div>
+                 </div>
+            {% endif %}
+            <div class="collapse collapse-arrow bg-base-100 shadow rounded mt-6">
+                <input type="checkbox" aria-label="Toggle Raw Data" /> <!-- Checkbox controls collapse state -->
+                <div class="collapse-title text-xl font-medium">
+                    Raw Character Data
+                </div>
+                <div class="collapse-content">
+                    <pre class="bg-base-200 p-4 rounded overflow-x-auto text-sm">{{ single_character | tojson(indent=2) }}</pre>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <!-- -------------- LIST VIEW -------------- -->
+        <h1 class="text-3xl font-bold text-center mb-6 text-primary">Saved Characters</h1>
+
+        {% if characters %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for c in characters %}
+                    <a href="/browser/{{ c.id }}" class="card bg-base-100 shadow-xl hover:shadow-2xl transition">
+                        {% if c.image %}
+                            <figure class="bg-base-200">
+                                <img src="/static/{{ c.image }}" alt="{{ c.name }}" class="object-cover h-48 w-full object-top object-left" />
+                            </figure>
+                        {% endif %}
+                        <div class="card-body p-4">
+                            <h2 class="card-title">{{ c.name }}</h2>
+                            <p class="text-sm opacity-80">{{ c.type }} - HP: {{ c.hit_points | default('N/A') }}</p>
+                            <p class="text-xs opacity-60">saved {{ (c.saved | int) | datetimeformat }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center opacity-60">No characters saved yet – generate one!</p>
+        {% endif %}
+    {% endif %}
+
+    <!-- tiny filter to format epoch -->
+    <script>
+        (function(){
+            document.querySelectorAll("[data-epoch]").forEach(el=>{
+                el.textContent=new Date(parseInt(el.dataset.epoch)*1000).toLocaleString();
+            })
+        })();
+    </script>
+</body>
+</html>

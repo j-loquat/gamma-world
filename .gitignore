@@ -1,0 +1,24 @@
+# Environment variables - DO NOT COMMIT API KEYS!
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code specific
+.vscode/
+.clinerules
+.roo/
+changelog.txt
+
+# Optional: Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+
+# NOTE: We are INTENTIONALLY committing the base images and character index.
+# Do NOT add lines here to ignore characters/*.json or images/*.png generally,
+# as we want to commit the base application state.
+# Generated files were manually deleted in the previous step.

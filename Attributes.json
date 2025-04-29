@@ -1,0 +1,83 @@
+{
+    "overview": "As a general rule, a roll of 3-8 for a given attribute indicates a weak trait, 9-12 is average, and 13-18 is above average. The relative strengths of certain attributes can (and most likely will) change during the course of the campaign, due to mutation, acquired experience, or some other method devised by the referee.",
+    "attributes": [
+      {
+        "name": "Mental Strength",
+        "abbreviation": "MS",
+        "description": "This attribute deals with the character's ability to control, both offensively and defensively, psionic energies and powers. In the case of beings possessing no mental mutations, such as Pure Strain Humans, the mental strength rating is used simply for defense during mental attacks. For characters or creatures with mental mutations, this rating is used for both offense and defense. Also, unlike other basic attribute ratings, mental strength increases with use. Details of this increase, along with rules for mental combat, can be found under the MENTAL COMBAT heading."
+      },
+      {
+        "name": "Intelligence",
+        "abbreviation": "IN",
+        "description": "A character's intelligence rating is a gauge of his intellect, wit, logic, reasoning powers, and so forth. This factor is most important when attempting to determine the operation of artifacts of any type, and as a guide for referee-determined actions by a character in a given situation. When attempting to learn the operation of an artifact (see ARTIFACT USE), a player may subtract a point from each die roll for every point of intelligence over 15; players must add a point to each die roll for every point of intelligence less than seven."
+      },
+      {
+        "name": "Dexterity",
+        "abbreviation": "DX",
+        "description": "The dexterity of a character indicates the speed at which a player is able to function, his or her agility, and his or her reaction time in various situations. For example, when a being with a dexterity rating of 16 encounters a being with a dexterity of 10, the being with the dexterity of 16 will have first choice of actions - in combat situations, have first strike, and so forth. For each point of dexterity over 15, a character adds one point to the die roll when trying to hit a target in physical combat. A dexterity rating of less than 6 gives a corresponding minus on hit probability."
+      },
+      {
+        "name": "Charisma",
+        "abbreviation": "CH",
+        "description": "This trait reflects a being's leadership ability, through physical appearance, personality, magnetism, persuasiveness, willpower, etc. Pure Strain Humans, as explained earlier, possess an unusually high charisma, and many times will wind up being group leaders, spokesmen, and so on. This factor may be used by the referee during encounters between player characters and other inhabitants of GAMMA WORLD to determine the reactions of both parties. For example, a group of GAMMA WORLD adventurers, lost in the wilderness, encounters a small group of nomadic tribesmen. If Uruk of Meresmire (charisma 4) asks for directions, the referee should allow only a very small chance that the tribesmen will help (at least in a favorable manner...a good referee might allow the tribesmen to direct the adventurers to a nearby swamp or a similar unpleasant locale). On the other hand, if Artur Pendragon (charisma 17) asks, the tribesmen will probably help if they can. When non-player characters or creatures are encountered, two dice (2d6) are rolled and the following table is consulted:",
+        "hasTable": true,
+        "tables": [
+          {
+            "title": "REACTION TABLE",
+            "columns": ["Dice Score", "Reaction"],
+            "rows": [
+              {"Dice Score": "2", "Reaction": "Extremely hostile, may attack*"},
+              {"Dice Score": "3-5", "Reaction": "Hostile, distrustful, may attack*"},
+              {"Dice Score": "6-8", "Reaction": "Uncertain"},
+              {"Dice Score": "9-11", "Reaction": "Friendly, helpful"},
+              {"Dice Score": "12", "Reaction": "Enthusiastic, loyal"}
+            ],
+            "notes": "*No further attempt may be made to entice, hire, or otherwise interact with the being.\n\nOffers of money, weapons, food, artifacts, etc., may influence the die roll, adding or subtracting points to/from the total before consulting the REACTION TABLE. The referee should judge whether the offer even warrants a plus or minus. Such plusses and minuses should normally be limited to 1 point, although some circumstances may warrant increasing it to 2 points. If, for example, a gren (a creature which dislikes ancient technological devices) is offered a \"music box\" (a portable tape player) the player should receive a reaction penalty of -1; whereas an offer of a bale of synthetic clothing to a yexil (see CREATURES) would probably give the player a reaction bonus of +2.\n\nA player's charisma also affects the reaction die roll, as well as the maximum number of followers a player may have and their morale rating (for an explanation of morale, see MORALE). These effects are noted on the CHARISMA table below:"
+          },
+          {
+            "title": "CHARISMA TABLE",
+            "columns": ["Charisma Score", "Maximum No. of Followers", "Morale Adjustment", "Reaction Adjustment"],
+            "rows": [
+              {"Charisma Score": 3, "Maximum No. of Followers": 1, "Morale Adjustment": "-3", "Reaction Adjustment": "-3"},
+              {"Charisma Score": 4, "Maximum No. of Followers": 1, "Morale Adjustment": "-3", "Reaction Adjustment": "-2"},
+              {"Charisma Score": 5, "Maximum No. of Followers": 2, "Morale Adjustment": "-2", "Reaction Adjustment": "-2"},
+              {"Charisma Score": 6, "Maximum No. of Followers": 2, "Morale Adjustment": "-2", "Reaction Adjustment": "-1"},
+              {"Charisma Score": 7, "Maximum No. of Followers": 3, "Morale Adjustment": "-1", "Reaction Adjustment": "-1"},
+              {"Charisma Score": 8, "Maximum No. of Followers": 3, "Morale Adjustment": "-1", "Reaction Adjustment": "normal"},
+              {"Charisma Score": 9, "Maximum No. of Followers": 4, "Morale Adjustment": "normal", "Reaction Adjustment": "normal"},
+              {"Charisma Score": 10, "Maximum No. of Followers": 4, "Morale Adjustment": "normal", "Reaction Adjustment": "normal"},
+              {"Charisma Score": 11, "Maximum No. of Followers": 4, "Morale Adjustment": "normal", "Reaction Adjustment": "normal"},
+              {"Charisma Score": 12, "Maximum No. of Followers": 5, "Morale Adjustment": "normal", "Reaction Adjustment": "normal"},
+              {"Charisma Score": 13, "Maximum No. of Followers": 5, "Morale Adjustment": "normal", "Reaction Adjustment": "+1"},
+              {"Charisma Score": 14, "Maximum No. of Followers": 6, "Morale Adjustment": "+1", "Reaction Adjustment": "+1"},
+              {"Charisma Score": 15, "Maximum No. of Followers": 7, "Morale Adjustment": "+1", "Reaction Adjustment": "+2"},
+              {"Charisma Score": 16, "Maximum No. of Followers": 8, "Morale Adjustment": "+2", "Reaction Adjustment": "+2"},
+              {"Charisma Score": 17, "Maximum No. of Followers": 10, "Morale Adjustment": "+2", "Reaction Adjustment": "+3"},
+              {"Charisma Score": 18, "Maximum No. of Followers": 15, "Morale Adjustment": "+3", "Reaction Adjustment": "+3"}
+            ],
+            "notes": "NOTE: Followers are non-player characters who serve the player out of loyalty rather than for pay. Non-player characters who serve for pay are known as hirelings or henchmen. There is no limit to the number of hirelings a player may have. (Also see NON-PLAYER CHARACTERS)."
+          },
+          {
+            "title": "CHARISMA TABLE MODIFIERS",
+            "columns": ["Player Character Type", "Non-Player Character Type: PSH", "Non-Player Character Type: Humanoid", "Non-Player Character Type: Mutated Animal"],
+            "rows": [
+              {"Player Character Type": "PSH", "Non-Player Character Type: PSH": "normal", "Non-Player Character Type: Humanoid": "-2/-1/-1", "Non-Player Character Type: Mutated Animal": "-3/-1/-1"},
+              {"Player Character Type": "Humanoid", "Non-Player Character Type: PSH": "-2/-1/-1", "Non-Player Character Type: Humanoid": "normal", "Non-Player Character Type: Mutated Animal": "-2/-1/-1"},
+              {"Player Character Type": "Mutated Animal", "Non-Player Character Type: PSH": "-3/-2/-2", "Non-Player Character Type: Humanoid": "-2/-2/-1", "Non-Player Character Type: Mutated Animal": "normal"}
+            ],
+            "notes": "The CHARISMA TABLE assumes two things: that the player can communicate with the non-player character or creature, and that both parties are of the same type (Pure Strain Human, humanoid, or mutated animal). The referee will judge whether communication is possible. If the player and non-player characters are of different types use the following table:\n\nThe three numbers (#/#/#) indicate the modifications to the three columns of the CHARISMA TABLE (Maximum Number of Followers/Morale Adjustment/Reaction Adjustment)."
+          }
+        ]
+      },
+      {
+        "name": "Constitution",
+        "abbreviation": "CN",
+        "description": "Constitution is a gauge of the amount of physical damage a character is able to withstand (from wounds, poison, radiation, etc.) before death. This rating never changes during the course of a character's existence.\n\nException: Some particularly rare or unusual mutational effects, such as exposure to Kaskium, may raise or lower constitution ratings.\n\nThe constitution rating is first used to determine the number of \"hit points\" - a numerical expression of the amount of injury, measured in points, a character can sustain before death. Hit points are determined by rolling a number of six-sided dice equal to the constitution rating. For example, if a character had a constitution of 13, he would roll thirteen six-sided dice and total the numbers rolled. If the die rolls were 4, 1, 1, 3, 6, 5, 1, 1, 2, 5, 1, 1, 3, the character would have 34 hit points. Procedures for calculating amounts of damage sustained in combat, healing processes (expressed in terms of hit points gained or lost), mutational effects on hit points, and so forth, will be found under appropriate sections elsewhere in these rules.\n\nThe constitution rating is also used to determine a character's ability to survive poisoning and exposure to radiation. Results of encounters with poisons and radiation depend upon the strength or intensity of the poison or radiation and may be calculated on the charts found in the HAZARDS section."
+      },
+      {
+        "name": "Physical Strength",
+        "abbreviation": "PS",
+        "description": "This trait deals with a character's ability to perform physical acts. The main use of the physical strength rating is to determine how much damage a character can do in physical combat. For each point of physical strength over 15, a character receives a bonus point to the die roll that determines damage done in combat to his opponent. A physical strength of less than 6 gives a corresponding minus to damage done. Further details on this determination will be found under the PHYSICAL COMBAT section. In addition, the referee may also use the physical strength rating to determine if an individual is capable of certain unusually strenuous physical actions."
+      }
+    ]
+  }  
