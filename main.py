@@ -98,6 +98,16 @@ async def startup_event():
         log.error(f"Could not load backstory context: {e}", exc_info=True)
         config.BACKSTORY_CONTEXT_DATA = "Error loading backstory context."
 
+# Load creature data
+    try:
+        config.CREATURE_DATA = utils.load_data_file(config.CREATURES_FILE)
+        # Optional: Validate with Pydantic models if defined
+        # validated_creatures = [models.Creature(**creature) for creature in config.CREATURE_DATA]
+        # config.CREATURE_DATA = [c.model_dump() for c in validated_creatures] # Store as dicts if needed later
+        log.info(f"Creature data loaded successfully ({len(config.CREATURE_DATA)} creatures).")
+    except (FileNotFoundError, ValueError, IOError, json.JSONDecodeError, ValidationError) as e:
+        log.critical(f"FATAL: Could not load or validate creature data on startup: {e}", exc_info=True)
+        config.CREATURE_DATA = [] # Ensure it's an empty list on failure
     log.info("Startup complete.")
 
 
@@ -192,6 +202,84 @@ async def view_character(char_id: str, request: Request):
         {"request": request, "single_character": data, "image_path": image_rel_path}
     )
 
+# --- Creature Browser Routes ---
+
+@app.get("/creature_browser", response_class=HTMLResponse, tags=["UI", "Creature Browser"])
+async def creature_browser_list(request: Request):
+    """Server-side render of the creature browser list."""
+    log.info("Serving creature browser list page.")
+    if not config.CREATURE_DATA:
+        log.warning("Creature data not loaded, serving empty browser.")
+        # Optionally raise 503 Service Unavailable if data is critical
+        # raise HTTPException(status_code=503, detail="Creature data not available")
+        creatures_summary = []
+    else:
+        creatures_summary = []
+        for creature_data in config.CREATURE_DATA:
+            try:
+                # Validate essential fields for summary (using dict access)
+                name = creature_data.get("name")
+                if not name:
+                    log.warning("Skipping creature with missing name.")
+                    continue
+
+                slug = slugify(name)
+                image_file_path = config.IMAGE_DIR / f"{slug}.png"
+                image_url_path = f"/static/images/{slug}.png" if image_file_path.exists() else None
+
+                # Extract key stats safely
+                stats = creature_data.get("stats", {})
+                ac = stats.get("armor_class", "N/A")
+                hd = stats.get("hit_dice", "N/A")
+
+                summary = {
+                    "name": name,
+                    "slug": slug,
+                    "image": image_url_path,
+                    "armor_class": ac,
+                    "hit_dice": hd,
+                    "base_species": creature_data.get("base_species") # Added for potential card display
+                }
+                creatures_summary.append(summary)
+            except Exception as e:
+                log.warning(f"Error processing creature '{creature_data.get('name', 'Unknown')}' for list view: {e}")
+                continue # Skip this creature if processing fails
+
+    # Sort creatures alphabetically by name for consistency
+    creatures_summary.sort(key=lambda c: c['name'])
+
+    return templates.TemplateResponse(
+        "creaturebrowse.html",
+        {"request": request, "creatures": creatures_summary, "single_creature": None} # Ensure single_creature is None for list view
+    )
+
+@app.get("/creature_browser/{creature_slug}", response_class=HTMLResponse, tags=["UI", "Creature Browser"])
+async def view_creature(creature_slug: str, request: Request):
+    """Render a single saved creature by its slug."""
+    log.info(f"Serving single creature view for slug: {creature_slug}")
+    if not config.CREATURE_DATA:
+        log.error("Attempted to view single creature, but creature data is not loaded.")
+        raise HTTPException(status_code=503, detail="Creature data not available")
+
+    found_creature = None
+    for creature_data in config.CREATURE_DATA:
+        if slugify(creature_data.get("name", "")) == creature_slug:
+            found_creature = creature_data
+            break
+
+    if not found_creature:
+        log.warning(f"Creature not found for slug: {creature_slug}")
+        raise HTTPException(status_code=404, detail="Creature not found")
+
+    # Check for image
+    image_file_path = config.IMAGE_DIR / f"{creature_slug}.png"
+    image_url_path = f"/static/images/{creature_slug}.png" if image_file_path.exists() else None
+
+    return templates.TemplateResponse(
+        "creaturebrowse.html",
+        {"request": request, "single_creature": found_creature, "image_path": image_url_path, "creatures": None} # Ensure creatures is None for single view
+    )
+
 # --- Character Generation API ---
 
 @app.post("/generate_character", response_model=models.GenerateCharacterResponse, tags=["Character Generation"])
@@ -219,7 +307,6 @@ async def generate_character(gen_request: models.GenerateCharacterRequest):
     except Exception as e:
         log.error(f"Unexpected error during character generation: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="An unexpected error occurred.")
-
 
 @app.get("/get_selectable_mutations", response_model=models.SelectableMutationsResponse, tags=["Character Generation"])
 async def get_selectable_mutations():

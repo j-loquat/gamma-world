@@ -19,6 +19,7 @@ MENTAL_MUTATIONS_FILE = BASE_DIR / "Mental-Mutations.json"
 ATTRIBUTES_FILE = BASE_DIR / "Attributes.json"
 BACKSTORY_FILE = BASE_DIR / "backstory.md"
 INDEX_FILE = CHAR_DIR / "index.json"
+CREATURES_FILE = BASE_DIR / "Creatures.json"
 
 # --- AI Configuration ---
 # IMPORTANT: Load API Key from environment variable for security
@@ -46,3 +47,4 @@ PHYSICAL_MUTATIONS_DATA: list = []
 MENTAL_MUTATIONS_DATA: list = []
 ATTRIBUTES_CONTEXT_DATA: str = ""
 BACKSTORY_CONTEXT_DATA: str = ""
+CREATURE_DATA: list = []

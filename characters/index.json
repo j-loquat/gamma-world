@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": "crazy-pete-1746113994-726589",
+    "name": "Crazy Pete",
+    "type": "Humanoid",
+    "hit_points": 54,
+    "saved": 1746113994,
+    "image": "images/crazy-pete-1746113994-726589.png"
+  },
+  {
+    "id": "big-b-1746116888-b518e2",
+    "name": "Big B",
+    "type": "Humanoid",
+    "hit_points": 54,
+    "saved": 1746116888,
+    "image": "images/big-b-1746116888-b518e2.png"
+  },
+  {
+    "id": "owen-1746120214-90abc0",
+    "name": "Owen",
+    "type": "Pure Strain Human",
+    "hit_points": 70,
+    "saved": 1746120214,
+    "image": "images/owen-1746120214-90abc0.png"
+  }
+]

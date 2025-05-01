@@ -1,0 +1,23 @@
+{
+  "name": "Owen",
+  "character_type": "Pure Strain Human",
+  "attributes": {
+    "mental_strength": 14,
+    "intelligence": 12,
+    "dexterity": 15,
+    "charisma": 12,
+    "constitution": 17,
+    "physical_strength": 18
+  },
+  "hit_points": 70,
+  "physical_mutations": [],
+  "mental_mutations": [],
+  "generation_log": [
+    "Starting character generation for type: Pure Strain Human",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=14, IN=12, DX=15, CH=9, CN=17, PS=18",
+    "Applied PSH bonus: Charisma increased from 9 to 12.",
+    "Calculated starting Hit Points: 70 (rolled 17d6).",
+    "Character is Pure Strain Human. Skipping mutation phase."
+  ],
+  "description": "Owen, a pure strain human, stands out amongst the denizens of the Gamma World not for any striking mutation, but for his sheer, unadulterated humanness.  He’s a throwback, a stark reminder of what was lost, possessing the kind of clean features and unblemished skin rarely seen in 2471.  His build is impressive, corded muscle visible beneath simple, scavenged clothing.  A quiet strength radiates from him, born of a constitution (CN 17) that allows him to shrug off injuries that would cripple others. This resilience is etched onto his face, a calm resolve in his eyes that speaks of endurance and a will to survive.  He moves with a natural grace, hinting at a dexterity (DX 15) honed by a life lived on the edge.  His hands, calloused but nimble, are as adept at wielding a scavenged weapon as they are at patching torn cloth or setting a snare.\n\nOwen’s demeanor is one of quiet observation. He’s not unfriendly, but neither is he quick to trust. His intelligence (IN 12) is practical, focused on understanding the workings of the world around him, especially the baffling artifacts left behind by the Ancients. He’s not a scholar poring over dusty texts, but a pragmatist, eager to figure out how things work, and more importantly, how they can be used.  His above-average charisma (CH 12), so typical of pure strain humans, lends him an air of natural leadership. While he might not actively seek it, others find themselves drawn to his calm confidence and unwavering resolve.  He possesses the kind of presence that inspires trust, a valuable commodity in the treacherous landscape of the Gamma World.\n\nOwen’s exceptional physical strength (PS 18) is immediately apparent. He carries himself with the easy power of someone accustomed to physical exertion, capable of feats of strength that would leave others gasping. This, combined with his dexterity, makes him a formidable opponent in close combat, able to deliver devastating blows with whatever weapon comes to hand.  He is a force to be reckoned with in the brutal, hand-to-hand struggles that are often the currency of survival in this shattered world. While devoid of the strange mutations that define so many, Owen’s lack of them is, in its own way, a mutation in itself – a testament to a genetic resilience that has defied the warping energies of the Great Disaster. \n\nIn a world populated by the bizarre and grotesque, Owen’s normality is both a strength and a weakness.  He lacks the uncanny abilities granted by mutation, but he is also free from the unpredictable side effects and social stigmas that often accompany them.  He is a blank slate, a pure strain human in a world of hybrids and chimeras, his destiny unwritten, yet filled with the promise of a future he will forge with his own hands and the unwavering strength of his human spirit."
+}

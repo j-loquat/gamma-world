@@ -99,6 +99,28 @@ class Character(BaseModel):
         populate_by_name=True,
         alias_generator=lambda x: x # Keep snake_case for internal use
     )
+# --- Creature Models ---
+
+class CreatureStats(BaseModel):
+    armor_class: Optional[str] = Field(None, alias="armorClass")
+    movement: Optional[str] = None
+    hit_dice: Optional[str] = Field(None, alias="hitDice")
+    number_appearing: Optional[str] = Field(None, alias="numberAppearing")
+
+    model_config = ConfigDict(populate_by_name=True)
+
+class CreatureAbility(BaseModel):
+    name: str
+    description: str
+
+class Creature(BaseModel):
+    name: str
+    base_species: Optional[str] = Field(None, alias="baseSpecies")
+    stats: CreatureStats
+    special_abilities: List[CreatureAbility] = Field(default_factory=list, alias="specialAbilities")
+    description: str
+
+    model_config = ConfigDict(populate_by_name=True)
 
 # --- API Request/Response Models ---
 

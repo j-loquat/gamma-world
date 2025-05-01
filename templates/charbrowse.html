@@ -11,105 +11,140 @@
 </head>
 <body class="bg-base-200 min-h-screen p-4 md:p-8">
 
-    {% if single_character %}
-        <a href="/browser" class="btn btn-sm btn-outline btn-neutral fixed top-4 right-4 z-50">Back</a>
-    {% else %}
-        <a href="/" class="btn btn-sm btn-outline btn-neutral fixed top-4 right-4 z-50">Main Menu</a>
-    {% endif %}
+    {# Determine button link based on context #}
+    {% set back_link = "/browser" if single_character else "/" %}
+    {% set back_text = "Back" if single_character else "Main Menu" %}
+    <a href="{{ back_link }}" class="btn btn-sm btn-outline btn-neutral fixed top-4 right-4 z-50">{{ back_text }}</a>
 
     {% if single_character %}
         <!-- -------------- SINGLE CHARACTER VIEW -------------- -->
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-3xl font-bold text-center mb-2 text-primary">{{ single_character.name or 'Unnamed' }}</h1>
-<p class="text-center text-xl opacity-80 mb-6">{{ single_character.character_type | default('Type N/A') }} - HP: {{ single_character.hit_points | default('N/A') }}</p>
+            {# --- Basic Info (Use .get for safety) --- #}
+            <h1 class="text-3xl font-bold text-center mb-2 text-primary">
+                {{ single_character.get('name', 'Unnamed Character') }}
+            </h1>
+            <p class="text-center text-xl opacity-80 mb-6">
+                {{ single_character.get('character_type', 'Type N/A') }} - HP: {{ single_character.get('hit_points', 'N/A') }}
+            </p>
 
+            {# --- Image and Description --- #}
             <div class="flex flex-col md:flex-row gap-6 mb-6">
                 {% if image_path %}
-                    <div class="flex-shrink-0"> <!-- Image container -->
+                    <div class="flex-shrink-0">
+                        {# Assuming image_path is relative to static mount point #}
                         <img src="/static/{{ image_path }}" alt="Portrait" class="max-h-96 object-contain rounded-lg shadow-lg" />
                     </div>
                 {% endif %}
-                <div class="flex-grow bg-base-100 p-4 rounded shadow overflow-y-auto max-h-96 text-sm"> <!-- Description box -->
+                <div class="flex-grow bg-base-100 p-4 rounded shadow overflow-y-auto max-h-96 text-sm">
                     <h2 class="text-xl font-semibold mb-2 text-secondary">Description</h2>
-                    <p>{{ single_character.description | default('No description available.') }}</p>
+                    <p>{{ single_character.get('description', 'No description available.') }}</p>
                 </div>
             </div>
 
-<!-- Character Attributes -->
+            {# --- Character Attributes (with checks) --- #}
             <h4 class="text-lg font-semibold mb-2 text-secondary">Attributes</h4>
-            <div class="stats stats-vertical lg:stats-horizontal shadow w-full mb-4 bg-base-100">
-                <div class="stat">
-                    <div class="stat-title">Mental Str (MS)</div>
-                    <div class="stat-value text-primary">{{ single_character.attributes.mental_strength | default('N/A') }}</div>
+            {% set attrs = single_character.get('attributes') %}
+            {% if attrs is mapping %}
+                <div class="stats stats-vertical lg:stats-horizontal shadow w-full mb-4 bg-base-100">
+                    <div class="stat">
+                        <div class="stat-title">Mental Str (MS)</div>
+                        <div class="stat-value text-primary">{{ attrs.get('mental_strength', 'N/A') }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Intelligence (IN)</div>
+                        <div class="stat-value text-primary">{{ attrs.get('intelligence', 'N/A') }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Dexterity (DX)</div>
+                        <div class="stat-value text-primary">{{ attrs.get('dexterity', 'N/A') }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Charisma (CH)</div>
+                        <div class="stat-value text-primary">{{ attrs.get('charisma', 'N/A') }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Constitution (CN)</div>
+                        <div class="stat-value text-primary">{{ attrs.get('constitution', 'N/A') }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Physical Str (PS)</div>
+                        <div class="stat-value text-primary">{{ attrs.get('physical_strength', 'N/A') }}</div>
+                    </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-title">Intelligence (IN)</div>
-                    <div class="stat-value text-primary">{{ single_character.attributes.intelligence | default('N/A') }}</div>
+            {% else %}
+                <div class="bg-base-100 p-4 rounded shadow mb-4">
+                     <p class="text-sm opacity-75">Attribute data is missing or invalid for this character.</p>
                 </div>
-                <div class="stat">
-                    <div class="stat-title">Dexterity (DX)</div>
-                    <div class="stat-value text-primary">{{ single_character.attributes.dexterity | default('N/A') }}</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-title">Charisma (CH)</div>
-                    <div class="stat-value text-primary">{{ single_character.attributes.charisma | default('N/A') }}</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-title">Constitution (CN)</div>
-                    <div class="stat-value text-primary">{{ single_character.attributes.constitution | default('N/A') }}</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-title">Physical Str (PS)</div>
-                    <div class="stat-value text-primary">{{ single_character.attributes.physical_strength | default('N/A') }}</div>
-                </div>
-            </div>
-<!-- Character Mutations -->
-            {% set physical_mutations = single_character.physical_mutations | default([]) %}
-            {% set mental_mutations = single_character.mental_mutations | default([]) %}
+            {% endif %}
 
-            {% if physical_mutations or mental_mutations %}
-                <div class="mb-4"> <!-- Added margin-bottom -->
+            {# --- Character Mutations (with checks) --- #}
+            {% set physical_mutations = single_character.get('physical_mutations', []) %}
+            {% set mental_mutations = single_character.get('mental_mutations', []) %}
+            {% set has_mutations = (physical_mutations is iterable and physical_mutations) or (mental_mutations is iterable and mental_mutations) %}
+
+            {% if has_mutations %}
+                <div class="mb-4">
                     <h4 class="text-lg font-semibold mb-2 text-secondary">Mutations</h4>
-                    <div class="bg-base-100 p-4 rounded shadow"> <!-- Added background, padding, shadow -->
+                    <div class="bg-base-100 p-4 rounded shadow">
                         <ul class="list-disc list-inside space-y-1 text-sm">
-                            {% for mut in physical_mutations %}
-                                <li>
-                                    <strong>{{ mut.name }}</strong> (Physical{% if mut.isDefect %}<span class="badge badge-error badge-xs ml-1">Defect</span>{% endif %}): {{ mut.description }}
-                                </li>
-                            {% endfor %}
-                            {% for mut in mental_mutations %}
-                                <li>
-                                    <strong>{{ mut.name }}</strong> (Mental{% if mut.isDefect %}<span class="badge badge-error badge-xs ml-1">Defect</span>{% endif %}): {{ mut.description }}
-                                </li>
-                            {% endfor %}
+                            {% if physical_mutations is iterable %}
+                                {% for mut in physical_mutations %}
+                                    {% if mut is mapping %}
+                                        <li>
+                                            <strong>{{ mut.get('name', 'Unknown Mutation') }}</strong>
+                                            (Physical{% if mut.get('isDefect') %}<span class="badge badge-error badge-xs ml-1">Defect</span>{% endif %}):
+                                            {{ mut.get('description', 'No description.') }}
+                                        </li>
+                                    {% else %}
+                                        <li>Invalid physical mutation data entry.</li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            {% if mental_mutations is iterable %}
+                                {% for mut in mental_mutations %}
+                                    {% if mut is mapping %}
+                                        <li>
+                                            <strong>{{ mut.get('name', 'Unknown Mutation') }}</strong>
+                                            (Mental{% if mut.get('isDefect') %}<span class="badge badge-error badge-xs ml-1">Defect</span>{% endif %}):
+                                            {{ mut.get('description', 'No description.') }}
+                                        </li>
+                                    {% else %}
+                                        <li>Invalid mental mutation data entry.</li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
-            {% elif single_character.character_type != 'Pure Strain Human' %}
-                 <div class="mb-4"> <!-- Added margin-bottom -->
+            {% elif single_character.get('character_type') != 'Pure Strain Human' %}
+                 <div class="mb-4">
                     <h4 class="text-lg font-semibold mb-2 text-secondary">Mutations</h4>
-                    <div class="bg-base-100 p-4 rounded shadow"> <!-- Added background, padding, shadow -->
+                    <div class="bg-base-100 p-4 rounded shadow">
                         <p class="text-sm opacity-80">No mutations acquired.</p>
                      </div>
                  </div>
             {% endif %}
+
+            {# --- Raw Data (Reverted to match creaturebrowse) --- #}
             <div class="collapse collapse-arrow bg-base-100 shadow rounded mt-6">
-                <input type="checkbox" aria-label="Toggle Raw Data" /> <!-- Checkbox controls collapse state -->
+                <input type="checkbox" aria-label="Toggle Raw Data" />
                 <div class="collapse-title text-xl font-medium">
                     Raw Character Data
                 </div>
                 <div class="collapse-content">
+                    {# Use tojson filter WITHOUT safe, matching creaturebrowse #}
                     <pre class="bg-base-200 p-4 rounded overflow-x-auto text-sm">{{ single_character | tojson(indent=2) }}</pre>
                 </div>
             </div>
         </div>
+
     {% else %}
         <!-- -------------- LIST VIEW -------------- -->
         <h1 class="text-3xl font-bold text-center mb-6 text-primary">Saved Characters</h1>
 
         {% if characters %}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for c in characters %}
+                {% for c in characters %} {# 'c' here comes from the list view data #}
                     <a href="/browser/{{ c.id }}" class="card bg-base-100 shadow-xl hover:shadow-2xl transition">
                         {% if c.image %}
                             <figure class="bg-base-200">
@@ -118,6 +153,7 @@
                         {% endif %}
                         <div class="card-body p-4">
                             <h2 class="card-title">{{ c.name }}</h2>
+                            {# Access list view data using snake_case #}
                             <p class="text-sm opacity-80">{{ c.type }} - HP: {{ c.hit_points | default('N/A') }}</p>
                             <p class="text-xs opacity-60">saved {{ (c.saved | int) | datetimeformat }}</p>
                         </div>
@@ -129,13 +165,6 @@
         {% endif %}
     {% endif %}
 
-    <!-- tiny filter to format epoch -->
-    <script>
-        (function(){
-            document.querySelectorAll("[data-epoch]").forEach(el=>{
-                el.textContent=new Date(parseInt(el.dataset.epoch)*1000).toLocaleString();
-            })
-        })();
-    </script>
+    {# Removed redundant JS date formatting script #}
 </body>
 </html>

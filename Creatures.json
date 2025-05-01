@@ -1,0 +1,1674 @@
+[
+    {
+      "name": "Android - Thinker",
+      "base_species": "Android",
+      "stats": {
+        "armor_class": "6",
+        "movement": "12",
+        "hit_dice": "50 Hit Points",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "High Intelligence",
+          "description": "Possesses an 18 intelligence."
+        },
+        {
+          "name": "High Mental Strength",
+          "description": "Possesses an 18 mental strength."
+        }
+      ],
+      "description": "Androids look like Pure Strain Humans. All have the basic attributes: mental strength, intelligence, dexterity, charisma, constitution, and physical strength...all to be determined by the referee randomly except for the following: The thinker has an 18 mental strength and intelligence. Androids consider humans to be a threat to their existence, travel heavily armed, and will always fight to the death."
+    },
+    {
+      "name": "Android - Worker",
+      "base_species": "Android",
+      "stats": {
+        "armor_class": "5",
+        "movement": "12",
+        "hit_dice": "40 Hit Points",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "High Physical Strength",
+          "description": "Possesses an 18 physical strength."
+        },
+        {
+          "name": "High Constitution",
+          "description": "Possesses an 18 constitution."
+        }
+      ],
+      "description": "Androids look like Pure Strain Humans. All have the basic attributes: mental strength, intelligence, dexterity, charisma, constitution, and physical strength...all to be determined by the referee randomly except for the following: the worker has an 18 physical strength and constitution. Androids consider humans to be a threat to their existence, travel heavily armed, and will always fight to the death."
+    },
+    {
+      "name": "Android - Warrior",
+      "base_species": "Android",
+      "stats": {
+        "armor_class": "4",
+        "movement": "15",
+        "hit_dice": "75 Hit Points",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "High Attributes",
+          "description": "Possesses an 18 in all categories save mental strength."
+        }
+      ],
+      "description": "Androids look like Pure Strain Humans. All have the basic attributes: mental strength, intelligence, dexterity, charisma, constitution, and physical strength...all to be determined by the referee randomly except for the following: the warrior has an 18 in all categories save mental strength. Androids consider humans to be a threat to their existence, travel heavily armed, and will always fight to the death."
+    },
+    {
+      "name": "Ark",
+      "base_species": "Canine (Mutated Dog)",
+      "stats": {
+        "armor_class": "4",
+        "movement": "15",
+        "hit_dice": "8",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Mental Strength 10",
+          "description": "Possesses a mental strength of 10."
+        },
+        {
+          "name": "Radiation Resistance 10",
+          "description": "Possesses a radiation resistance of 10."
+        },
+        {
+          "name": "Telekinesis",
+          "description": "Mental ability to move objects."
+        },
+        {
+          "name": "Weather Manipulation",
+          "description": "Mental ability to alter weather patterns."
+        },
+        {
+          "name": "Life Leech",
+          "description": "Mental ability to drain life energy."
+        },
+        {
+          "name": "Fear of Winged Creatures",
+          "description": "Arks fear large winged creatures."
+        },
+        {
+          "name": "Weapons",
+          "description": "Carry wicker shields and large clubs."
+        }
+      ],
+      "description": "The intelligent dog man stands just short of 3 meters tall and always walks on its well-developed hind legs. It has a mental strength and radiation resistance of 10. All arks have the following mutations: telekinesis, weather manipulation, and life leech. Arks fear large winged creatures and carry wicker shields and large clubs as weapons. They consider human hands to be a great delicacy."
+    },
+    {
+      "name": "Arn",
+      "base_species": "Insect",
+      "stats": {
+        "armor_class": "9",
+        "movement": "3/16",
+        "hit_dice": "8",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "Mandible Bite",
+          "description": "Bite attack doing 2 dice (2d6) of damage."
+        },
+        {
+          "name": "Domestication",
+          "description": "Often domesticated by small humanoids as a riding mount or beast of burden. Cannot fly with more than 2 kilograms. Must be caught and trained while young."
+        }
+      ],
+      "description": "This 1.3 meter long mutated insect is often domesticated by small humanoids and used as a riding mount or beast of burden. Arns cannot fly with more than 2 kilograms on their backs and must be caught and trained while young to be of any use. The arn has large mandibles which can bite, doing 2 dice of damage."
+    },
+    {
+      "name": "Badder",
+      "base_species": "Badgeroid",
+      "stats": {
+        "armor_class": "4",
+        "movement": "12",
+        "hit_dice": "6",
+        "number_appearing": "3-18"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Highly intelligent."
+        },
+        {
+          "name": "Manipulative Forepaws",
+          "description": "Possess manipulative forepaws."
+        },
+        {
+          "name": "Erect Stance",
+          "description": "Walks erect."
+        },
+        {
+          "name": "High Dexterity",
+          "description": "Possess 18 dexterity, exceptionally quick in combat."
+        },
+        {
+          "name": "Armor/Weapon Use",
+          "description": "Commonly employ simple armor, shields, and all sorts of weapons (each is only 10% likely to have an Artifact weapon)."
+        },
+        {
+          "name": "Bite",
+          "description": "Can deliver a vicious bite for 1 die (1d6) of damage."
+        },
+        {
+          "name": "Language",
+          "description": "Communicate in their own form of snarling/growling language but can approximate some limited trade speech."
+        },
+        {
+          "name": "Hard of Hearing",
+          "description": "Hearing is impaired."
+        },
+        {
+          "name": "Keen Sense of Smell",
+          "description": "Possess a keen sense of smell."
+        },
+        {
+          "name": "Mental Strength 16",
+          "description": "Possess a mental strength of 16."
+        },
+        {
+          "name": "Empathy",
+          "description": "Possess the Empathy mental mutation."
+        }
+      ],
+      "description": "This highly intelligent mutated badgeroid species inhabits cool temperate zones. They are approximately 1.5 meters tall. The badders are organized into a society approximately equal to that of the medieval period in human history. They are basically of evil disposition and will destroy other intelligent life forms if given the chance. Badders live in earth burrow complexes, although they will sometimes be found inhabiting a ruined town of the Ancients. They have manipulative forepaws and walk erect. Badders are exceptionally quick of movement in combat (18 dexterity), and they commonly employ simple armor, shields, and all sorts of weapons (each is only 10% likely to have an Artifact weapon). They can also deliver a vicious bite for 1 die (d6) of damage. Badders communicate in their own form of snarling/growling language but can approximate some limited trade speech. They are hard of hearing, but have a keen sense of smell. Badders have a mental strength of 16 and possess empathy. If a burrow is discovered, there will be females equal in number to the males, and young equal to 50% of the females. The burrow will be ruled by a very large male and 1-4 'nobles'."
+    },
+    {
+      "name": "Barl Nep",
+      "base_species": "Fish",
+      "stats": {
+        "armor_class": "3",
+        "movement": "20",
+        "hit_dice": "20",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Radioactive Oil Secretion",
+          "description": "If attacked, it will secrete a radioactive oil (intensity 18) that covers an area 10 meters in diameter. This radioactive oil will last up to 10 minutes in calm lake or pond water."
+        },
+        {
+          "name": "Extractable Oil",
+          "description": "If caught and killed, enough oil to make a 10 minute radioactive oil slick (intensity 12) may be extracted from its body."
+        }
+      ],
+      "description": "The barl nep is a totally black fish that can attain a length of up to 1 meter. If attacked, it will secrete a radioactive oil (intensity 18) that covers an area 10 meters in diameter. This radioactive oil will last up to 10 minutes in calm lake or pond water. If caught and killed, enough oil to make a 10 minute radioactive oil slick (intensity 12) may be extracted from its body."
+    },
+    {
+      "name": "Ber Lep",
+      "base_species": "Plant (Aquatic)",
+      "stats": {
+        "armor_class": "6",
+        "movement": "N/A",
+        "hit_dice": "15",
+        "number_appearing": "1-8"
+      },
+      "special_abilities": [
+        {
+          "name": "Acid Exudation",
+          "description": "Exudes a sweet smelling acid that serves to attract, kill, and then dissolve small animals and insects which land on it. Thick enough to support the weight of a human; acid is relatively slow acting."
+        },
+        {
+          "name": "Teleportation",
+          "description": "If injured, the plant will teleport itself to a point 5-30 meters distant."
+        }
+      ],
+      "description": "The ber lep is a large (two meters across) free-floating aquatic plant which grows (akin to the lily pad) as an enormous sheet on the surface of the water. A sweet smelling acid exuded by the plant serves to attract, kill, and then dissolve small animals and insects which land on it. The ber lep is thick enough to support the weight of a human and the acid is relatively slow acting. If injured, however, the plant will teleport itself to a point 5-30 meters distant."
+    },
+    {
+      "name": "Blaash",
+      "base_species": "Moth-Creature",
+      "stats": {
+        "armor_class": "8",
+        "movement": "6/15",
+        "hit_dice": "15",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Fearless",
+          "description": "Is fearless."
+        },
+        {
+          "name": "Carnivorous",
+          "description": "Is carnivorous."
+        },
+        {
+          "name": "Radiation Emission",
+          "description": "Glows brightly when it attacks, emitting intensity 18 radiation from its abdomen. Harmful within a 5 meter radius, but will not damage the blaash or others of its kind."
+        }
+      ],
+      "description": "This mutated moth-creature is often over 1 meter long with a wingspread of 2 meters. The blaash is fearless and quite carnivorous. It glows brightly when it attacks, because of the intensity 18 radiation it emits from its abdomen. This radiation is harmful within a 5 meter radius, but will not damage the blaash or others of its kind. Once the blaash has killed its prey, it stops and eats voraciously."
+    },
+    {
+      "name": "Blight",
+      "base_species": "Winged Worm",
+      "stats": {
+        "armor_class": "9",
+        "movement": "2/10",
+        "hit_dice": "12",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Invisibility",
+          "description": "May become invisible at will."
+        },
+        {
+          "name": "Blinding Flash",
+          "description": "First attack upon becoming visible will be a flash of light that will blind for 1-4 melee turns any creature who looked at it."
+        },
+        {
+          "name": "Bite",
+          "description": "Can bite, doing 3d6 of damage."
+        },
+        {
+          "name": "Constriction",
+          "description": "Preferred mode of attack is constriction. When coiled around a victim it does 5d6 of damage per melee turn."
+        },
+        {
+          "name": "Resistance",
+          "description": "Completely resistant to radiation, heat, and sonic attacks."
+        }
+      ],
+      "description": "This 3 meter long carnivorous winged worm can have a wing span of up to 10 meters. It may become invisible at will, and when it swoops down from the sky onto its prey, its first attack upon becoming visible will be a flash of light that will blind for 1-4 melee turns any creature who looked at it. Although it can bite, doing 3d6 of damage, its preferred mode of attack is constriction. When it is coiled around a victim it does 5d6 of damage per melee turn. The blight is completely resistant to radiation, heat, and sonic attacks."
+    },
+    {
+      "name": "Brutorz",
+      "base_species": "Neo-Percheron (Mutated Horse)",
+      "stats": {
+        "armor_class": "7",
+        "movement": "18",
+        "hit_dice": "14",
+        "number_appearing": "1 (2-12 in wild herds)"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Quite intelligent (with a mental strength of 12)."
+        },
+        {
+          "name": "PSH Affinity",
+          "description": "Particularly partial to PSH individuals."
+        },
+        {
+          "name": "Agility",
+          "description": "Remarkably agile for their bulk (1000 kilograms)."
+        },
+        {
+          "name": "Precognition",
+          "description": "All have the Precognition mental mutation."
+        },
+        {
+          "name": "Kick",
+          "description": "Can deliver stunning kicks - 2 dice of damage (2d6) per forehoof."
+        },
+        {
+          "name": "Bite",
+          "description": "Can deliver a vicious bite for 3 dice (3d6) of damage."
+        },
+        {
+          "name": "Mount",
+          "description": "Well fed and treated with respect, the Brutorz is quite willing to serve as a mount for humans and humanoids."
+        }
+      ],
+      "description": "Standing well over 2 meters high at the shoulder, a Brutorz is powerfully muscled and very broad. These neo-Percherons (mutated horses) are quite intelligent (with a mental strength of 12) and are particularly partial to PSH individuals. In addition to their great size, strength, and intelligence, the Brutorz species is remarkably agile for their bulk (1000 kilograms), and all have precognition. In combat, these creatures can deliver stunning kicks - 2 dice of damage (2d6) per forehoof - or a vicious bite for 3 dice (3d6) of damage. Well fed and treated with respect, the Brutorz is quite willing to serve as a mount for humans and humanoids."
+    },
+    {
+      "name": "Cal Then",
+      "base_species": "Flying Insect",
+      "stats": {
+        "armor_class": "9",
+        "movement": "4/12",
+        "hit_dice": "6",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Intelligent (mental strength 18)."
+        },
+        {
+          "name": "Mandible Crush",
+          "description": "Huge mandibles can do 10 dice of damage and, given time, crush even duralloy."
+        },
+        {
+          "name": "Bone Attraction",
+          "description": "Attracted to bones, which are its favorite food. Carelessly rips the flesh off living creatures merely to devour their bones."
+        },
+        {
+          "name": "Resistance",
+          "description": "Completely resistant to all heat and cold attacks."
+        }
+      ],
+      "description": "This intelligent (mental strength 18) flying insect can attain a length of 2.5 meters. It has huge mandibles that can do 10 dice of damage and, given time, crush even duralloy. It is attracted to bones, which are its favorite food. It carelessly rips the flesh off living creatures merely to devour their bones. The cal then is completely resistant to all heat and cold attacks."
+    },
+    {
+      "name": "Centisteed",
+      "base_species": "Mammal (Mutated Horse)",
+      "stats": {
+        "armor_class": "9",
+        "movement": "30",
+        "hit_dice": "7",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Mental Immunity",
+          "description": "Totally immune to all forms of mental attack."
+        },
+        {
+          "name": "Force Field Generation",
+          "description": "Possesses the Force Field Generation mental mutation."
+        },
+        {
+          "name": "Increased Metabolism",
+          "description": "Requires enormous quantities of fodder due to increased metabolism."
+        },
+        {
+          "name": "Mount",
+          "description": "Can carry two human-sized riders. Difficult to control in combat; one rider must devote all efforts towards keeping it under control."
+        }
+      ],
+      "description": "This long-bodied mammal was once a horse, but the mutations it has undergone have given it an almost insect-like appearance. A centisteed can trot at full speed on its 16 legs carrying two human-sized riders. Although not intelligent by human standards, the centisteed is totally immune to all forms of mental attack and possesses force field generation. While they make desirable mounts, these beasts also require enormous quantities of fodder because of their increased metabolism. In a combat situation, the centisteed is almost more trouble than it is worth, as one of its riders must devote all of his efforts towards keeping the centisteed under control."
+    },
+    {
+      "name": "Cren Tosh",
+      "base_species": "Lizard/Fish",
+      "stats": {
+        "armor_class": "3",
+        "movement": "12",
+        "hit_dice": "16",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Shapechange (Lizard)",
+          "description": "Can transform itself into any type of lizard, complete with any mutations (see Sleeth), for up to 24 hours."
+        },
+        {
+          "name": "Burrowing",
+          "description": "In fish form, burrows long wide tunnels into the banks of rivers and lakes for its nest."
+        },
+        {
+          "name": "Diet",
+          "description": "Eats only plants."
+        },
+        {
+          "name": "Collector",
+          "description": "Loves to collect and line its nest with shiny objects."
+        }
+      ],
+      "description": "This lizard/fish prefers to live as a 2 meter long fish. It can, however, transform itself into any type of lizard, complete with any mutations (see Sleeth), for up to 24 hours. In fish form, the cren tosh burrows long wide tunnels into the banks of rivers and lakes, where it makes its nest. It eats only plants, but loves to collect and line its nest with shiny objects."
+    },
+    {
+      "name": "Crep Plant",
+      "base_species": "Plant",
+      "stats": {
+        "armor_class": "3",
+        "movement": "1",
+        "hit_dice": "15",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Death Field Generation",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Molecular Disruption",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Life Leech",
+          "description": "Mental mutation (how it feeds)."
+        },
+        {
+          "name": "Mobility",
+          "description": "Vegetable mutation."
+        },
+        {
+          "name": "Manipulation Vines",
+          "description": "Possesses 1-4 manipulative vines (vegetable mutation)."
+        },
+        {
+          "name": "Parasitic Attachment",
+          "description": "Vegetable mutation. Reproduces with large leaf-like structures used for parasitic attachment. After attaching, structures drain victims' blood (10 hit points per melee round). Once victim is dead, structures drop off and burrow to start a new plant."
+        }
+      ],
+      "description": "There are two varieties of the crep plant. The water crep is pink, and lives completely submerged, in the bottoms of lakes and rivers. The land crep is red, and may be found in any area with a reasonable amount of rainfall. All crep plants, though unintelligent, have the following mental mutations, which are used when attacked: death field generation, molecular disruption, and life leech (which is how it feeds). Additionally, they have the following vegetable mutations: mobility, 1-4 manipulative vines, and parasitic attachment. The plant reproduces with large leaf-like structures that it uses to make parasitic attachments. After attaching, the structures drain victims' blood (at a rate of 10 hit points per melee round). Once the victim is dead, these structures drop off the crep, and burrow into the ground to start a new plant."
+    },
+    {
+      "name": "Ert",
+      "base_species": "Fish",
+      "stats": {
+        "armor_class": "9",
+        "movement": "8",
+        "hit_dice": "3",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Petrifying Bite",
+          "description": "Any creature it manages to bite has a chance of being turned to granite-like rock. (Treat as a poison attack of Intensity 12. A 'D' result turns the victim to stone.)"
+        }
+      ],
+      "description": "This innocuous looking fish, which can be up to 1 meter long, lives in swift flowing mountain streams. It has an awesome defense mechanism. Any creature it manages to bite has a chance of being turned to granite-like rock. (Treat as a poison attack of Intensity 12. A 'D' result turns the victim to stone.)"
+    },
+    {
+      "name": "Ert Telden",
+      "base_species": "Fish",
+      "stats": {
+        "armor_class": "6",
+        "movement": "9",
+        "hit_dice": "12",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "Immolation/Explosion",
+          "description": "Self-destructive defense. When removed from water, starts to burn intensely. First melee turn: all creatures within 30m sustain 5d6 heat damage. Second melee turn: explodes in flames, doing 10d6 damage to all beings in range."
+        },
+        {
+          "name": "Weapon Use",
+          "description": "Sometimes captured and used as a weapon by certain tribes, kept in holding pools and flung over walls with catapults."
+        }
+      ],
+      "description": "The ert telden is a fish just over 1 meter long, which lives in backwaters, marshes and swamps. It has a unique self-destructive defense mechanism. When removed from water, it starts to burn with such intense heat that all creatures within 30 meters of the fish sustain 5 dice (d6) of heat damage on the first melee turn. On the second melee turn out of water, the ert telden explodes in flames, doing 10 dice of damage to all beings in range. It is sometimes captured and used as a weapon by certain tribes, who keep the ert telden in holding pools inside their walled village, and fling them over the walls with catapults at would-be attackers."
+    },
+    {
+      "name": "Fen",
+      "base_species": "Fish (Amphibious)",
+      "stats": {
+        "armor_class": "7",
+        "movement": "12 (water)/3 (land)/8 (flying)",
+        "hit_dice": "10",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Intelligent, man-sized fish."
+        },
+        {
+          "name": "Amphibious",
+          "description": "Walks on 2 stubby fins on land. Has both lungs and gills, may remain out of water for up to 24 hours."
+        },
+        {
+          "name": "Translucent Skin",
+          "description": "Skin makes the fen invisible when under water."
+        },
+        {
+          "name": "Weapon Use",
+          "description": "Collect and use all manner of weapons."
+        },
+        {
+          "name": "Tail Club",
+          "description": "May use tail as a club which does 6 dice (6d6) of damage if it hits."
+        },
+        {
+          "name": "Radiation Resistance",
+          "description": "Completely resistant to radiation."
+        },
+        {
+          "name": "Poison Resistance 18",
+          "description": "Possess a poison resistance of 18."
+        },
+        {
+          "name": "Reflection (Heat/Light)",
+          "description": "Reflect heat and light (laser) attacks for 5 melee rounds before taking damage."
+        },
+        {
+          "name": "Shapechange (Bird)",
+          "description": "Can shapechange into a large bird and fly away if the going gets rough."
+        }
+      ],
+      "description": "The fen is an intelligent, man-sized fish, which walks about on 2 stubby fins when on land. It has both lungs and gills and may remain out of water for up to 24 hours. Its translucent skin makes the fen invisible when under water. Fens collect and use all manner of weapons and may also use their tail as a club which does 6 dice (d6) of damage if it hits. They are completely resistant to radiation, have a poison resistance of 18, reflect heat and light (laser) attacks for 5 melee rounds before taking damage, and can shapechange into a large bird and fly away if the going gets rough."
+    },
+    {
+      "name": "Fleshin",
+      "base_species": "Fish (Flying)",
+      "stats": {
+        "armor_class": "8",
+        "movement": "9 (water)/5 (flying)",
+        "hit_dice": "8",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Gliding Flight",
+          "description": "Swims at high speed along surface, launches into air, broad pectoral fins enable gliding on wind currents for hours."
+        },
+        {
+          "name": "Poison Spines",
+          "description": "Dorsal fin covered with intensity 15 poison spines."
+        },
+        {
+          "name": "Shapechange (Sleeth)",
+          "description": "If seriously threatened, it will shapechange and fight as a sleeth (with all that creature's powers)."
+        }
+      ],
+      "description": "The fleshin is a 2 meter long fish that inhabits large lakes. It swims at high speed along the surface until it launches itself into the air, where its broad pectoral fins enable it to glide on wind currents for hours on end. It feeds on water birds and other small animals, but has been known to attack humans when hunting is bad. Its dorsal fin is covered with intensity 15 poison spines. If seriously threatened, it will shapechange and fight as a sleeth (with all that creature's powers)."
+    },
+    {
+      "name": "Grens",
+      "base_species": "Humanoid (Mutated Human)",
+      "stats": {
+        "armor_class": "4",
+        "movement": "12",
+        "hit_dice": "20",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "Appear to be completely normal Pure Strain Humans, except for their deep green skin."
+        },
+        {
+          "name": "Intelligence",
+          "description": "Intelligent."
+        },
+        {
+          "name": "Stealth",
+          "description": "Live secluded lives in harmony with nature. Inhabit only deep forests, where they cannot be seen or sensed by any creature until they reveal themselves."
+        },
+        {
+          "name": "Anti-Technology",
+          "description": "Will not use ancient technology and stubbornly refuse to learn any knowledge of the Ancients."
+        },
+        {
+          "name": "Behavior",
+          "description": "Most tribes shun outsiders, although in some instances (30%), grens may cooperate with Pure Strain Humans if approached in a non-hostile manner."
+        }
+      ],
+      "description": "Grens appear to be completely normal Pure Strain Humans... except for their deep green skin! They are intelligent and live secluded lives in harmony with nature. They inhabit only deep forests, where they cannot be seen or sensed by any creature until they reveal themselves. They will not use ancient technology and stubbornly refuse to learn any of the knowledge of the Ancients. Most tribes shun outsiders, although in some instances (30%), grens may cooperate with Pure Strain Humans if approached in a non-hostile manner."
+    },
+    {
+      "name": "Herkel",
+      "base_species": "Fish",
+      "stats": {
+        "armor_class": "9",
+        "movement": "8",
+        "hit_dice": "4",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Vicious Bite",
+          "description": "Bite inflicts 6 dice (6d6) of damage per melee turn."
+        },
+        {
+          "name": "Contact Poison Scales",
+          "description": "Scales covered with a thin film of intensity 18 contact poison."
+        },
+        {
+          "name": "Voracious Appetite",
+          "description": "Appetite knows no bounds, will eat anything they can get into their jaws."
+        }
+      ],
+      "description": "These relatively small (.5 meters long) fish are every bit as vicious as the piranha, with a bite that inflicts 6 dice of damage per melee turn. Their scales are covered with a thin film of intensity 18 contact poison. The appetite of a herkel knows no bounds, and they will eat anything they can get into their jaws."
+    },
+    {
+      "name": "Herp",
+      "base_species": "Beetle (Mutated)",
+      "stats": {
+        "armor_class": "3",
+        "movement": "10",
+        "hit_dice": "20",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Sonic Reflection",
+          "description": "Thick wing case (herp is flightless) reflects sonic attacks."
+        },
+        {
+          "name": "Acid Stream",
+          "description": "Squirts a stream of powerful acid up to 30 meters. Does 15 dice (15d6) of damage if it hits and will eat through 1/2 cm of duralloy in three melee turns."
+        },
+        {
+          "name": "Skilled Hunter",
+          "description": "Diligent and skillful hunter, able to track its prey (small animals) in all kinds of weather."
+        }
+      ],
+      "description": "This is a 3.5 meter long, carnivorous mutated beetle, protected by a thick wing case (the herp is flightless) which reflects sonic attacks. To kill its prey, it squirts a stream of powerful acid up to 30 meters. This does 15 dice (15d6) of damage if it hits and will eat through 1/2 cm of duralloy in three melee turns. The herp is a diligent and skillful hunter, able to track its prey (small animals) in all kinds of weather."
+    },
+    {
+      "name": "Hisser",
+      "base_species": "Humanoid/Reptile",
+      "stats": {
+        "armor_class": "3",
+        "movement": "12",
+        "hit_dice": "18",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Telepathy",
+          "description": "All hissers are telepathic."
+        },
+        {
+          "name": "Mental Strength 12",
+          "description": "Possess a mental strength of 12."
+        },
+        {
+          "name": "Mass Mind",
+          "description": "Possess the Mass Mind mental mutation."
+        },
+        {
+          "name": "Sonic Attack Ability",
+          "description": "Possess the Sonic Attack Ability physical mutation."
+        },
+        {
+          "name": "Random Mental Mutation",
+          "description": "Possess one other (random) mental mutation."
+        },
+        {
+          "name": "Laser/Sonic Resistance",
+          "description": "Scaly skin is completely resistant to laser and sonic attacks."
+        },
+        {
+          "name": "Matriarchal Society",
+          "description": "Society is matriarchal, one female leading a group of 70 or so males and young. Queen lays all eggs, all hatch as males. When community reaches ~70, matriarch hatches another female. Colony divides, new matriarch leads males off."
+        },
+        {
+          "name": "Language",
+          "description": "No written or spoken language; all information exchanged telepathically."
+        },
+        {
+          "name": "Technology Use",
+          "description": "Utilize selected items of Ancient technology uncovered in search expeditions among ruins."
+        }
+      ],
+      "description": "This 3-meter long half-man-half-snake inhabits the more arid regions of GAMMA WORLD, often settling near an oasis or well. All hissers are telepathic, with a mental strength of 12 and mass mind, sonic attack ability, and one other (random) mental mutation. Their scaly skin is completely resistant to laser and sonic attacks. Their society is matriarchal, one female leading a group of 70 or so males and young. She, like a queen bee, lays all the eggs for each settlement, and all of them hatch as males. When a community grows to about 70 individuals, the matriarch will hatch another female. In a few years, the colony will divide and the new matriarch will lead an assortment of male hissers off to find a new place to live. Although intelligent, hissers do not have any written or spoken language, as all information is exchanged telepathically. They utilize selected items of Ancient technology which they uncover in search expeditions among the ruins of the Ancients."
+    },
+    {
+      "name": "Hoop",
+      "base_species": "Rabbitoid",
+      "stats": {
+        "armor_class": "9",
+        "movement": "18",
+        "hit_dice": "15",
+        "number_appearing": "1-20"
+      },
+      "special_abilities": [
+        {
+          "name": "Leaping",
+          "description": "Able to leap over objects as high as 8 meters."
+        },
+        {
+          "name": "Intelligence",
+          "description": "Intelligent (mental strength 3-18)."
+        },
+        {
+          "name": "Telepathy",
+          "description": "Possess Telepathy mental mutation."
+        },
+        {
+          "name": "Mass Mind",
+          "description": "Possess Mass Mind mental mutation."
+        },
+        {
+          "name": "Transmutation (Metal to Rubber)",
+          "description": "Ability to transmute metal objects into rubber. Hoop must touch the metal object. All metal within 1 meter of that point turns into rubber (must all be in contact)."
+        },
+        {
+          "name": "Manipulative Forepaws",
+          "description": "Possess manipulative forepaws."
+        },
+        {
+          "name": "Technology Use",
+          "description": "Appreciate the power of Ancient weapons, and seek to obtain and use them. Referee must determine effect of transmutation on metal objects (armor, pistols, robots, etc.)."
+        }
+      ],
+      "description": "Hoops are actually 2.6 meters tall, mutated rabbitoid creatures that stand erect on their hind legs, and are able to leap over objects as high as 8 meters. They are intelligent (mental strength 3-18), telepathic, and have mass mind. A mutation peculiar to the hoops is their ability to transmute metal objects into rubber. The hoop must touch the metal object to be transmuted. All metal within 1 meter of that point turns into rubber (must all be in contact). Hoops have manipulative forepaws. They appreciate the power of Ancient weapons, and seek to obtain and use them. The referee must determine what effect the change to rubber will have on various metal objects, such as armor, pistols, robots, etc."
+    },
+    {
+      "name": "Hopper",
+      "base_species": "Hare (Mutated)",
+      "stats": {
+        "armor_class": "9",
+        "movement": "12 (hop at 24)",
+        "hit_dice": "3",
+        "number_appearing": "1 (1-20 in the wild)"
+      },
+      "special_abilities": [
+        {
+          "name": "Mount/Beast of Burden",
+          "description": "Commonly used as riding beasts, able to carry 100kg burdens with little or no effort."
+        },
+        {
+          "name": "Difficult Mount",
+          "description": "Riding requires special saddle and harness. Route gait is lippity-lops, full run consists of great leaps and rapid hops. Rider not properly fastened will surely be dismounted. First time riders 75% likely to sustain 1-6 dice damage and be thrown."
+        },
+        {
+          "name": "Intelligence",
+          "description": "Rather stupid."
+        },
+        {
+          "name": "Speed",
+          "description": "Possess high speed."
+        },
+        {
+          "name": "Chameleon Powers",
+          "description": "Possess Chameleon Powers physical mutation."
+        },
+        {
+          "name": "Leaping",
+          "description": "Unburdened hopper can easily make 12 meter leaps, and clear objects 8 meters high."
+        }
+      ],
+      "description": "Resembling giant, weird-looking hares, hoppers are commonly used as riding beasts, as each is able to carry 100kg burdens with little or no effort. Riding a hopper, however, is no easy task. They require a special saddle and harness, for, while their route gait is a not-too-jerky series of lippity-lops, their full run consists of great leaps, interspersed with rapid hops. Any rider who is not properly fastened to the saddle will surely be dismounted. Those riding a hopper for the first time are 75% likely to sustain 1-6 dice of damage (and be thrown from the hopper's back). These creatures are rather stupid (hoops regard them as we do chimpanzees), but their speed and chameleon powers enable them to survive. An unburdened hopper can easily make 12 meter leaps, and clear objects 8 meters high."
+    },
+    {
+      "name": "Horl Choo",
+      "base_species": "Plant",
+      "stats": {
+        "armor_class": "5",
+        "movement": "6",
+        "hit_dice": "18",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Throwing Spines",
+          "description": "Flings 6-30 (5d6) 3 meter long spear-like stems ('quills') at any being approaching within 90 meters. Tipped with intensity 9 poison in addition to doing 3 dice (3d6) of damage if they hit."
+        },
+        {
+          "name": "Retrieval Vines",
+          "description": "Spear-stems attached to plant by strong vines. Retrieve any spear that misses, drag impaled prey back to base."
+        },
+        {
+          "name": "Dissolving Juices",
+          "description": "Break down victim's body into food."
+        },
+        {
+          "name": "Limited Mobility",
+          "description": "Possesses a limited form of mobility, used only to move to better hunting grounds."
+        }
+      ],
+      "description": "This is a strange black plant which, when viewed from a distance, looks like a lumpy porcupine with extremely long quills. The 'quills' are actually 3 meter long spear-like stems which it flings at any being that approaches within 90 meters. There are from 6-30 (5d6) of these and they are tipped with intensity 9 poison in addition to doing 3 dice of damage if they hit. The spear-stems are attached to the plant by strong vines. These retrieve any spear that misses its target, and drag impaled prey back to the base of the plant where dissolving juices break the victim's body down into food. The horl choo has a limited form of mobility, which it only uses to move to better hunting grounds."
+    },
+    {
+      "name": "Kai Lin",
+      "base_species": "Plant/Reptile",
+      "stats": {
+        "armor_class": "6",
+        "movement": "10",
+        "hit_dice": "12",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "Deceptively reptilian-looking, 3-4 meter long plant. Runs on two strong stalks ending in thorny pads (resembling clawed feet), trailing long root structures behind like a tail."
+        },
+        {
+          "name": "Radiation Resistant Bark",
+          "description": "Covered with radiation resistant green bark resembling scales."
+        },
+        {
+          "name": "Scavenger/Predator",
+          "description": "Scavenger, but not above attracting and killing fresh food."
+        },
+        {
+          "name": "Behavior",
+          "description": "Wander in small groups searching for carrion, assimilate by entwining tail/roots around dead animal."
+        },
+        {
+          "name": "Limited Intelligence",
+          "description": "Possesses limited intelligence (mental strength 5)."
+        },
+        {
+          "name": "Electrical Generation",
+          "description": "Possesses Electrical Generation vegetable mutation."
+        },
+        {
+          "name": "Attraction Odor",
+          "description": "Possesses Attraction Odor (D) vegetable mutation."
+        },
+        {
+          "name": "Radiated Eyes",
+          "description": "Possesses Radiated Eyes physical mutation."
+        }
+      ],
+      "description": "This deceptively reptilian-looking creature is actually a 3 to 4 meter long plant. It runs along the ground on two strong stalks that end in thorny pads (resembling clawed feet), trailing its long root structures behind like a tail. It is covered with radiation resistant green bark which resembles scales. Although the kai lin is a scavenger, it is not above attracting and killing fresh food. Kai lin wander about in small groups in search of carrion, which they assimilate by entwining their tail/roots around the dead animal. It has a limited intelligence (mental strength 5) and the following mutations: electrical generation, attraction odor, and radiated eyes."
+    },
+    {
+      "name": "Keeshin",
+      "base_species": "Amphibian",
+      "stats": {
+        "armor_class": "3",
+        "movement": "Telekinetic flight",
+        "hit_dice": "7",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "High Intelligence",
+          "description": "Highly intelligent (intelligence 18, mental strength 16)."
+        },
+        {
+          "name": "Telekinetic Flight",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Telekinesis",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Telekinetic Arm",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Force Field Generation",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Life Leech",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "De-evolution",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Mental Blast",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Cryokinesis",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Reflection",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Multiple Mutation Use",
+          "description": "May utilize any 2 of its mental mutations per melee turn."
+        },
+        {
+          "name": "Behavior",
+          "description": "Ruthless, solitary creature. Spends most of its life gathering devices of the Ancients. Very greedy, will readily kill to obtain what it wants. Stores treasures in an underwater stone dwelling built telekinetically and kept filled with a pocket of fresh air."
+        }
+      ],
+      "description": "This small white mutated amphibian lives in bodies of water. It is highly intelligent (intelligence 18, mental strength 16), possessing the following mental mutations: telekinetic flight, telekinesis, telekinetic arm, force field generation, life leech, de-evolution, mental blast, cryokinesis, and reflection. It may utilize any 2 of these mutations per melee turn. The ruthless keeshin is a solitary creature, who spends most of its life gathering devices of the Ancients. It is very greedy and will readily kill to obtain what it wants. It stores its treasures in an underwater stone dwelling, which it builds telekinetically and keeps filled with a pocket of fresh air."
+    },
+    {
+      "name": "Kep",
+      "base_species": "Plant (Carnivorous)",
+      "stats": {
+        "armor_class": "2",
+        "movement": "N/A",
+        "hit_dice": "20",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Habitat",
+          "description": "Prefers sandy soil, grows completely underground, permits no other plants to grow above it."
+        },
+        {
+          "name": "Squeeze Root Net",
+          "description": "Builds elaborate net of squeeze roots (~30m diameter) just beneath surface with pressure sensitive filaments. When creature walks over area, net springs out to ensnare it."
+        },
+        {
+          "name": "Squeeze Root Attack",
+          "description": "Roots do 5 dice (5d6) of constrictive damage each melee turn to all creatures caught."
+        },
+        {
+          "name": "Retreat",
+          "description": "If kep takes damage equal to more than half its total hit points, it will release captives and retreat below ground."
+        },
+        {
+          "name": "Dissolving Juices",
+          "description": "If prey ceases to struggle, roots secrete dissolving juices to break it down into food."
+        },
+        {
+          "name": "Seed Mobility",
+          "description": "After each meal, produces one mobile seed. Tunnels to surface and scurries away."
+        }
+      ],
+      "description": "The kep is a hideous carnivorous plant which prefers sandy soil, grows completely underground, and permits no other plants to grow above it. Just beneath the surface, it builds an elaborate net of squeeze roots (some 30 meters in diameter) with pressure sensitive filaments. When a creature walks over this area, the network of squeeze roots springs out of the ground to ensnare it. The squeeze roots do 5 dice (5d6) of constrictive damage each melee turn to all creatures unfortunate enough to get caught. If a kep takes damage equal to more than half of its total hit points, it will release its captives and retreat below ground. If its prey ceases to struggle, the roots secrete dissolving juices which break it down into food for the kep. After each meal, the plant produces one mobile seed. It tunnels to the surface and scurries away in search of a home."
+    },
+    {
+      "name": "Menarl",
+      "base_species": "Water Snake (Mutated)",
+      "stats": {
+        "armor_class": "6",
+        "movement": "6",
+        "hit_dice": "7",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Intelligent water snake."
+        },
+        {
+          "name": "Size",
+          "description": "Impressive 10 meter long."
+        },
+        {
+          "name": "Arms",
+          "description": "Has 10 very usable arms equipped with human-shaped hands."
+        },
+        {
+          "name": "Heightened Strength",
+          "description": "Possesses heightened strength (17)."
+        },
+        {
+          "name": "Mental Strength 12",
+          "description": "Possesses a mental strength of 12."
+        },
+        {
+          "name": "Diet",
+          "description": "Favorite food is birds."
+        },
+        {
+          "name": "Bird Frenzy",
+          "description": "Goes into a mad frenzy when any birds are near."
+        },
+        {
+          "name": "Behavior",
+          "description": "Relatively friendly towards humanoids and, if shown how, will use ancient devices and weapons."
+        }
+      ],
+      "description": "The menarl is an impressive 10 meter long intelligent water snake. It has 10 very usable arms equipped with human-shaped hands. It has heightened strength (17) and a mental strength of 12. Its favorite food is birds, and it goes into a mad frenzy when any are near. The menarl is relatively friendly towards humanoids and, if shown how, will use ancient devices and weapons."
+    },
+    {
+      "name": "Narl Ep",
+      "base_species": "Plant (Tree)",
+      "stats": {
+        "armor_class": "3",
+        "movement": "N/A",
+        "hit_dice": "20",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Size",
+          "description": "Enormous white mutated tree, grows over 50 meters tall."
+        },
+        {
+          "name": "Habitat",
+          "description": "Lives in bodies of water, projecting pale green leafy top and 5-30 squeeze vines above the surface."
+        },
+        {
+          "name": "Squeeze Vines",
+          "description": "Used in defense. Covered with seed pods during spring."
+        },
+        {
+          "name": "Seed Pod Sonic Blast",
+          "description": "Flings ripe seed pods to the winds. When cracked open (usually by sharp blow), 2-12 (2d6) seeds fly out, along with a sonic blast doing 3 dice (3d6) of damage to all beings within 10 meters."
+        }
+      ],
+      "description": "This enormous white mutated tree grows over 50 meters tall. It lives in bodies of water, projecting its pale green leafy top and its 5-30 squeeze vines above the surface of the water. The squeeze vines are used in defense, and, during spring, are covered with seed pods, which it flings to the winds when ripe. When these pods are cracked open (usually a sharp blow will do), 2-12 (2d6) seeds fly out, along with a sonic blast that will do 3 dice (3d6) of damage to all beings within 10 meters."
+    },
+    {
+      "name": "Obb",
+      "base_species": "Fungus (Mutated)",
+      "stats": {
+        "armor_class": "10",
+        "movement": "1/15",
+        "hit_dice": "12",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Intelligent (mental strength 12)."
+        },
+        {
+          "name": "Appearance",
+          "description": "Resembles a 1 meter long bat."
+        },
+        {
+          "name": "Movement",
+          "description": "Nearly immobile on ground, swift and deadly as a hawk in air."
+        },
+        {
+          "name": "Radiation Blast",
+          "description": "Uses one large black eye to deliver a blast of intensity 16 radiation."
+        },
+        {
+          "name": "Claw Attack",
+          "description": "Strikes stunning blows with two clawed appendages doing 3 dice (3d6) of damage with each."
+        },
+        {
+          "name": "Spore Reproduction",
+          "description": "Once prey killed, devours half body, plants spores in remains. In one day 1-6 (d6) young obbs emerge and fly off."
+        },
+        {
+          "name": "Resistance",
+          "description": "Completely resistant to radiation, and all laser, light, and heat attacks."
+        },
+        {
+          "name": "Behavior",
+          "description": "Known to associate peacefully and team up with other intelligent beings, but only referee knows when/why. Intelligence and logic totally unrelated to anything generally known to man."
+        }
+      ],
+      "description": "The obb is an intelligent (mental strength 12) mutated fungus which resembles a 1 meter long bat. Nearly immobile on the ground, it is as swift and deadly as a hawk when in the air. It swoops down from the sky using its one large black eye to deliver a blast of intensity 16 radiation. It then strikes stunning blows with its two clawed appendages doing 3 dice (3d6) of damage with each. Once its prey is killed, the obb devours half of the body and plants its spores in what remains. In just one day 1-6 (d6) young obbs will emerge and fly off. The obb is completely resistant to radiation, and all laser, light, and heat attacks. It has been known to associate peacefully and even team up with other intelligent beings, but only the referee knows exactly when or why. The obb has an intelligence of its own, and its logic is totally unrelated to anything generally known to man."
+    },
+    {
+      "name": "Orlen",
+      "base_species": "Humanoid (Mutated)",
+      "stats": {
+        "armor_class": "7",
+        "movement": "15",
+        "hit_dice": "15",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "Two-headed, 2.5 meter tall, humanoid mutants."
+        },
+        {
+          "name": "Multiple Arms",
+          "description": "Have four arms, each 2 under control of a separate brain."
+        },
+        {
+          "name": "Telepathy",
+          "description": "All are telepathic."
+        },
+        {
+          "name": "Telekinesis",
+          "description": "Possess Telekinesis mental mutation."
+        },
+        {
+          "name": "Will Force",
+          "description": "Possess Will Force mental mutation, available in both brains."
+        },
+        {
+          "name": "Additional Mutations (25%)",
+          "description": "25% have 2 random mutations (one on each side), usually including poison claws (random intensity) on two hands, and de-evolution mental mutation on the other side."
+        },
+        {
+          "name": "Behavior",
+          "description": "Will barter peacefully to obtain technological devices. Have made many of their own, specially adapted for use with four arms."
+        }
+      ],
+      "description": "These two-headed, 2.5 meter tall, humanoid mutants have four arms... each 2 under the control of a separate brain. They are all telepathic, with telekinesis, and will force available in both brains. Some 25% of them also have 2 random mutations (one on each side), which usually include poison claws (random intensity) on two hands, and a mental mutation, de-evolution, on the other side. Orlens will barter peacefully to obtain technological devices, and have made many of their own - specially adapted for use with four arms."
+    },
+    {
+      "name": "Parn",
+      "base_species": "Beetle (Mutated)",
+      "stats": {
+        "armor_class": "6 (Antennae AC 5)",
+        "movement": "6/16",
+        "hit_dice": "10 (plus antennae)",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Barbed Spine Attack",
+          "description": "Covered with 4-24 (4d6) 1.3 meter long barbed spines used defensively. May shoot 2 per melee round up to 50m distance. Each does 2 dice (d6) damage if hits."
+        },
+        {
+          "name": "Antennae Attack",
+          "description": "Kills prey with 4 sharp sword-like structures at ends of 3 meter long antennae. Each does 3 dice (d6) damage if hits. Uses them effectively, adversely affecting opponent's armor class by 3 classes in close combat."
+        },
+        {
+          "name": "Antennae Hit Points",
+          "description": "Each antenna has AC 5 and takes 18 points of damage (in addition to creature's basic 10 hit dice) before being severed."
+        },
+        {
+          "name": "Behavior",
+          "description": "Not particularly intelligent, but a ruthless carnivore. Never retreats, fights tenaciously."
+        }
+      ],
+      "description": "The parn is a 3 meter long mutated beetle. Its back is covered with 4-24 (4d6) 1.3 meter long barbed spines, which it uses defensively. These it may shoot, 2 per melee round, up to a distance of 50 meters and each will do 2 dice (d6) of damage if it hits. Although not particularly intelligent, the parn is a ruthless carnivore, and it kills its prey with 4 sharp sword-like structures at the ends of its 3 meter long antennae. Each of these does 3 dice of damage (d6) if they hit, and the parn uses them so effectively that the armor class of any opponent(s) is adversely affected by 3 classes when in close combat with the parn. Each antenna has an armor class of 5 and will take 18 points of damage (this is in addition to the basic 10 hit dice of the creature) before it is severed. The parn never retreats and fights tenaciously to the death."
+    },
+    {
+      "name": "Perth",
+      "base_species": "Plant (Palm-like Bush)",
+      "stats": {
+        "armor_class": "4",
+        "movement": "N/A",
+        "hit_dice": "8",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Radiation Emission",
+          "description": "Topped with large (1m tall) flower-like structure. If disturbed, flower glows all rainbow shades. Next melee round emits radiation of random intensity (3d6) affecting all beings within 15m radius."
+        },
+        {
+          "name": "Multiple Radiation Blasts",
+          "description": "If damaged, glows 1-4 colors (d4) at once, emitting that many blasts of radiation of different intensities."
+        },
+        {
+          "name": "Healing Powder",
+          "description": "Petals can be sun-dried and crumbled into powder. When ingested, heals 1 lost hit point per gram consumed. One flower yields 20 grams. Drying requires 3 full days sunlight. If dried rapidly by artificial means, powder is only half as effective."
+        }
+      ],
+      "description": "This mutated palm-like bush is topped with a large (1 meter tall) flower-like structure. If disturbed, the flower will begin to glow all shades of the rainbow and on the next melee round emit radiation of random intensity (3d6) that affects all beings within a 15 meter radius. Each melee round, it changes color and emits radiation of a different intensity (again random). If the perth is damaged, it will glow 1 to 4 colors at once (d4), emitting that many blasts of radiation of different intensities. The petals of the flower-structure can be sun-dried and crumbled into a powder, which, when ingested, will heal one lost hit point for each gram of powder consumed. One flower will yield 20 grams of powder and the drying process requires 3 full days of sunlight. If dried more rapidly by artificial means, the powder will be only half as effective."
+    },
+    {
+      "name": "Pineto",
+      "base_species": "Plant (Tree)",
+      "stats": {
+        "armor_class": "4",
+        "movement": "18",
+        "hit_dice": "2",
+        "number_appearing": "1 (1-8 in wild)"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "Oddly mutated plant with horizontal trunk, movable branches adapted for rapid locomotion. Large root clump and keen visual/olfactory appendages at trunk base resemble shaggy horse's head."
+        },
+        {
+          "name": "Feeding",
+          "description": "Feeds on nutrimental matter thrust by tendrils into trunk cavity, absorbed by tiny rootlets."
+        },
+        {
+          "name": "Moisture Intake",
+          "description": "Takes on moisture like an animal by dipping 'head' (root clump) into stream/pond."
+        },
+        {
+          "name": "Mount/Beast of Burden",
+          "description": "Moves quickly to avoid predators. When captured, can be ridden or used as beast of burden (carrying up to 800kg)."
+        },
+        {
+          "name": "Control",
+          "description": "Controlled by sharp goad jammed behind root clump. Can be made to move, run, turn, stop."
+        },
+        {
+          "name": "Needle Defense",
+          "description": "Covered with dense growth of sharp needles. Riders without saddles/protection take 1 point damage per melee round."
+        },
+        {
+          "name": "Tail Lash",
+          "description": "Tail (tree top) lashes for 1 die (1d6) damage (to AC 8 or less) on command."
+        }
+      ],
+      "description": "These oddly mutated plants have a horizontal trunk and movable branches, adapted to rapid locomotion. A large clump of roots, and keen visual and olfactory appendages at the base of its trunk vaguely resembles a shaggy horse's head. It feeds on nutrimental matter, which its tendrils thrust into the trunk cavity where it is absorbed by thousands of tiny rootlets. The pineto takes on moisture much like an animal, by dipping its 'head' (root clump) into a stream or pond. Pinetos move about quickly in order to avoid predators. When captured, the pineto can be ridden or used as a beast of burden (carrying up to 800kg on their backs). Control is by means of a sharp goad which is jammed into the pineto, just behind the root clump. Using this device, the creature can be made to move, run, turn, and stop at a rider's command. Note, however, that the pineto is covered with a dense growth of sharp needles, and the tail (tree top) lashes for 1 die of damage (to armor class 8 or less) on command. Riders without saddles, or other proper protection, also take 1 point of damage per melee round while astride the pineto."
+    },
+    {
+      "name": "Podog",
+      "base_species": "Mongrel (Mutated Dog)",
+      "stats": {
+        "armor_class": "5 (8 if ridden)",
+        "movement": "15",
+        "hit_dice": "4",
+        "number_appearing": "1 (2-12 in wild packs)"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Fairly clever, understand simple commands."
+        },
+        {
+          "name": "Mount",
+          "description": "Large enough to ride, strong enough to carry most humans."
+        },
+        {
+          "name": "Behavior",
+          "description": "Not friendly in wild state. Carnivorous pack hunters. Only young can be trained as steeds."
+        },
+        {
+          "name": "Bite/Slash",
+          "description": "If attacked, bites and slashes with teeth causing 2 dice (2d6) of damage."
+        },
+        {
+          "name": "Poison Immunity",
+          "description": "Totally immune to any form of poison."
+        },
+        {
+          "name": "Prized Traits (Rare)",
+          "description": "Prized podogs (1 in 100, rarely for sale) have dual brains and communicate with masters via telepathy."
+        },
+        {
+          "name": "Imitation Bay",
+          "description": "When excited, bays out cry perfectly imitating prey/opponent, throwing it into confusion and giving podog initiative."
+        },
+        {
+          "name": "Pack Structure",
+          "description": "Packs normally consist of mated pair and one or two full/partially grown litters."
+        }
+      ],
+      "description": "Podogs are fairly clever, very large, mutated mongrels. They understand simple commands and are large enough to ride and strong enough to carry most humans at a good pace all day. They are not friendly in their wild state. Podogs are carnivorous pack hunters, and only the young can be trained to serve as steeds. If a podog is attacked, it will bite and slash with its teeth causing 2 dice (d6) of damage. All podogs are totally immune to any form of poison. Prized podogs have dual brains and communicate with their masters via telepathy (such creatures are one in a hundred and are rarely for sale). When excited, a podog bays out a cry which perfectly imitates that of its prey/opponent, throwing it into confusion and giving the podog the initiative to attack or flee. Packs of podogs will normally consist of a mated pair and one or two of their full and partially grown litters."
+    },
+    {
+      "name": "Rakox",
+      "base_species": "Oxen (Mutated)",
+      "stats": {
+        "armor_class": "4/6",
+        "movement": "9",
+        "hit_dice": "20",
+        "number_appearing": "1 (5-30 in wild herds)"
+      },
+      "special_abilities": [
+        {
+          "name": "Partial Carapace",
+          "description": "Sport a partial carapace (AC 4)."
+        },
+        {
+          "name": "Horn Gore",
+          "description": "Carapace surmounted by forward pointing frill of 8 long horns. Opponent gored suffers 1 die (1d6) damage per horn (typically 1-3 horns hit man-sized opponent)."
+        },
+        {
+          "name": "Charge",
+          "description": "Tendency to charge when frightened, especially if encountered in wild. Charging rakox does double damage."
+        },
+        {
+          "name": "Beast of Burden/Draft Animal",
+          "description": "Stupid and very skittish, but tough hide, endurance, and great strength (carry up to 1000kg) make them desirable."
+        }
+      ],
+      "description": "These rather slow but powerful oxen sport a partial carapace, surmounted by a forward pointing frill of 8 long horns. Any opponent gored by these weapons will suffer 1 die of damage (d6) per horn - typically, a man-sized opponent can be struck by 1-3 horns. They will have a tendency to charge when frightened, especially if encountered in the wild. A charging rakox does double damage. Although stupid, and very skittish, their tough hide, endurance, and great strength (able to carry up to 1000kg) make them desirable as beasts of burden and draft animals."
+    },
+    {
+      "name": "Sep",
+      "base_species": "Shark (Mutated, Land-dwelling)",
+      "stats": {
+        "armor_class": "5",
+        "movement": "10",
+        "hit_dice": "17",
+        "number_appearing": "1-6"
+      },
+      "special_abilities": [
+        {
+          "name": "Telekinetic Burrowing",
+          "description": "Powerful organ in head (resembling brain) enables sep to force even packed sand out of its way telekinetically, plowing beneath surface of deserts."
+        },
+        {
+          "name": "Detection",
+          "description": "Able to detect creatures up to 50 meters away."
+        },
+        {
+          "name": "Ambush Attack",
+          "description": "Springs unexpectedly from ground to attack."
+        },
+        {
+          "name": "Massive Jaws",
+          "description": "Bite for 9 dice (d6) of damage (in an adult)."
+        },
+        {
+          "name": "Hit-and-Run Tactics",
+          "description": "Quickly burrows back under sand after striking, maneuvers underground for 1-2 melee rounds before next attack from different direction."
+        },
+        {
+          "name": "Feeding",
+          "description": "Once prey killed, dragged beneath sand and eaten."
+        }
+      ],
+      "description": "The sep is actually a mutated version of the shark that has adapted to life on land. A powerful organ in its head (somewhat resembling a brain) enables the sep to force even packed sand out of its way telekinetically, as it plows along beneath the surface of deserts in search of prey. The sep is able to detect creatures up to 50 meters away. When it springs unexpectedly from the ground and attacks, its massive jaws (in an adult) bite for 9 dice (d6) of damage. It quickly burrows back under the sand after striking and maneuvers underground for one or two melee rounds before making its next attack from a different direction. Once killed, prey is dragged beneath the sand and eaten."
+    },
+    {
+      "name": "Serf",
+      "base_species": "Humanoid (Mutated)",
+      "stats": {
+        "armor_class": "6",
+        "movement": "12",
+        "hit_dice": "10",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Heightened Strength",
+          "description": "Physical mutation."
+        },
+        {
+          "name": "Partial Carapace",
+          "description": "Physical mutation."
+        },
+        {
+          "name": "Poison Claws",
+          "description": "Intensity 8 poison instead of fingernails."
+        },
+        {
+          "name": "Intelligence",
+          "description": "Very intelligent (mental strength 15)."
+        },
+        {
+          "name": "Light Wave Manipulation",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Density Control (others)",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Life Leech",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Death Field Generation",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Mental Blast",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Telepathy",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Behavior/Society",
+          "description": "Semi-nomadic, organize into quasi-military 'brigades'. Dress in old military/police uniforms recovered from Tombs of Ancients. 'General' holds power via ancient weapon. Prefer to fight only with mental mutations (90% likely)."
+        }
+      ],
+      "description": "Serfs are mutated humanoids with heightened strength, a partial carapace, and poison claws (intensity 8) instead of fingernails. They are very intelligent (mental strength 15) and possess the following mental mutations: light wave manipulation, density control (others), life leech, death field generation, mental blast, and telepathy. Serfs are semi-nomadic and organize themselves into quasi-military 'brigades', dressing in old military or police uniforms recovered from the Tombs of the Ancients. The 'general' of each brigade holds his power by means of an ancient weapon, although serfs prefer to fight only with their mental mutations, and any given one is 90% likely to do so."
+    },
+    {
+      "name": "Seroon Lou",
+      "base_species": "Plant (Aquatic, Carnivorous)",
+      "stats": {
+        "armor_class": "8",
+        "movement": "3",
+        "hit_dice": "8",
+        "number_appearing": "3-18"
+      },
+      "special_abilities": [
+        {
+          "name": "Size/Appearance",
+          "description": "Deep green, can reach 30m length. Semi-intelligent. Top of stalk projects up to 3m above water, mobile roots allow slow walking on bottom."
+        },
+        {
+          "name": "Eye",
+          "description": "Large eye at top of stalk, shaded by leaves. Directs use of manipulation vines."
+        },
+        {
+          "name": "Manipulation Vines",
+          "description": "Possesses 11-20 manipulation vines. Attack anything, grasp rocks/clubs, bludgeon victims to death."
+        },
+        {
+          "name": "Feeding",
+          "description": "Drags prey to bottom to be assimilated by roots."
+        },
+        {
+          "name": "Camouflage",
+          "description": "Often hides among peaceful narl ep; except for darker color, looks much the same."
+        }
+      ],
+      "description": "This deep green carnivorous aquatic plant can reach a length of up to 30 meters. It is semi-intelligent and the top of its stalk projects as much as 3 meters above the water, while its mobile roots allow it to walk slowly about the bottom. At the top of the stalk is a large eye, shaded by several leaves. The eye directs the use of its 11-20 manipulation vines. The seroon lou will attack just about anything, grasping rocks and clubs with its vines and bludgeoning its victims to death. It drags its prey to the bottom to be assimilated by its roots. The seroon lou often hides among the more peaceful narl ep, and, except for its darker color, looks much the same."
+    },
+    {
+      "name": "Sleeth",
+      "base_species": "Lizard (Mutated)",
+      "stats": {
+        "armor_class": "5",
+        "movement": "12",
+        "hit_dice": "18",
+        "number_appearing": "1-10"
+      },
+      "special_abilities": [
+        {
+          "name": "Intelligence",
+          "description": "Very intelligent (intelligence and mental strength 17)."
+        },
+        {
+          "name": "Telepathy",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Precognition",
+          "description": "Mental mutation."
+        },
+        {
+          "name": "Negate Force Field",
+          "description": "Special ability to negate any force field within 30 meters."
+        },
+        {
+          "name": "Illusion Resistance",
+          "description": "Completely resistant to illusions."
+        },
+        {
+          "name": "Poison Resistance 18",
+          "description": "Possess poison resistance of 18."
+        },
+        {
+          "name": "Additional Mutation (10%)",
+          "description": "In any group of 10, one will have an additional good mutation (choose randomly)."
+        },
+        {
+          "name": "Behavior/Society",
+          "description": "Quiet, peaceful race, living in small communities or villages. Befriend all manner of mutants, delight in discussions of philosophy and religion. Can use all kinds of weapons."
+        }
+      ],
+      "description": "The sleeth is a 3 meter tall mutated lizard. It is very intelligent (intelligence and mental strength 17) with the following mental mutations: telepathy, precognition, and the special ability to negate any force field within 30 meters. They are completely resistant to illusions and have a poison resistance of 18. In any given group of 10, one will have an additional good mutation (choose randomly). Sleeths are a quiet, peaceful race, living in small communities or villages. They befriend all manner of mutants and delight in discussions of philosophy and religion. They can use all kinds of weapons."
+    },
+    {
+      "name": "Soul Besh",
+      "base_species": "Mosquito (Mutated)",
+      "stats": {
+        "armor_class": "8",
+        "movement": "9",
+        "hit_dice": "10",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Flightless",
+          "description": "Is flightless."
+        },
+        {
+          "name": "Chameleon Powers",
+          "description": "Possesses Chameleon Powers physical mutation."
+        },
+        {
+          "name": "Habitat",
+          "description": "Inhabits swamps, marshes, grasslands, forests. Powers of concealment enable ambush."
+        },
+        {
+          "name": "Proboscis Attack",
+          "description": "Has 2 meter long coiled proboscis. Inserts (preferably into sleeping victim) causing 1d6 damage. Same melee round, injects intensity 18 paralytic poison."
+        },
+        {
+          "name": "Blood Sucking",
+          "description": "Next melee round, begins sucking blood at rate of 12 hit points per melee turn."
+        },
+        {
+          "name": "Antidote Source",
+          "description": "Exoskeleton, boiled in large cauldron, yields 150 cc syrupy antidote to intensity 18 poison. 10 cc required dose for humans."
+        }
+      ],
+      "description": "This is a flightless, mutated mosquito with chameleon powers. It often attains a length of over 1.3 meters and inhabits swamps, marshes, grasslands, and forests, where its powers of concealment enable it to ambush prey. It has a 2 meter long coiled proboscis, which it inserts (preferably into a sleeping victim) causing an immediate die (d6) of damage, and, in the same melee round, injects intensity 18 paralytic poison. On the next melee round, the soul besh begins sucking blood at a rate of 12 hit points per melee turn. The exoskeleton of the soul besh, when boiled down in a large cauldron, will yield 150 cc of syrupy antidote to intensity 18 poison. 10 cc is the required dose for humans."
+    },
+    {
+      "name": "Terl",
+      "base_species": "Barracuda (Mutated)",
+      "stats": {
+        "armor_class": "5",
+        "movement": "Telekinetic Flight",
+        "hit_dice": "9",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "2 meter long, covered with brightly colored feathers instead of scales."
+        },
+        {
+          "name": "Habitat",
+          "description": "Mates and hatches young in water, spends most of rest of life living in trees."
+        },
+        {
+          "name": "Amphibious Breathing",
+          "description": "Able to breathe both in water and air."
+        },
+        {
+          "name": "Telekinetic Flight",
+          "description": "Travels by means of telekinetic flight."
+        },
+        {
+          "name": "Intelligence",
+          "description": "Not particularly intelligent."
+        },
+        {
+          "name": "Cryokinesis",
+          "description": "Uses Cryokinesis mental mutation to kill prey."
+        },
+        {
+          "name": "Sonic Attack Ability",
+          "description": "Uses Sonic Attack Ability physical mutation simultaneously with cryokinesis to kill prey."
+        },
+        {
+          "name": "Bite",
+          "description": "If other methods fail, can bite for 2 dice (d6) of damage. Usually retreats to find easier kill."
+        },
+        {
+          "name": "Heat/Laser Reflection",
+          "description": "Feathers reflect heat and laser attacks."
+        },
+        {
+          "name": "Radiation Detection/Avoidance",
+          "description": "Able to detect and avoid areas of radiation."
+        }
+      ],
+      "description": "This 2 meter long mutated barracuda is covered with brightly colored feathers instead of scales. Consequently, it mates and hatches its young in water, but spends most of the rest of its life living in trees. It is able to breathe both in water and air and travels by means of telekinetic flight. It is not particularly intelligent, but is a dangerous predator, using both cryogenesis and its sonic attack ability simultaneously to kill its prey. If these two methods of attack fail, it can bite for 2 dice (d6) of damage, but will usually retreat to find an easier kill. Its feathers reflect heat and laser attacks, and it is able to detect and avoid areas of radiation."
+    },
+    {
+      "name": "Win Seen",
+      "base_species": "Plant (Vine Tangle)",
+      "stats": {
+        "armor_class": "9",
+        "movement": "N/A",
+        "hit_dice": "13",
+        "number_appearing": "2-7"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance/Growth",
+          "description": "Creeping tangle of vines, runners spread over very large area (up to 20m diameter). Difficult to tell where one plant ends and next begins; all plants in colony connected."
+        },
+        {
+          "name": "Aquatic Variety (Yellow-Green)",
+          "description": "Floats freely on surface of lakes/ponds. Emits sonic attack whenever touched. Covered with intensity 14 contact poison."
+        },
+        {
+          "name": "Land Variety (Blue-Green)",
+          "description": "Has above defenses (sonic attack, contact poison) plus attraction odor encouraging carnivores to live nearby (referee picks likely ones)."
+        },
+        {
+          "name": "Magnetic Control (Land Variety)",
+          "description": "Exhibits crude form of magnetic control. Forces all ferrous objects (up to 50kg wt) within 50m to the ground for up to 25 melee turns. Plant must be damaged before using this power."
+        },
+        {
+          "name": "Antidote Source",
+          "description": "Single win seen, chopped, cooked down in large pot for several days, yields ~100ccs antidote for intensity 14 poison. 10 ccs required dose for human."
+        }
+      ],
+      "description": "The win seen is a creeping tangle of vines whose runners can spread over a very large area (up to 20 meters in diameter). It is difficult to tell where one plant ends and the next one begins, as all plants in a colony are connected to one another. The yellow-green aquatic variety floats freely around the surface of lakes and ponds, emits a sonic attack whenever it is touched, and is covered with intensity 14 contact poison. The blue-green land win seen has the above defenses plus an attraction odor that encourages carnivores to live nearby (referee should pick a few likely ones). Although not intelligent, the land variety exhibits a crude form of magnetic control, forcing all ferrous objects (of up to 50 kg wt) within 50 meters of the plant to the ground for up to 25 melee turns. The plant must be damaged before it will utilize this power. A single win seen, chopped, and cooked down in a large pot for several days, will yield about 100ccs of antidote for intensity 14 poison, with 10 ccs being the required dose for a human."
+    },
+    {
+      "name": "Yexil",
+      "base_species": "Indeterminate (Flying Beast)",
+      "stats": {
+        "armor_class": "6",
+        "movement": "4/15",
+        "hit_dice": "10",
+        "number_appearing": "1-4"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "Wing span 8m, stands 3m tall. Slow-witted but friendly. Ambles on 2 long hairy legs, magnificent sight in air with beautiful orange fur-lined wings outstretched. Wing ends in well-shaped hand. Lion-like head atop long neck, large eyes, large mandibles."
+        },
+        {
+          "name": "Bite",
+          "description": "Can bite for 3 dice (3d6) of damage."
+        },
+        {
+          "name": "Laser Eye-Beams",
+          "description": "Shoots laser beam through eyes doing 5 dice (d6) damage out to 25 meters."
+        },
+        {
+          "name": "Fur",
+          "description": "Body covered with orange (and black) fur. Resistant to very little, but resistant to cold attacks."
+        },
+        {
+          "name": "Diet/Behavior",
+          "description": "Omnivorous, gourmet favorite foods are manufactured clothing (cotton, synthetics, leather, etc.). Snappier the outfit, better it tastes. Often trades worthless technology items (pistols, bombs, grenades) for good clothes."
+        }
+      ],
+      "description": "This flying creature, of indeterminate origin, has a wing span of 8 meters and stands 3 meters tall. It is a slow-witted but friendly beast which ambles around the ground on 2 long hairy legs, but is a magnificent sight in the air with its beautiful orange fur-lined wings outstretched. At the end of each wing is a well shaped hand. Atop its long neck rests a lion-like head with large eyes and large mandibles. In combat, the yexil can bite for 3 dice of damage, or shoot a laser beam through its eyes that does 5 dice (d6) of damage out to 25 meters. Its body is also covered with orange (and black) fur which is resistant to very little (but is resistant to cold attacks). The yexil is omnivorous, but its most favorite foods (it is a gourmet) are manufactured clothing - cotton, synthetics, leather, etc. The snappier the outfit, the better it tastes. The yexil will often trade what it considers worthless items of technology (such as pistols, bombs, or grenades) for good clothes to eat."
+    },
+    {
+      "name": "Zarn",
+      "base_species": "Beetle (Parasitic)",
+      "stats": {
+        "armor_class": "7",
+        "movement": "Teleportation (up to 200 meters)",
+        "hit_dice": "4",
+        "number_appearing": "1"
+      },
+      "special_abilities": [
+        {
+          "name": "Size",
+          "description": "Dangerous little orange parasitic beetle, 10cm long when full grown."
+        },
+        {
+          "name": "Aggression",
+          "description": "Attacks any living creature, regardless of size."
+        },
+        {
+          "name": "Poison Spit",
+          "description": "Spits intensity 16 paralytic contact poison up to 5m range (1st melee turn)."
+        },
+        {
+          "name": "Teleportation",
+          "description": "Teleports to different location (max range 200m) (2nd melee turn). Semi-intelligent."
+        },
+        {
+          "name": "Attack Pattern",
+          "description": "Spits poison again, continues teleport/spit routine until victim paralyzed. Saving throw vs poison needed each melee turn for each area of spittle not washed off."
+        },
+        {
+          "name": "Reproduction",
+          "description": "Once victim paralyzed, bores through skull, lays 4-24 eggs in brain. Paralysis lasts 1 week. Eggs hatch in 4 days, consume brain, emerge 5th day as little zarn. Eggs only removed surgically."
+        }
+      ],
+      "description": "The zarn is a dangerous little orange parasitic beetle that, when full grown, attains a length of only 10 centimeters. It will attack any living creature, regardless of size. On one melee turn it spits intensity 16 paralytic contact poison, up to a maximum range of 5 meters. On the next melee turn, although only semi-intelligent, it teleports to a different location (maximum range 200 meters). After teleporting, it will spit poison again, continuing this routine until a victim has been paralyzed. Note: the spittle is so toxic that the saving throw for poison must be made each melee turn for each area of spittle that is not washed off the victim's skin. Once its victim is paralyzed the zarn bores through the skull and lays 4-24 eggs in its brain. Paralysis lasts one full week. The eggs will hatch in four days, consume the brain, and emerge on the fifth day as little zarn. Zarn eggs may only be removed surgically."
+    },
+    {
+      "name": "Zeethh",
+      "base_species": "Plant (Grass)",
+      "stats": {
+        "armor_class": "10",
+        "movement": "None (teleporting seeds)",
+        "hit_dice": "1",
+        "number_appearing": "1-100"
+      },
+      "special_abilities": [
+        {
+          "name": "Appearance",
+          "description": "Sturdy blade of mutated purple grass, grows to 1.5m height."
+        },
+        {
+          "name": "Seed Production",
+          "description": "Tassles (grow continuously all summer) filled with 1-6 spiked seeds."
+        },
+        {
+          "name": "Seed Teleportation Attack",
+          "description": "Each melee round warm-blooded creatures are within 20m, plants attempt to teleport 1/4 of their seeds into those creatures. Treat as mental attack (MS 12) for each seed."
+        },
+        {
+          "name": "Seed Damage",
+          "description": "Seeds not getting into body vaporize. Each seed teleported into body does 2 dice (d6) damage."
+        },
+        {
+          "name": "Seed Dissolving Juice",
+          "description": "While inside creature, seeds secrete dissolving juice doing additional 1 point damage per day per seed for up to 7 days. If creature not dead by then, seeds die."
+        },
+        {
+          "name": "Healing Restriction",
+          "description": "Damage caused by seeds will not heal until seeds die or are removed surgically (see Rejuv Chamber)."
+        },
+        {
+          "name": "Reproduction",
+          "description": "If host dies (full of viable seeds), seeds sprout in <1 hour, grow large enough to tassel in 3 days. Adult zeethhs replace teleported seeds at 1 per day."
+        }
+      ],
+      "description": "Each Zeethh is a sturdy blade of mutated purple grass which grows to a height of 1.5 meters. Its tassles (which grow continuously all summer long) are filled with 1-6 spiked seeds. Each melee round that warm blooded creatures are within 20 meters of zeethhs, the plants will attempt to teleport one-quarter of their seeds into those creatures. Here's how to handle large scale zeethh combat:\n1. Multiply the number of zeethhs present by 3...this yields the total number of seeds available.\n2. One fourth of the original total of seeds will be teleported each melee turn.\n3. The number of seeds to be teleported is divided by the number of targets (warm-blooded creatures within 20 meters). The quotient is the number of seeds which attack each target.\n4. Treat the zeethhs as having a mental strength of 12. Roll a mental attack (see the MENTAL ATTACK MATRIX) for each seed.\nSeeds which do not get into a body simply vaporize. Each seed teleported into a body does 2 dice (d6) of damage to its new host. While inside a creature, these seeds secrete a dissolving juice that does an additional point of damage per day per seed for up to 7 days. If by then the creature is not dead, the seeds die. All damage caused by these seeds will not heal until the seeds die or are removed surgically (see Rejuv Chamber under ARTIFACTS & EQUIPMENT). If a host (full of viable seeds) dies, the seeds inside it will sprout in less than an hour, and grow large enough to have a tassel in three days. All adult zeethhs replace teleported seeds at a rate of one per day."
+    }
+  ]

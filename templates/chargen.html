@@ -718,16 +718,27 @@
                     body: JSON.stringify(finalizeRequestData)
                 }, false); // handleErrors = false
 
-                if (response.ok) {
-                    const responseData = await response.json(); // Already parsed by fetchApi if ok
-                    // Expect final character object in responseData.character (with camelCase keys)
-                    if (responseData.character) {
-                        console.log("Final character received after confirmation:", responseData.character);
+                // --- DEBUGGING: Log the raw response variable type and content ---
+                console.debug("Type of 'response' variable after fetchApi:", typeof response, response);
+
+                // Check if response is the parsed data (OK) or the raw Response object (Error)
+                // fetchApi returns parsed data on OK, raw Response otherwise when handleErrors=false
+                if (response && typeof response === 'object' && !(response instanceof Response)) {
+                    // --- This block handles the 200 OK case ---
+                    const responseData = response; // It's already parsed data
+                    console.debug("Response data from /finalize_character_mutations (200 OK):", responseData);
+
+                    if (responseData.character) { // Check the 'character' key in the parsed data
+                        console.log("Attempting to display final character..."); // Log before display call
                         displayFinalCharacter(responseData.character); // Display character (expects camelCase)
+                        console.log("Finished displaying final character."); // Log after display call
                     } else {
-                        throw new Error("Finalization API did not return a final character.");
+                        // This case means 200 OK but the expected 'character' key is missing
+                        console.error("Finalization API returned 200 OK but missing 'character' data.", responseData);
+                        throw new Error("Finalization API did not return the expected character data.");
                     }
-                } else if (response.status === 409) { // Handle Duplicate Conflict
+                } else if (response instanceof Response && response.status === 409) {
+                    // --- This block handles the 409 Conflict case ---
                     const errorData = response.errorData || { detail: "Duplicate mutations selected." };
                     console.error("Duplicate selection error:", errorData);
                     displayError(errorData.detail || "Duplicate mutations selected. Please make unique selections.");
@@ -739,14 +750,20 @@
                         });
                     }
                     dom.mutationSelectionArea.classList.remove('hidden'); // Show selection area again
-                } else {
-                    // Handle other non-OK responses
+                } else if (response instanceof Response) {
+                     // --- This block handles other non-OK responses ---
                     const errorData = response.errorData || { detail: `API Error: ${response.status}` };
-                    throw new Error(errorData.detail || `Finalization failed with status ${response.status}`);
+                    throw new Error(errorData.detail || errorData.message || `Finalization failed with status ${response.status}`);
+                } else {
+                    // Should not happen, but handle unexpected return from fetchApi
+                    console.error("Unexpected return type from fetchApi:", response);
+                    throw new Error("Unexpected response received from the server during finalization.");
                 }
-            } catch (error) {
-                console.error("Finalization error:", error);
-                displayError(`Failed to finalize mutations: ${error.message}`);
+            } catch (error) { // Catches errors thrown above or from fetchApi itself
+                console.error("Finalization error object:", error); // Log the whole error object
+                // Try to create a more robust message
+                const errorMessage = error?.message || String(error) || "An unknown error occurred during finalization.";
+                displayError(`Failed to finalize mutations: ${errorMessage}`);
                 // Optionally show selection area again if state exists
                 if (appState.currentIntermediateState) dom.mutationSelectionArea.classList.remove('hidden');
             } finally {

@@ -1,0 +1,56 @@
+{
+  "name": "Crazy Pete",
+  "character_type": "Humanoid",
+  "attributes": {
+    "mental_strength": 13,
+    "intelligence": 14,
+    "dexterity": 12,
+    "charisma": 11,
+    "constitution": 14,
+    "physical_strength": 12
+  },
+  "hit_points": 54,
+  "physical_mutations": [
+    {
+      "number": 37,
+      "humanPercentage": "66-67%",
+      "name": "Radiated Eyes",
+      "animalPercentage": "64%",
+      "isDefect": false,
+      "description": "37. RADIATED EYES: This gives the mutant the power to emit a damaging blast of radiation through the lenses of its eyes (roll 3d6 to determine intensity). This power may be used once every 4 melee turns and has an effective range of 10 meters.",
+      "hasTable": false
+    },
+    {
+      "number": 42,
+      "humanPercentage": "77%",
+      "name": "Sonic Attack Ability",
+      "animalPercentage": "73%",
+      "isDefect": false,
+      "description": "42. SONIC ATTACK ABILITY: This is the power to generate high-frequency sound waves that are damaging to exposed tissues at short range. The damage amounts to 3 dice (3d6) and is not selective. All beings (except the mutant) within a radius of 10 meters are affected and the dice are rolled once, with each suffering that amount. Sonic attacks may be made once very 4 melee turns.",
+      "hasTable": false
+    }
+  ],
+  "mental_mutations": [
+    {
+      "number": 17,
+      "humanPercentage": "42-45%",
+      "name": "Hostility Field",
+      "animalPercentage": "44%",
+      "isDefect": true,
+      "description": "17. HOSTILITY FIELD (D): This is a repugnant unconscious field set up in a 30 meter radius around the mutant. Any being with an intelligence of 16 or less, friend or foe, will have a 20% chance of wanting to attack the mutant upon first entering the field.",
+      "hasTable": false
+    }
+  ],
+  "generation_log": [
+    "Starting character generation for type: Humanoid",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=13, IN=14, DX=12, CH=11, CN=14, PS=12",
+    "Calculated starting Hit Points: 54 (rolled 14d6).",
+    "Rolled for number of mutations: 2 Physical, 1 Mental.",
+    "Using Mutation Method 1: Random Roll.",
+    "Physical Slot 1 (Roll 66%): Radiated Eyes",
+    "Physical Slot 2 (Roll 77%): Sonic Attack Ability",
+    "Mental Slot 1 (Roll 45%): Hostility Field (Defect)",
+    "All mutation slots determined randomly or assigned. Finalizing character directly."
+  ],
+  "description": "Crazy Pete, a humanoid shaped by the cruel hand of the Great Disaster, cuts a disturbing figure against the desolate backdrop of Gamma World.  His frame, while possessing average strength and dexterity, hints at a wiry resilience, likely born from a life lived on the edge of survival.  His most striking feature, and the source of his unsettling moniker, are his eyes.  They glow with an unnatural luminescence, a telltale sign of his Radiated Eyes mutation.  This internal furnace not only illuminates his gaunt face with an eerie light but also serves as a potent weapon, capable of unleashing blasts of searing radiation upon his foes.\n\nBeyond the unsettling ocular display, Pete's demeanor is marked by a palpable tension.  He shifts his weight constantly, his movements jerky and unpredictable. While he may not inspire confidence as a leader given his average charisma, his above average intelligence suggests a cunning mind, perhaps honed by the harsh realities of the post-apocalyptic world. This intellect, combined with his decent dexterity, could make him adept at scavenging for artifacts and deciphering their cryptic functions – a valuable asset in a world ruled by the remnants of forgotten technology. However, his fluctuating moods and unpredictable reactions suggest a mind not entirely at peace, perhaps a side effect of his mutations.\n\nHis above-average constitution speaks of a hardiness that has seen him through countless scrapes and exposures, a necessity in the radiation-soaked ruins of the Ancients.  This resilience, coupled with his ability to unleash sonic attacks that indiscriminately pummel everything within a 10-meter radius, paints a picture of a survivor who is not afraid to fight dirty. He is a force to be reckoned with, a whirlwind of radiation blasts and sonic booms, capable of devastating both friend and foe alike.\n\nBut Crazy Pete’s mutations are a double-edged sword. The very energies that grant him power also curse him with a Hostility Field, a repugnant aura that unwittingly provokes those around him.  This invisible barrier of animosity ensures that he is rarely welcomed and often challenged, adding another layer of complexity to his already precarious existence. He treads a lonely path, a pariah in a world of pariahs, feared and misunderstood by the very people he might otherwise seek to ally with.  He is a walking paradox, a testament to the twisted nature of Gamma World, where survival often comes at a terrible price."
+}
