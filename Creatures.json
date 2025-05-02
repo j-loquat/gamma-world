@@ -5,7 +5,7 @@
       "stats": {
         "armor_class": "6",
         "movement": "12",
-        "hit_dice": "50 Hit Points",
+        "hit_dice": "10",
         "number_appearing": "1-6"
       },
       "special_abilities": [
@@ -26,7 +26,7 @@
       "stats": {
         "armor_class": "5",
         "movement": "12",
-        "hit_dice": "40 Hit Points",
+        "hit_dice": "7",
         "number_appearing": "1-6"
       },
       "special_abilities": [
@@ -47,7 +47,7 @@
       "stats": {
         "armor_class": "4",
         "movement": "15",
-        "hit_dice": "75 Hit Points",
+        "hit_dice": "15",
         "number_appearing": "1-6"
       },
       "special_abilities": [

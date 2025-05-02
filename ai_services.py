@@ -14,7 +14,7 @@ import models
 
 log = logging.getLogger(__name__)
 
-# --- Gemini Client Initialization (Original Style) ---
+# --- Gemini Client Initialization ---
 client: Optional[genai.Client] = None # Explicitly type hint
 if not config.GEMINI_API_KEY:
     log.critical("Gemini API Key not found in environment variables. AI services will fail.")
@@ -30,7 +30,7 @@ else:
         client = None
 
 
-# --- AI Service Functions (Using Original client.aio.models.generate_content) ---
+# --- AI Service Functions ---
 
 async def generate_ai_description(request_data: models.GenerateDescriptionRequest) -> Tuple[str, Optional[str]]:
     """
@@ -122,7 +122,7 @@ async def generate_ai_image(request_data: models.GenerateImageRequest) -> Tuple[
 
     log.info("Generating AI image for character...")
 
-    # --- Construct prompt & style reference (Same as before) ---
+    # --- Construct prompt & style reference ---
     prompt = (
         "Generate a single illustration (no text in the image) of the Gamma World RPG character described below. "
         "Use the same style as the attached reference image (color palette, line-weight, overall feel, and general rendering mood) "
@@ -131,7 +131,7 @@ async def generate_ai_image(request_data: models.GenerateImageRequest) -> Tuple[
     )
     log.debug(f"Image Generation Prompt (start): {prompt[:200]}...")
 
-    # Load reference image (Same as before)
+    # Load reference image
     style_image = None
     try:
         if config.STYLE_IMAGE_PATH.exists():
@@ -142,7 +142,7 @@ async def generate_ai_image(request_data: models.GenerateImageRequest) -> Tuple[
     except Exception as e:
         log.warning(f"Could not load style image '{config.STYLE_IMAGE_PATH}': {e}. Proceeding without it.")
 
-    # --- Call Gemini Image Generation API (Original Style) ---
+    # --- Call Gemini Image Generation API ---
     try:
         log.info("Sending image generation request to Gemini via client.aio.models...")
         contents = [prompt]
@@ -153,16 +153,14 @@ async def generate_ai_image(request_data: models.GenerateImageRequest) -> Tuple[
 
         # Use the client object and the original call structure
         response = await client.aio.models.generate_content(
-            model='gemini-2.0-flash-exp-image-generation', # Use the original model name
+            model='gemini-2.0-flash-exp-image-generation', # Use the required model for image generation
             contents=contents,
-            # Use the 'config' parameter name and structure from the original code
             config=genai_types.GenerateContentConfig(
               response_modalities=['TEXT', 'IMAGE'] # Must have both modalities
             )
-            # No separate generation_config parameter in this style
         )
 
-        # --- Process Response (Original Style - looking for inline_data in parts) ---
+        # --- Process Response ---
         if not response.candidates:
             block_reason = "Unknown"
             safety_ratings = "N/A"
@@ -178,7 +176,7 @@ async def generate_ai_image(request_data: models.GenerateImageRequest) -> Tuple[
         image_part = None
         text_response = ""
         for part in response.candidates[0].content.parts:
-            # Check specifically for inline_data as in the original code
+            # Check specifically for inline_data
             if hasattr(part, 'inline_data') and part.inline_data is not None and part.inline_data.data:
                 image_part = part.inline_data # Store the inline_data object
                 break
