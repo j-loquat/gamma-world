@@ -38,7 +38,7 @@ load_dotenv()
 CREATURES_FILE = Path("./Creatures.json")
 IMAGES_DIR = Path("./images/")
 TEMP_IMAGE_PATH = Path("./_temp_creature_image.png")
-STYLE_IMAGE_PATH = Path("./images/mutant-snake.png") # Style reference for AI
+STYLE_IMAGE_PATH = Path("./images/bunnies.png") # Style reference for AI
 GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # --- Logging Setup ---
