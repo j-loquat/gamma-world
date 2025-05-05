@@ -18,6 +18,12 @@
 
     {% if single_character %}
         <!-- -------------- SINGLE CHARACTER VIEW -------------- -->
+        {# --- Delete Button (Top Left) --- #}
+        <button id="delete-char-btn"
+                data-char-id="{{ character_id }}" {# Use the explicitly passed character_id #}
+                class="btn btn-sm btn-error fixed top-4 left-4 z-50">
+            Delete Character
+        </button>
         <div class="max-w-4xl mx-auto">
             {# --- Basic Info (Use .get for safety) --- #}
             <h1 class="text-3xl font-bold text-center mb-2 text-primary">
@@ -137,6 +143,50 @@
                 </div>
             </div>
         </div>
+
+        {# --- JavaScript for Delete Button --- #}
+        <script>
+            document.getElementById('delete-char-btn').addEventListener('click', function() {
+                const button = this;
+                const characterId = button.dataset.charId;
+                const characterName = "{{ single_character.get('name', 'this character') }}"; // Get name for confirmation
+
+                if (!characterId) {
+                    console.error('Character ID not found.');
+                    alert('Error: Could not find character ID to delete.');
+                    return;
+                }
+
+                if (confirm(`Are you sure you want to permanently delete ${characterName}? This cannot be undone.`)) {
+                    // Optional: Show loading state
+                    button.classList.add('loading', 'loading-spinner');
+                    button.disabled = true;
+
+                    fetch(`/characters/${characterId}`, {
+                        method: 'DELETE',
+                    })
+                    .then(response => {
+                        // Check if the server responded successfully (e.g., 2xx status or the 303 redirect)
+                        // The browser might follow the 303 automatically, but we force navigation for robustness.
+                        if (response.ok || response.status === 303) {
+                             console.log('Character deleted successfully. Forcing navigation to /browser.');
+                             window.location.href = '/browser'; // Explicitly navigate to the list view
+                        } else {
+                            // Handle actual errors from the server
+                            alert(`Failed to delete character. Server responded with status: ${response.status}`);
+                            button.classList.remove('loading', 'loading-spinner'); // Reset button state on error
+                            button.disabled = false;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error sending delete request:', error);
+                        alert('An error occurred while trying to delete the character.');
+                        button.classList.remove('loading', 'loading-spinner'); // Reset button state on error
+                        button.disabled = false;
+                    });
+                }
+            });
+        </script>
 
     {% else %}
         <!-- -------------- LIST VIEW -------------- -->

@@ -16,13 +16,16 @@ import json
 import time
 import uuid
 import logging
+import os # Need os for file deletion, or use pathlib
 from pathlib import Path
 from slugify import slugify
+from typing import List, Optional # Added List and Optional
 
 from fastapi import (
     FastAPI, HTTPException, Request, Response, status, File, UploadFile
 )
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
+# Import RedirectResponse here
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pydantic import ValidationError
@@ -199,7 +202,12 @@ async def view_character(char_id: str, request: Request):
 
     return templates.TemplateResponse(
         "charbrowse.html",
-        {"request": request, "single_character": data, "image_path": image_rel_path}
+        {
+            "request": request,
+            "single_character": data,
+            "image_path": image_rel_path,
+            "character_id": char_id # Explicitly pass the ID to the template
+        }
     )
 
 # --- Creature Browser Routes ---
@@ -442,6 +450,83 @@ async def save_character(req: models.SaveCharacterRequest):
         json_path=str(char_path).replace("\\", "/"),
         image_path=saved_image_path # Already relative or None
     )
+@app.delete("/characters/{character_id}", status_code=status.HTTP_303_SEE_OTHER, tags=["Character Storage"])
+async def delete_character(character_id: str):
+    """Deletes a character's JSON data, image, and removes it from the index."""
+    log.info(f"Received request to delete character ID: {character_id}")
+    utils.ensure_dirs() # Ensure directories exist
+
+    char_file_path = config.CHAR_DIR / f"{character_id}.json"
+    img_file_path = config.IMAGE_DIR / f"{character_id}.png"
+    index_file_path = config.CHAR_DIR / "index.json" # Assuming index is in CHAR_DIR
+
+    deleted_something = False # Flag to track if any file was actually deleted
+
+    # 1. Update Index
+    if index_file_path.exists():
+        try:
+            # Use a lock or more robust mechanism in a high-concurrency scenario
+            with open(index_file_path, 'r', encoding='utf-8') as f:
+                # Ensure index_data is treated as a list of dicts
+                index_data: List[dict] = json.load(f)
+                if not isinstance(index_data, list):
+                    log.error(f"Index file {index_file_path} does not contain a valid JSON list. Aborting index update.")
+                    index_data = [] # Reset to empty list to avoid errors below
+                
+            initial_length = len(index_data)
+            # Filter out the character to be deleted
+            updated_index_data = [char for char in index_data if isinstance(char, dict) and char.get("id") != character_id]
+
+            if len(updated_index_data) < initial_length:
+                log.info(f"Removing character {character_id} from index.")
+                with open(index_file_path, 'w', encoding='utf-8') as f:
+                    json.dump(updated_index_data, f, indent=2)
+                log.info(f"Character index updated successfully at {index_file_path}")
+                deleted_something = True # Considered deletion if index was modified
+            else:
+                log.warning(f"Character ID {character_id} not found in index file {index_file_path}.")
+
+        except (json.JSONDecodeError, IOError, Exception) as e:
+            log.error(f"Error processing character index {index_file_path}: {e}", exc_info=True)
+            # Decide if we should proceed with file deletion even if index fails
+            # For now, we proceed but log the error.
+    else:
+        log.warning(f"Character index file not found at {index_file_path}. Skipping index update.")
+
+    # 2. Delete Character JSON File
+    try:
+        if char_file_path.exists():
+            char_file_path.unlink()
+            log.info(f"Deleted character JSON file: {char_file_path}")
+            deleted_something = True
+        else:
+            log.warning(f"Character JSON file not found, cannot delete: {char_file_path}")
+    except OSError as e:
+        log.error(f"Error deleting character JSON file {char_file_path}: {e}", exc_info=True)
+        # Continue deletion process even if one file fails
+
+    # 3. Delete Character Image File
+    try:
+        if img_file_path.exists():
+            img_file_path.unlink()
+            log.info(f"Deleted character image file: {img_file_path}")
+            deleted_something = True
+        else:
+            # This is not necessarily an error, the character might not have had an image
+            log.info(f"Character image file not found, no image to delete: {img_file_path}")
+    except OSError as e:
+        log.error(f"Error deleting character image file {img_file_path}: {e}", exc_info=True)
+
+    # If nothing was found (neither in index nor files), maybe return 404?
+    # For now, redirecting anyway as the goal is to ensure it's gone.
+    if not deleted_something:
+        log.warning(f"No files or index entry found for character ID {character_id}. Still redirecting.")
+        # Optionally raise HTTPException(status_code=404, detail="Character not found") instead
+
+    # 4. Redirect to the browser list
+    # Use RedirectResponse with 303 See Other status code
+    log.info(f"Character deletion process completed for ID {character_id}. Redirecting to browser.")
+    return RedirectResponse(url="/browser", status_code=status.HTTP_303_SEE_OTHER)
 
 
 # --- AI Service API ---
