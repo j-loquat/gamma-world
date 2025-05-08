@@ -42,9 +42,9 @@ async def generate_ai_description(request_data: models.GenerateDescriptionReques
 
     log.info(f"Generating AI description for character: {request_data.name or 'Unnamed'}")
 
-    # --- Construct Prompt (Same as before) ---
+    # --- Construct Prompt ---
     prompt_parts = [
-        "Generate a vivid and engaging character description for a Gamma World RPG character based on the provided details. Focus on physical appearance, demeanor, notable skills suggested by attribute scores, and any striking features or behaviors resulting from mutations. Integrate the context of the Gamma World setting (post-apocalyptic, mutated). Aim for approximately 2-4 paragraphs.",
+        "Generate a vivid and engaging character description for a Gamma World RPG character based on the provided details. Focus on physical appearance, demeanor, notable skills suggested by attribute scores, and any striking features or behaviors resulting from mutations. Integrate the context of the Gamma World setting (post-apocalyptic, mutated). Aim for approximately 2-4 paragraphs and only respond with the description.",
         f"\n## Character Data:",
         f"Name: {request_data.name or 'Unnamed'}",
         f"Type: {request_data.character_type.value}",
@@ -83,7 +83,7 @@ async def generate_ai_description(request_data: models.GenerateDescriptionReques
         log.info("Sending description request to Gemini via client.aio.models...")
         # Use the client object and the original call structure
         response = await client.aio.models.generate_content(
-            model='gemini-1.5-pro-latest', # Keep model name consistent
+            model='gemini-2.5-flash-preview-04-17', # model name for text generation, try gemini-2.5-flash-preview-04-17
             contents=[constructed_prompt_string]
             # No generation_config needed for text typically
         )
@@ -153,7 +153,7 @@ async def generate_ai_image(request_data: models.GenerateImageRequest) -> Tuple[
 
         # Use the client object and the original call structure
         response = await client.aio.models.generate_content(
-            model='gemini-2.0-flash-exp-image-generation', # Use the required model for image generation
+            model='gemini-2.0-flash-preview-image-generation', # Use the required model for image generation
             contents=contents,
             config=genai_types.GenerateContentConfig(
               response_modalities=['TEXT', 'IMAGE'] # Must have both modalities

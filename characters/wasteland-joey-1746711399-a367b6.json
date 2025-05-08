@@ -1,0 +1,23 @@
+{
+  "name": "Wasteland Joey",
+  "character_type": "Pure Strain Human",
+  "attributes": {
+    "mental_strength": 18,
+    "intelligence": 14,
+    "dexterity": 9,
+    "charisma": 18,
+    "constitution": 8,
+    "physical_strength": 9
+  },
+  "hit_points": 33,
+  "physical_mutations": [],
+  "mental_mutations": [],
+  "generation_log": [
+    "Starting character generation for type: Pure Strain Human",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=18, IN=14, DX=9, CH=15, CN=8, PS=9",
+    "Applied PSH bonus: Charisma increased from 15 to 18.",
+    "Calculated starting Hit Points: 33 (rolled 8d6).",
+    "Character is Pure Strain Human. Skipping mutation phase."
+  ],
+  "description": "Wasteland Joey is a striking figure in the chaos of the Gamma World, not for any grotesque mutation, but for his remarkable lack thereof. As a Pure Strain Human, he appears deceptively \"normal\" in a world where such a thing is a rarity. Physically, he's not particularly imposing; perhaps somewhat slender, his movements lack the fluid speed of a mutated beast or the sheer brute force of a hulking humanoid (reflecting his average PS and DX). His constitution isn't his strong suit either (CN 8), suggesting he might not recover from injuries or resist the pervasive environmental hazards as readily as others forged in the nuclear fire. He's built more for endurance of spirit than endurance of flesh.\n\nHowever, where Joey's body is merely average, his mind and presence are anything but. He possesses an almost unparalleled Mental Strength (MS 18), making his thoughts and will exceptionally resilient, a shield against the psychic strange-ness that can ripple through the wastes. This mental fortitude is coupled with a keen intellect (IN 14); his mind is sharp and capable of dissecting problems and, perhaps more importantly in this age, understanding the baffling logic of the Ancients' technology – the precious, dangerous artifacts scattered throughout the ruins.\n\nBut it is Joey's incredible Charisma (CH 18) that truly sets him apart. He has an innate magnetism, a compelling aura that draws others to him. Whether negotiating with wary villagers, swaying a hostile tribe, or simply earning the trust of potential companions, his words carry weight and his presence inspires confidence (or at least, a willingness to listen). In a world dominated by brute force and fear, Joey survives and thrives by navigating social landscapes with effortless grace, proving that sometimes, the most powerful weapon is a persuasive tongue and an unwavering spirit. He is a living anomaly – physically vulnerable, yet mentally and socially dominant, a beacon of human potential in a mutated world."
+}
