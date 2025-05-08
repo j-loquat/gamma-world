@@ -1,0 +1,23 @@
+{
+  "name": "Sneaky Steve",
+  "character_type": "Pure Strain Human",
+  "attributes": {
+    "mental_strength": 15,
+    "intelligence": 10,
+    "dexterity": 16,
+    "charisma": 13,
+    "constitution": 9,
+    "physical_strength": 13
+  },
+  "hit_points": 26,
+  "physical_mutations": [],
+  "mental_mutations": [],
+  "generation_log": [
+    "Starting character generation for type: Pure Strain Human",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=15, IN=10, DX=16, CH=10, CN=9, PS=13",
+    "Applied PSH bonus: Charisma increased from 10 to 13.",
+    "Calculated starting Hit Points: 26 (rolled 9d6).",
+    "Character is Pure Strain Human. Skipping mutation phase."
+  ],
+  "description": "In the shattered ruins of the Gamma World walks Sneaky Steve, a figure notable not for grotesque mutation or bizarre physical traits, but for his stark, almost unnerving, *normality*. A Pure Strain Human, he appears much as the Ancients might have before the Great Disaster: roughly average height and build, lacking any extra limbs, unnatural fur, or glowing eyes. His appearance is often understated, perhaps lean and wiry, suggesting someone who travels light and moves with efficiency. It's the way he carries himself that hints at his moniker – a slight economy of movement, eyes that constantly scan the environment, and a knack for melting into shadows or navigating tricky terrain with quiet ease.\n\nBeneath the surface of his unassuming exterior lie the traits that have kept him alive in this mutated age. Steve possesses exceptional dexterity, lending him lightning-fast reflexes, remarkable agility, and uncanny accuracy whether throwing a salvaged weapon or dodging the swipe of a beast. He is surprisingly strong as well, able to hit with more force than his frame might suggest. What truly sets him apart, particularly as a Pure Strain Human, is his formidable mental strength; his mind is a steel trap, exceptionally resistant to the burgeoning psionic powers common among mutants and creatures of the Gamma World. Add to this a surprising degree of charisma, giving him an unexpected ability to persuade, disarm suspicion, or even lead others despite his penchant for operating from the periphery.\n\nSneaky Steve is not just stealthy; he is a master of anticipation and positioning, using his speed and agility to gain the upper hand before a fight even begins, or to slip away when things turn sour. His mental resilience makes him a valuable asset against foes that rely on mind-bending powers, while his charm can sometimes open doors that brute force or intimidation cannot. He is a survivor tailored to the unique dangers of 2471, a blend of physical prowess, mental fortitude, and social savvy, navigating a world gone mad as a quiet, remarkably capable ghost of the past."
+}

@@ -48,6 +48,12 @@ async def generate_ai_description(request_data: models.GenerateDescriptionReques
         f"\n## Character Data:",
         f"Name: {request_data.name or 'Unnamed'}",
         f"Type: {request_data.character_type.value}",
+    ]
+    # Add base animal species if present
+    if request_data.base_animal_species:
+        prompt_parts.append(f"Base animal species that must be taken into account: {request_data.base_animal_species}.")
+
+    prompt_parts.extend([
         f"\n### Attributes:",
         f"  Mental Strength (MS): {request_data.attributes.mental_strength}",
         f"  Intelligence (IN): {request_data.attributes.intelligence}",
@@ -56,7 +62,8 @@ async def generate_ai_description(request_data: models.GenerateDescriptionReques
         f"  Constitution (CN): {request_data.attributes.constitution}",
         f"  Physical Strength (PS): {request_data.attributes.physical_strength}",
         f"\n### Physical Mutations:"
-    ]
+    ])
+
     if request_data.physical_mutations:
         for mut in request_data.physical_mutations:
             prompt_parts.append(f"  - {mut.name}{' (Defect)' if mut.isDefect else ''}: {mut.description}")

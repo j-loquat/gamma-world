@@ -1,0 +1,79 @@
+{
+  "name": "Felix",
+  "character_type": "Mutated Animal",
+  "base_animal_species": "Cat",
+  "attributes": {
+    "mental_strength": 12,
+    "intelligence": 6,
+    "dexterity": 13,
+    "charisma": 13,
+    "constitution": 13,
+    "physical_strength": 13
+  },
+  "hit_points": 35,
+  "physical_mutations": [
+    {
+      "number": 12,
+      "humanPercentage": "19-22%",
+      "name": "Heightened Constitution",
+      "animalPercentage": "16-21%",
+      "isDefect": false,
+      "description": "12. HEIGHTENED CONSTITUTION: This adds 2 additional hit points for every point of the mutant's constitution. It also gives an 18 resistance to poison and adds three points to the mutant's radiation resistance.",
+      "hasTable": false
+    },
+    {
+      "number": 23,
+      "humanPercentage": "40-42%",
+      "name": "Increased Speed",
+      "animalPercentage": "38-39%",
+      "isDefect": false,
+      "description": "23. INCREASED SPEED: Mutants with this ability are able to move at twice normal speed. They accomplish mental tasks in a much shorter time than normal and, in combat, they are allowed to strike twice each melee turn.",
+      "hasTable": false
+    },
+    {
+      "number": 18,
+      "humanPercentage": "33%",
+      "name": "Heightened Taste",
+      "animalPercentage": "30-32%",
+      "isDefect": false,
+      "description": "18. HEIGHTENED TASTE: Mutants with this ability can detect poisons at a touch of the tongue and can determine whether any given substance is edible.",
+      "hasTable": false
+    },
+    {
+      "number": 38,
+      "humanPercentage": "68-69%",
+      "name": "Regeneration",
+      "animalPercentage": "65-67%",
+      "isDefect": false,
+      "description": "38. REGENERATION: This allows the being to heal itself and replace lost hit points. One hit point is regenerated per 5 kilograms of body weight per day.",
+      "hasTable": false
+    }
+  ],
+  "mental_mutations": [
+    {
+      "number": 20,
+      "humanPercentage": "48-52%",
+      "name": "Life Leech",
+      "animalPercentage": "50-52%",
+      "isDefect": false,
+      "description": "20. LIFE LEECH: This is the power to drain life energy from all semi-intelligent or intelligent beings, friend and foe alike, within a 10 meter radius of the mutant. This range is increased by 3 meters for every 4 points of mental strength possessed by the mutant. Life leech will drain away 6 hit points per melee turn (i.e., cause 6 points of damage) from each being in range and add a like number of hit points to the mutant's total. If the mutant with life leech takes damage, the hit points are first subtracted from those points leeched. Those leeched hit points that are not destroyed in combat dissipate after 24 hours.",
+      "hasTable": false
+    }
+  ],
+  "generation_log": [
+    "Starting character generation for type: Mutated Animal",
+    "Selected Mutated Animal (Cat). NOTE: Referee adjudication needed for speech/manipulation capabilities.",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=12, IN=6, DX=13, CH=13, CN=13, PS=13",
+    "Calculated starting Hit Points: 35 (rolled 13d6).",
+    "Rolled for number of mutations: 4 Physical, 1 Mental.",
+    "Using Mutation Method 1: Random Roll.",
+    "Physical Slot 1 (Roll 16%): Heightened Constitution",
+    "Physical Slot 2 (Roll 93%): Roll a Good Mutation (No Defects) -> Rerolling (Good): Increased Speed",
+    "Physical Slot 3 (Roll 30%): Heightened Taste",
+    "Physical Slot 4 (Roll 95%): Pick any one Mutation -> Player Choice (Pick Any) -> Requires Player Selection.",
+    "Mental Slot 1 (Roll 52%): Life Leech",
+    "Finalizing mutation selections...",
+    "Physical Slot 4: Finalized selection: Regeneration"
+  ],
+  "description": "Felix moves with the disconcerting grace of a cat, but on a lithe, surprisingly durable humanoid frame. His fur, perhaps a patchwork of scars and resilient grey tabby, is thick and seems almost too tough, hinting at an unnaturally hardy constitution that shrugs off injuries. Keen, slitted pupils dominate a face that retains distinctly feline features – sensitive whiskers that twitch constantly, sharp teeth visible in an occasional grin, and ears that swivel to catch the slightest sound in the Gamma World quiet. A tail, long and expressive, often betrays his inner state, swishing or lashing with unnerving speed. His build is wiry but strong, ready to unleash sudden, explosive bursts of movement.\n\nDespite possessing an intellect less suited to complex puzzles or ancient history, Felix compensates with sharp instincts and a strange, almost effortless magnetism. He carries himself with an easy confidence that draws attention, making him a natural, if perhaps simple-minded, focus of any group (CH 13). His physical prowess is undeniable; his reflexes are blindingly fast, his movements a blur when he's truly motivated. In combat, this translates to a terrifying ability to strike twice as often as others, a whirlwind of claws and blows. His senses are acute, particularly his taste; he has an odd habit of quickly touching his tongue to anything unfamiliar he intends to eat or handle, instantly discerning its edibility or detecting latent poisons.\n\nThe most unsettling aspect of Felix, however, is the subtle, disturbing energy that surrounds him. Drawing upon a quiet mental fortitude, he possesses the chilling ability to drain the very life force from intelligent beings nearby. When this power is active, a palpable, draining aura seems to emanate from him, weakening others while visibly, unnervingly, knitting his own wounds and revitalizing him. This parasitic healing, combined with his natural resilience and ability to regenerate even from grievous injuries, makes him a profoundly difficult opponent to put down. In the brutal landscape of 2471, Felix is a survivor built for speed, tenacity, and a predatory knack for turning the vitality of others into his own continued existence."
+}

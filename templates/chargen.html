@@ -803,6 +803,7 @@
                 const descriptionRequestData = {
                     name: appState.finalizedCharacterData.name,
                     character_type: appState.finalizedCharacterData.characterType, // Read camelCase, assign snake_case
+                    base_animal_species: appState.finalizedCharacterData.baseAnimalSpecies || null,
                     attributes: { // Read camelCase from nested attributes, assign snake_case
                         mental_strength: appState.finalizedCharacterData.attributes?.mentalStrength,
                         intelligence: appState.finalizedCharacterData.attributes?.intelligence,

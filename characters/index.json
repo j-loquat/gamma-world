@@ -8,11 +8,27 @@
     "image": "images/big-b-1746116888-b518e2.png"
   },
   {
-    "id": "wasteland-joey-1746711399-a367b6",
-    "name": "Wasteland Joey",
+    "id": "felix-1746714338-13e412",
+    "name": "Felix",
+    "type": "Mutated Animal",
+    "hit_points": 35,
+    "saved": 1746714338,
+    "image": "images/felix-1746714338-13e412.png"
+  },
+  {
+    "id": "radiated-roger-1746714420-1b8da3",
+    "name": "Radiated Roger",
+    "type": "Humanoid",
+    "hit_points": 42,
+    "saved": 1746714420,
+    "image": "images/radiated-roger-1746714420-1b8da3.png"
+  },
+  {
+    "id": "sneaky-steve-1746714551-2f3987",
+    "name": "Sneaky Steve",
     "type": "Pure Strain Human",
-    "hit_points": 33,
-    "saved": 1746711399,
-    "image": "images/wasteland-joey-1746711399-a367b6.png"
+    "hit_points": 26,
+    "saved": 1746714551,
+    "image": "images/sneaky-steve-1746714551-2f3987.png"
   }
 ]

@@ -1,0 +1,46 @@
+{
+  "name": "Radiated Roger",
+  "character_type": "Humanoid",
+  "attributes": {
+    "mental_strength": 7,
+    "intelligence": 14,
+    "dexterity": 15,
+    "charisma": 11,
+    "constitution": 13,
+    "physical_strength": 18
+  },
+  "hit_points": 42,
+  "physical_mutations": [
+    {
+      "number": 44,
+      "humanPercentage": "79-83%",
+      "name": "Taller",
+      "animalPercentage": "75-82%",
+      "isDefect": false,
+      "description": "44. TALLER: To determine how tall to make any given mutant, roll a die (d6) for a 1-6 result and add this to a basic 2 meters. This will yield beings ranging from 3 to 8 meters tall. For every additional meter of height over 2 meters, this mutant may add a bonus of 1 point to each of its damage dice when its strikes an opponent in physical combat with a non-powered weapon. However, for every 2 meters of additional height, this mutant must subtract 1 point from its \"to hit\" die roll when striking an opponent in physical combat. The number of hit points the mutant has is not affected.",
+      "hasTable": false
+    }
+  ],
+  "mental_mutations": [
+    {
+      "number": 46,
+      "humanPercentage": "88%",
+      "name": "Time Field Manipulation",
+      "animalPercentage": "88%",
+      "isDefect": false,
+      "description": "46. TIME FIELD MANIPULATION: This is the ability to travel or send objects through the currents of time. The use of this mutation requires an 18 intelligence and a \"heightened intelligence\" on the part of the mutant (i.e. this is rare). If the mutant does not have both, roll another mutation. The ability to send objects through time varies with the material involved, and distance in time required. The material travels through time, but remains in the same spot on GAMMA WORLD. The energy required, whether or not the attempt succeeds, drains one-half the hit points from the mutant for 1-8 (d8) days and reduces the mutant's speed to one-half for 1-12 (d12) days. The percentile dice are used to determine the success of time travel:\nThe preceding chart is for the mutant and/or any inanimate object not belonging to another being sent into the past. Material which is part of or belongs to another being is more difficult to send through time: subtract 10% for metal or powered items, subtract 15% for stone and other inorganic material, and subtract 20% for biological material (such as another being). To send objects into the future, subtract 25% from each increment on the above table. The mutant must be able to touch whatever he is attempting to send through time and the energy drain occurs even if the attempt fails.",
+      "hasTable": true
+    }
+  ],
+  "generation_log": [
+    "Starting character generation for type: Humanoid",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=7, IN=14, DX=15, CH=11, CN=13, PS=18",
+    "Calculated starting Hit Points: 42 (rolled 13d6).",
+    "Rolled for number of mutations: 1 Physical, 1 Mental.",
+    "Using Mutation Method 1: Random Roll.",
+    "Physical Slot 1 (Roll 79%): Taller",
+    "Mental Slot 1 (Roll 96%): Roll a Good Mutation (No Defects) -> Rerolling (Good): Time Field Manipulation",
+    "All mutation slots determined randomly or assigned. Finalizing character directly."
+  ],
+  "description": "Radiated Roger is a figure that dominates the landscape wherever he stands. Towering over the ravaged ruins and mutated flora of Gamma World, he reaches a staggering six meters (roughly twenty feet) in height, his frame lanky but powerfully muscled. His skin might show faint mottling or an unnatural pallor, perhaps a testament to the energies that birthed his colossal form and earned him his moniker. His features, though vaguely humanoid, are set high above most other beings, giving him a peculiar, distant gaze. He moves with a surprising, almost gangly agility given his immense size, a trait belied by the sheer, brute strength coiled within his massive limbs.\n\nDespite his intimidating stature and raw physical power – capable of delivering truly devastating blows with his sheer mass and strength (PS 18) – Roger isn't just a mindless giant. His eyes hold a keen intelligence (IN 14), constantly scanning his surroundings, calculating risks, and piecing together the mysteries of the Ancients' world. This sharp wit is paired with a notable quickness of hand and foot (DX 15), allowing him to react faster than many smaller creatures, though his enormous frame does present some difficulty when aiming precisely in close combat. He possesses a hardy constitution (CN 13), allowing him to endure wounds and resist the various toxins and radiations that permeate the post-apocalyptic environment better than most.\n\nSociable enough to interact without causing immediate alarm (CH 11), Radiated Roger is not a natural leader or charismatic figure; his presence is more awe-inspiring than persuasive. He is, however, notably lacking in mental fortitude (MS 7), making him vulnerable to psionic assaults and less adept at understanding or manipulating the strange mental energies that some mutants wield. In the brutal reality of 2471, Roger navigates the treacherous world relying on his incredible strength, surprising agility, resilience, and sharp mind, always aware that while he can crush most physical threats, some dangers strike at the very core of his being, a place his tremendous height and muscle cannot protect."
+}

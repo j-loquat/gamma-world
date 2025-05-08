@@ -209,6 +209,7 @@ class FinalizeMutationsRequest(BaseModel):
 class GenerateDescriptionRequest(BaseModel):
     name: Optional[str] = None
     character_type: CharacterType
+    base_animal_species: Optional[str] = None
     attributes: Attributes
     physical_mutations: List[Mutation]
     mental_mutations: List[Mutation]
