@@ -90,7 +90,7 @@ async def generate_ai_description(request_data: models.GenerateDescriptionReques
         log.info("Sending description request to Gemini via client.aio.models...")
         # Use the client object and the original call structure
         response = await client.aio.models.generate_content(
-            model='gemini-2.5-flash-preview-05-20', # model name for text generation, try gemini-2.5-flash-preview-05-20
+            model='gemini-2.5-flash', # model name for text generation, try gemini-2.5-flash
             contents=[constructed_prompt_string]
             # No generation_config needed for text typically
         )
