@@ -1,0 +1,58 @@
+{
+  "name": "Wiggles",
+  "character_type": "Mutated Animal",
+  "base_animal_species": "Dog",
+  "attributes": {
+    "mental_strength": 10,
+    "intelligence": 14,
+    "dexterity": 12,
+    "charisma": 14,
+    "constitution": 8,
+    "physical_strength": 8
+  },
+  "hit_points": 24,
+  "physical_mutations": [
+    {
+      "number": 12,
+      "humanPercentage": "19-22%",
+      "name": "Heightened Constitution",
+      "animalPercentage": "16-21%",
+      "isDefect": false,
+      "description": "12. HEIGHTENED CONSTITUTION: This adds 2 additional hit points for every point of the mutant's constitution. It also gives an 18 resistance to poison and adds three points to the mutant's radiation resistance.",
+      "hasTable": false
+    }
+  ],
+  "mental_mutations": [
+    {
+      "number": 30,
+      "humanPercentage": "65-66%",
+      "name": "Molecular Understanding",
+      "animalPercentage": "68%",
+      "isDefect": false,
+      "description": "30. MOLECULAR UNDERSTANDING: This power allows the mutant to know the weaknesses of any object and its separate parts. Because of this, the mutant does 1 extra die of damage, over and above any damage he would normally inflict in combat. Mutants with this power are also able to instantly figure out the use of any artifact on CHART A, and subtract 2 points from the die roll on the other charts (see ARTIFACT USE & OPERATION).",
+      "hasTable": false
+    },
+    {
+      "number": 6,
+      "humanPercentage": "09-10%",
+      "name": "De-evolution",
+      "animalPercentage": "07-09%",
+      "isDefect": false,
+      "description": "6. DE-EVOLUTION: This is the power to strip abilities from a mutant opponent by regressing it along its ancestral lines. If this power works (treat as a mental attack), it begins by taking away, permanently, the opponent's greatest special ability (referee's choice). On every subsequent melee turn, another special ability is thus removed, until the mutant's opponent is returned to its original stock. This power lasts for the duration of one combat situation, however long that may take, has a range of up to 30 meters, and may be used once per week.",
+      "hasTable": false
+    }
+  ],
+  "generation_log": [
+    "Starting character generation for type: Mutated Animal",
+    "Selected Mutated Animal (Dog). NOTE: Referee adjudication needed for speech/manipulation capabilities.",
+    "Rolled attributes (Heroic (4d6 drop lowest)): MS=10, IN=14, DX=12, CH=14, CN=8, PS=8",
+    "Calculated starting Hit Points: 24 (rolled 8d6).",
+    "Rolled for number of mutations: 1 Physical, 2 Mental.",
+    "Using Mutation Method 1: Random Roll.",
+    "Physical Slot 1 (Roll 21%): Heightened Constitution",
+    "Mental Slot 1 (Roll 68%): Molecular Understanding",
+    "Mental Slot 2 (Roll 8%): De-evolution",
+    "All mutation slots determined randomly or assigned. Finalizing character directly."
+  ],
+  "description": "Wiggles is no ordinary canine; he’s a living testament to the strange energies that reshaped the Gamma World. Appearing at first glance as a shaggy, medium-sized dog, perhaps a descendent of a scruffy terrier or a lean shepherd, his eyes immediately betray a keen, almost unsettling intelligence. They track movement with a calculating precision, and when fixed on an object, they seem to pierce its very essence. Despite a somewhat slender frame that belies his surprising resilience, Wiggles carries himself with an agile, almost spring-loaded grace, constantly scanning his surroundings with the sharp focus of a seasoned survivor. His fur, a mottled grey and brown, often bears the dust and grime of the wastes, yet beneath it lies a wiry constitution that shrugs off poisons and radiation with uncanny ease.\n\nWhat truly sets Wiggles apart is his formidable intellect and the unique ways his mutations manifest. He possesses an almost preternatural understanding of the physical world, often tilting his head and nudging curious artifacts with his wet nose, as if silently dissecting their molecular structure. This \"Molecular Understanding\" allows him to instinctively grasp the purpose of complex ancient technology, often figuring out in moments what would take others days of dangerous trial and error. In combat, this same insight translates into brutal efficiency; his bites and lunges always find the structural weak points of an opponent, delivering surprisingly potent blows despite his modest physical strength.\n\nYet, for all his intellectual prowess and quiet competence, Wiggles also possesses a disarmingly high charisma. He seems to project an aura of trustworthiness and calm, capable of winning over suspicious strangers or even leading a small band of diverse mutants through sheer force of personality. This genial exterior, however, hides a truly terrifying power. Should Wiggles or his companions face a dire threat, particularly from another mutated being, a low, guttural growl might escape his throat, and his intelligent eyes will fix on the foe with an unnerving intensity. In those moments, Wiggles is capable of \"De-evolving\" his opponent, stripping away their very mutations and special abilities, reducing them to a more primal, helpless state – a chilling reminder that even the most affable mutant can hold unimaginable power."
+}

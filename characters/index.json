@@ -30,5 +30,13 @@
     "hit_points": 26,
     "saved": 1746714551,
     "image": "images/sneaky-steve-1746714551-2f3987.png"
+  },
+  {
+    "id": "wiggles-1753368215-3d82d9",
+    "name": "Wiggles",
+    "type": "Mutated Animal",
+    "hit_points": 24,
+    "saved": 1753368215,
+    "image": "images/wiggles-1753368215-3d82d9.png"
   }
 ]
