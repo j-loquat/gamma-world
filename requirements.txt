@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+jinja2
+python-slugify
+pillow
+google-genai
+python-dotenv
