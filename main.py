@@ -1,17 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "fastapi",
-#     "uvicorn[standard]",
-#     "pydantic",
-#     "jinja2",
-#     "python-slugify",
-#     "pillow",
-#     "google-genai",
-#     "python-dotenv", # Added for loading .env file
-# ]
-# ///
-
 import json
 import time
 import uuid

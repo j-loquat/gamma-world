@@ -1,14 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "google-genai",
-#     "termcolor",
-#     "python-slugify",
-#     "python-dotenv", # Added for loading .env file
-#     "Pillow"
-# ]
-# ///
-
 import json
 import os
 import sys
@@ -22,7 +11,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from typing import Optional, Tuple, Dict, Any, List
 
-# Third-party libraries (ensure installed: pip install google-genai termcolor python-slugify Pillow)
+# Third-party libraries are managed by `uv` (see `pyproject.toml`).
 from slugify import slugify as pyslugify # Use pyslugify to avoid name collision
 from termcolor import colored, cprint
 from PIL import Image

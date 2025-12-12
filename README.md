@@ -14,7 +14,7 @@ Follow these steps to set up the project locally:
 
 1.  **Prerequisites**:
     *   Python 3.12 or higher.
-    *   `uv`: This project uses `uv` for running and managing dependencies. Install it by following the official instructions: [uv Installation Guide](https://docs.astral.sh/uv/getting-started/installation/)
+    *   `uv`: This project is managed with `uv` (do not use `pip`, `venv`, poetry, or conda). Install it by following the official instructions: [uv Installation Guide](https://docs.astral.sh/uv/getting-started/installation/)
         *   *Windows PowerShell Example*: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
 2.  **Clone the Repository**:
@@ -24,7 +24,7 @@ Follow these steps to set up the project locally:
     ```
 
 3.  **Install Dependencies**:
-    *   `uv` automatically handles dependency installation when you run the application using `uv run`. No separate `pip install` step is typically needed if using `uv`.
+    *   `uv` manages dependencies for you. Run `uv sync` once (or just run the app; `uv run` will also ensure deps are present).
 
 4.  **Environment Variables**:
     *   Create a file named `.env` in the project's root directory.
@@ -42,7 +42,7 @@ To start the application server:
 uv run main.py
 ```
 
-This command uses `uv` to set up a virtual environment (if needed), install dependencies specified in `main.py`'s header comment, and run the FastAPI application using Uvicorn.
+This command uses `uv` to set up a virtual environment (if needed), install dependencies from `pyproject.toml`, and run the FastAPI application using Uvicorn.
 
 Once the server is running, access the application in your web browser at: `http://localhost:8000` (or the address provided in the terminal output).
 

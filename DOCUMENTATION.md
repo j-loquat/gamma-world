@@ -16,14 +16,14 @@ This document provides an overview of the Python application structure, modules,
 
 ### Preferred App Launch Method:
 
-The easiest way to run this Python / FastAPI application is using "uv" and just launching it from the terminal:
+This project is managed with `uv`. Use `uv` for installing dependencies and running the app.
+
+Preferred launch method:
 
 ```bash
 uv run main.py
 ```
 To read about and install uv, refer to: https://docs.astral.sh/uv/getting-started/installation/
-
-*(If running traditionally, it requires dependencies listed in `main.py`'s header comment to be installed)*
 
 ### Directory Purposes:
 
@@ -438,7 +438,7 @@ To read about and install uv, refer to: https://docs.astral.sh/uv/getting-starte
 
 ## 5. Getting Started
 
-The main entry point for running the application is `main.py`. Ensure all dependencies listed in the header comment of `main.py` are installed (e.g., using `pip` or `uv`).
+The main entry point for running the application is `main.py`. Install and run using `uv` (do not use `pip`/`venv` for this repo).
 
 To run the development web server:
 

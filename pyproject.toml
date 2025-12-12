@@ -1,0 +1,17 @@
+[project]
+name = "gamma-world"
+version = "0.4.0"
+description = "Gamma World (1e) character generator and browser (FastAPI)."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic",
+  "jinja2",
+  "python-slugify",
+  "pillow",
+  "google-genai",
+  "python-dotenv",
+  "termcolor",
+]
+
