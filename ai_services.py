@@ -193,7 +193,7 @@ async def generate_ai_image(
 
         # Use the client object and the original call structure
         response = await client.aio.models.generate_content(
-            model="gemini-2.5-flash-image-preview",  # Use the required model for image generation
+            model="gemini-2.0-flash-exp",  # Use the required model for image generation
             contents=contents,
             config=genai_types.GenerateContentConfig(
                 response_modalities=["TEXT", "IMAGE"]  # Must have both modalities
