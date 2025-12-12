@@ -27,5 +27,5 @@
 - AI features require `GOOGLE_API_KEY`.
 
 ## Tooling
-- Ruff (ephemeral): `uvx ruff check .` and `uvx ruff format .`
+- Ruff: `uv run ruff check .` and `uv run ruff format .` (or use `uvx ruff ...` for ephemeral runs)
 - Pytest (if/when tests exist): `uv run pytest -q`

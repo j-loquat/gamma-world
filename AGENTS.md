@@ -48,6 +48,7 @@ These guidelines are for making safe, consistent changes to this repository. Rea
 
 ## Testing & Verification
 Automated tests are not present yet.
+- Lint/format: `uv run ruff check .` and `uv run ruff format .` (Ruff config lives in `pyproject.toml`).
 - If adding tests, put them under `tests/` and use FastAPI's `TestClient` for route coverage.
 - Make randomness deterministic in tests (seed `random` or refactor to inject an RNG).
 - Manual smoke-test checklist:

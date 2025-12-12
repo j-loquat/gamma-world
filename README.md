@@ -84,6 +84,7 @@ Contributions are welcome!
 *   **Issues**: Please report bugs or suggest features by opening an issue on the GitHub repository.
 *   **Pull Requests**: If you'd like to contribute code, please fork the repository and submit a pull request.
 *   **Code Style**: Please try to maintain consistency with the existing code style (e.g., formatting, naming conventions).
+*   **Lint/Format**: `uv run ruff check .` and `uv run ruff format .`
 *   **Testing**: (No automated tests are currently set up). Please manually test your changes thoroughly before submitting a pull request.
 
 ## License

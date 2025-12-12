@@ -1,25 +1,27 @@
 import json
 import time
 import uuid
-import logging
-import os # Need os for file deletion, or use pathlib
-from pathlib import Path
-from slugify import slugify
-from typing import List, Optional # Added List and Optional
+from typing import List, Optional  # Added List and Optional
 
-from fastapi import (
-    FastAPI, HTTPException, Request, Response, status, File, UploadFile
-)
+from fastapi import FastAPI, HTTPException, Request, Response, status
+
 # Import RedirectResponse here
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
+from slugify import slugify
+
+import ai_services
 
 # --- Project Modules ---
 # running main.py directly as a script
-import config, utils, models, core, ai_services
-log = utils.log # Use logger from utils setup
+import config
+import core
+import models
+import utils
+
+log = utils.log  # Use logger from utils setup
 
 # --------------------------
 # FastAPI App Initialization
@@ -27,7 +29,7 @@ log = utils.log # Use logger from utils setup
 app = FastAPI(
     title="Gamma World Character Generator",
     description="API to generate characters for the Gamma World RPG based on original rules.",
-    version="0.4.0" # Version bump for refactoring
+    version="0.4.0",  # Version bump for refactoring
 )
 
 # --------------------------
@@ -41,6 +43,7 @@ templates.env.filters["datetimeformat"] = utils.datetimeformat
 # Serve '.' which includes 'images' and potentially other static assets
 app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
 
+
 # --------------------------
 # Startup Event
 # --------------------------
@@ -48,16 +51,17 @@ app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
 async def startup_event():
     """Load data files and configure AI when the application starts."""
     log.info("Application starting up...")
-    utils.ensure_dirs() # Ensure data directories exist
+    utils.ensure_dirs()  # Ensure data directories exist
 
     # Check for Gemini API Key (already checked in ai_services, but good place to log)
     if not config.GEMINI_API_KEY:
-        log.critical("GOOGLE_API_KEY environment variable not set. AI features will be unavailable.")
+        log.critical(
+            "GOOGLE_API_KEY environment variable not set. AI features will be unavailable."
+        )
     elif not ai_services.client:
-         log.critical("Gemini client failed to initialize. AI features will be unavailable.")
+        log.critical("Gemini client failed to initialize. AI features will be unavailable.")
     else:
-         log.info("Gemini client initialized successfully.")
-
+        log.info("Gemini client initialized successfully.")
 
     # Load mutation data into config variables
     try:
@@ -87,7 +91,7 @@ async def startup_event():
         log.error(f"Could not load backstory context: {e}", exc_info=True)
         config.BACKSTORY_CONTEXT_DATA = "Error loading backstory context."
 
-# Load creature data
+    # Load creature data
     try:
         config.CREATURE_DATA = utils.load_data_file(config.CREATURES_FILE)
         # Optional: Validate with Pydantic models if defined
@@ -95,8 +99,10 @@ async def startup_event():
         # config.CREATURE_DATA = [c.model_dump() for c in validated_creatures] # Store as dicts if needed later
         log.info(f"Creature data loaded successfully ({len(config.CREATURE_DATA)} creatures).")
     except (FileNotFoundError, ValueError, IOError, json.JSONDecodeError, ValidationError) as e:
-        log.critical(f"FATAL: Could not load or validate creature data on startup: {e}", exc_info=True)
-        config.CREATURE_DATA = [] # Ensure it's an empty list on failure
+        log.critical(
+            f"FATAL: Could not load or validate creature data on startup: {e}", exc_info=True
+        )
+        config.CREATURE_DATA = []  # Ensure it's an empty list on failure
     log.info("Startup complete.")
 
 
@@ -106,11 +112,13 @@ async def startup_event():
 
 # --- UI Routes ---
 
+
 @app.get("/", response_class=HTMLResponse, tags=["UI"])
 async def read_main_menu(request: Request):
     """Serves the main menu page."""
     log.info("Serving main menu page.")
     return templates.TemplateResponse("menu.html", {"request": request})
+
 
 @app.get("/generator", response_class=HTMLResponse, tags=["UI"])
 async def read_generator(request: Request):
@@ -120,9 +128,10 @@ async def read_generator(request: Request):
         "request": request,
         "character_types": list(models.CharacterType),
         "attribute_methods": list(models.AttributeRollMethod),
-        "mutation_methods": list(models.MutationSelectionMethod)
+        "mutation_methods": list(models.MutationSelectionMethod),
     }
     return templates.TemplateResponse("chargen.html", context)
+
 
 @app.get("/browser", response_class=HTMLResponse, tags=["UI"])
 async def char_browser(request: Request):
@@ -134,14 +143,17 @@ async def char_browser(request: Request):
 
     # Read individual files for robustness
     for fp in config.CHAR_DIR.glob("*.json"):
-        if fp.name == "index.json": continue # Skip index itself
+        if fp.name == "index.json":
+            continue  # Skip index itself
         try:
             data = utils.load_data_file(fp)
             # Validate essential fields for summary
             char_id = fp.stem
             name = data.get("name", "Unnamed")
-            char_type = data.get("characterType", data.get("character_type", "Unknown")) # Check both aliases
-            hp = data.get("hitPoints", data.get("hit_points")) # Check both aliases
+            char_type = data.get(
+                "characterType", data.get("character_type", "Unknown")
+            )  # Check both aliases
+            hp = data.get("hitPoints", data.get("hit_points"))  # Check both aliases
             # Use file modification time as fallback for 'saved' if missing
             saved_time = data.get("saved", int(fp.stat().st_mtime))
             image_rel_path = f"images/{char_id}.png"
@@ -153,7 +165,7 @@ async def char_browser(request: Request):
                 type=char_type,
                 hit_points=hp,
                 saved=saved_time,
-                image=image_rel_path if image_full_path.exists() else None
+                image=image_rel_path if image_full_path.exists() else None,
             )
             summaries.append(summary)
         except (ValidationError, ValueError, IOError, json.JSONDecodeError) as e:
@@ -162,9 +174,9 @@ async def char_browser(request: Request):
 
     summaries.sort(key=lambda r: r.saved, reverse=True)
     return templates.TemplateResponse(
-        "charbrowse.html",
-        {"request": request, "characters": summaries}
+        "charbrowse.html", {"request": request, "characters": summaries}
     )
+
 
 @app.get("/browser/{char_id}", response_class=HTMLResponse, tags=["UI"])
 async def view_character(char_id: str, request: Request):
@@ -192,11 +204,13 @@ async def view_character(char_id: str, request: Request):
             "request": request,
             "single_character": data,
             "image_path": image_rel_path,
-            "character_id": char_id # Explicitly pass the ID to the template
-        }
+            "character_id": char_id,  # Explicitly pass the ID to the template
+        },
     )
 
+
 # --- Creature Browser Routes ---
+
 
 @app.get("/creature_browser", response_class=HTMLResponse, tags=["UI", "Creature Browser"])
 async def creature_browser_list(request: Request):
@@ -232,22 +246,35 @@ async def creature_browser_list(request: Request):
                     "image": image_url_path,
                     "armor_class": ac,
                     "hit_dice": hd,
-                    "base_species": creature_data.get("base_species") # Added for potential card display
+                    "base_species": creature_data.get(
+                        "base_species"
+                    ),  # Added for potential card display
                 }
                 creatures_summary.append(summary)
             except Exception as e:
-                log.warning(f"Error processing creature '{creature_data.get('name', 'Unknown')}' for list view: {e}")
-                continue # Skip this creature if processing fails
+                log.warning(
+                    f"Error processing creature '{creature_data.get('name', 'Unknown')}' for list view: {e}"
+                )
+                continue  # Skip this creature if processing fails
 
     # Sort creatures alphabetically by name for consistency
-    creatures_summary.sort(key=lambda c: c['name'])
+    creatures_summary.sort(key=lambda c: c["name"])
 
     return templates.TemplateResponse(
         "creaturebrowse.html",
-        {"request": request, "creatures": creatures_summary, "single_creature": None} # Ensure single_creature is None for list view
+        {
+            "request": request,
+            "creatures": creatures_summary,
+            "single_creature": None,
+        },  # Ensure single_creature is None for list view
     )
 
-@app.get("/creature_browser/{creature_slug}", response_class=HTMLResponse, tags=["UI", "Creature Browser"])
+
+@app.get(
+    "/creature_browser/{creature_slug}",
+    response_class=HTMLResponse,
+    tags=["UI", "Creature Browser"],
+)
 async def view_creature(creature_slug: str, request: Request):
     """Render a single saved creature by its slug."""
     log.info(f"Serving single creature view for slug: {creature_slug}")
@@ -271,67 +298,100 @@ async def view_creature(creature_slug: str, request: Request):
 
     return templates.TemplateResponse(
         "creaturebrowse.html",
-        {"request": request, "single_creature": found_creature, "image_path": image_url_path, "creatures": None} # Ensure creatures is None for single view
+        {
+            "request": request,
+            "single_creature": found_creature,
+            "image_path": image_url_path,
+            "creatures": None,
+        },  # Ensure creatures is None for single view
     )
+
 
 # --- Character Generation API ---
 
-@app.post("/generate_character", response_model=models.GenerateCharacterResponse, tags=["Character Generation"])
+
+@app.post(
+    "/generate_character",
+    response_model=models.GenerateCharacterResponse,
+    tags=["Character Generation"],
+)
 async def generate_character(gen_request: models.GenerateCharacterRequest):
     """Starts character generation process."""
-    log.info(f"Received request to generate character: Type={gen_request.character_type.value}, Method={gen_request.mutation_method.value}")
+    log.info(
+        f"Received request to generate character: Type={gen_request.character_type.value}, Method={gen_request.mutation_method.value}"
+    )
     try:
         final_char, intermediate_state = core.start_character_generation(gen_request)
 
         if final_char:
-            return models.GenerateCharacterResponse(needsMutationSelection=False, character=final_char) # Use alias
+            return models.GenerateCharacterResponse(
+                needsMutationSelection=False, character=final_char
+            )  # Use alias
         elif intermediate_state:
-            return models.GenerateCharacterResponse(needsMutationSelection=True, intermediateState=intermediate_state) # Use alias
+            return models.GenerateCharacterResponse(
+                needsMutationSelection=True, intermediateState=intermediate_state
+            )  # Use alias
         else:
             # Should not happen if core logic is correct
-            log.error("Character generation returned neither final character nor intermediate state.")
-            raise HTTPException(status_code=500, detail="Internal server error during character generation.")
+            log.error(
+                "Character generation returned neither final character nor intermediate state."
+            )
+            raise HTTPException(
+                status_code=500, detail="Internal server error during character generation."
+            )
 
-    except RuntimeError as e: # Catch internal errors like missing mutation data
+    except RuntimeError as e:  # Catch internal errors like missing mutation data
         log.critical(f"Runtime error during character generation: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
-    except ValueError as e: # Catch validation errors from core logic
+    except ValueError as e:  # Catch validation errors from core logic
         log.error(f"Value error during character generation: {e}", exc_info=True)
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         log.error(f"Unexpected error during character generation: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="An unexpected error occurred.")
 
-@app.get("/get_selectable_mutations", response_model=models.SelectableMutationsResponse, tags=["Character Generation"])
+
+@app.get(
+    "/get_selectable_mutations",
+    response_model=models.SelectableMutationsResponse,
+    tags=["Character Generation"],
+)
 async def get_selectable_mutations():
     """Returns lists of selectable (non-defect) physical and mental mutations."""
     log.debug("Request received for selectable mutations.")
     if not config.PHYSICAL_MUTATIONS_DATA or not config.MENTAL_MUTATIONS_DATA:
-         log.error("Attempted to get selectable mutations, but mutation data is not loaded.")
-         raise HTTPException(status_code=500, detail="Mutation data not available on server.")
+        log.error("Attempted to get selectable mutations, but mutation data is not loaded.")
+        raise HTTPException(status_code=500, detail="Mutation data not available on server.")
 
     try:
         selectable_physical = core.get_selectable_mutations_list(config.PHYSICAL_MUTATIONS_DATA)
         selectable_mental = core.get_selectable_mutations_list(config.MENTAL_MUTATIONS_DATA)
-        log.debug(f"Returning {len(selectable_physical)} physical and {len(selectable_mental)} mental selectable mutations.")
+        log.debug(
+            f"Returning {len(selectable_physical)} physical and {len(selectable_mental)} mental selectable mutations."
+        )
         # Use aliases for the response model
         return models.SelectableMutationsResponse(
-            physicalMutations=selectable_physical,
-            mentalMutations=selectable_mental
+            physicalMutations=selectable_physical, mentalMutations=selectable_mental
         )
     except Exception as e:
         log.error(f"Error preparing selectable mutations list: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Error processing mutation data.")
 
 
-@app.post("/finalize_character_mutations", response_model=models.GenerateCharacterResponse, tags=["Character Generation"])
+@app.post(
+    "/finalize_character_mutations",
+    response_model=models.GenerateCharacterResponse,
+    tags=["Character Generation"],
+)
 async def finalize_character_mutations(finalize_request: models.FinalizeMutationsRequest):
     """Finalizes character creation using the selected mutations."""
     log.info("Received request to finalize character with selected mutations.")
     try:
         final_character = core.finalize_character_with_selections(finalize_request)
         # Use aliases for the response model
-        return models.GenerateCharacterResponse(needsMutationSelection=False, character=final_character)
+        return models.GenerateCharacterResponse(
+            needsMutationSelection=False, character=final_character
+        )
     except ValueError as e:
         # Check if it's the specific duplicate error from core.py
         if len(e.args) > 1 and isinstance(e.args[1], dict):
@@ -341,24 +401,32 @@ async def finalize_character_mutations(finalize_request: models.FinalizeMutation
             # Return 409 Conflict with details for frontend handling
             return JSONResponse(
                 status_code=status.HTTP_409_CONFLICT,
-                content={"detail": error_msg, "duplicate_slots": duplicate_slots_map}
+                content={"detail": error_msg, "duplicate_slots": duplicate_slots_map},
             )
         else:
             # Other ValueErrors are likely bad requests (missing selection, invalid name)
             error_msg = str(e)
             log.error(f"Mutation finalization validation error: {error_msg}")
             raise HTTPException(status_code=400, detail=error_msg)
-    except RuntimeError as e: # Catch internal processing errors
+    except RuntimeError as e:  # Catch internal processing errors
         log.error(f"Internal error during mutation finalization: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
     except Exception as e:
         log.error(f"Unexpected error during mutation finalization: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail="An unexpected error occurred during finalization.")
+        raise HTTPException(
+            status_code=500, detail="An unexpected error occurred during finalization."
+        )
 
 
 # --- Character Storage API ---
 
-@app.post("/save_character", response_model=models.SaveCharacterResponse, status_code=status.HTTP_201_CREATED, tags=["Character Storage"])
+
+@app.post(
+    "/save_character",
+    response_model=models.SaveCharacterResponse,
+    status_code=status.HTTP_201_CREATED,
+    tags=["Character Storage"],
+)
 async def save_character(req: models.SaveCharacterRequest):
     """Persists a generated character (and optional image) to disk."""
     log.info(f"Received request to save character: {req.character.name or 'Unnamed'}")
@@ -373,7 +441,7 @@ async def save_character(req: models.SaveCharacterRequest):
 
     char_path = config.CHAR_DIR / f"{char_id}.json"
     img_path = config.IMAGE_DIR / f"{char_id}.png"
-    img_rel_path = f"images/{char_id}.png" # Relative path for index and response
+    img_rel_path = f"images/{char_id}.png"  # Relative path for index and response
 
     # -------- Write JSON --------
     try:
@@ -395,21 +463,23 @@ async def save_character(req: models.SaveCharacterRequest):
             img_bytes = utils.decode_base64_image(req.image_data)
 
             if len(img_bytes) > config.MAX_IMAGE_BYTES:
-                log.warning(f"Image for {char_id} rejected, size {len(img_bytes)} > {config.MAX_IMAGE_BYTES}")
+                log.warning(
+                    f"Image for {char_id} rejected, size {len(img_bytes)} > {config.MAX_IMAGE_BYTES}"
+                )
                 # Clean up JSON before raising error
                 char_path.unlink(missing_ok=True)
                 raise HTTPException(
                     status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
-                    detail=f"Image exceeds {config.MAX_IMAGE_BYTES // 1024} KB limit"
+                    detail=f"Image exceeds {config.MAX_IMAGE_BYTES // 1024} KB limit",
                 )
 
             with img_path.open("wb") as f:
                 f.write(img_bytes)
-            saved_image_path = img_rel_path # Store relative path
+            saved_image_path = img_rel_path  # Store relative path
             log.info(f"Character image saved to: {img_path}")
 
-        except ValueError as e: # Catch specific error from decode_base64_image
-             # Clean up JSON
+        except ValueError as e:  # Catch specific error from decode_base64_image
+            # Clean up JSON
             char_path.unlink(missing_ok=True)
             raise HTTPException(status_code=400, detail=str(e))
         except Exception as e:
@@ -426,7 +496,7 @@ async def save_character(req: models.SaveCharacterRequest):
         "type": req.character.character_type.value,
         "hit_points": req.character.hit_points,
         "saved": ts,
-        "image": saved_image_path, # Use the relative path if saved
+        "image": saved_image_path,  # Use the relative path if saved
     }
     utils.write_index_record(summary)
 
@@ -434,43 +504,55 @@ async def save_character(req: models.SaveCharacterRequest):
     return models.SaveCharacterResponse(
         id=char_id,
         json_path=str(char_path).replace("\\", "/"),
-        image_path=saved_image_path # Already relative or None
+        image_path=saved_image_path,  # Already relative or None
     )
-@app.delete("/characters/{character_id}", status_code=status.HTTP_303_SEE_OTHER, tags=["Character Storage"])
+
+
+@app.delete(
+    "/characters/{character_id}", status_code=status.HTTP_303_SEE_OTHER, tags=["Character Storage"]
+)
 async def delete_character(character_id: str):
     """Deletes a character's JSON data, image, and removes it from the index."""
     log.info(f"Received request to delete character ID: {character_id}")
-    utils.ensure_dirs() # Ensure directories exist
+    utils.ensure_dirs()  # Ensure directories exist
 
     char_file_path = config.CHAR_DIR / f"{character_id}.json"
     img_file_path = config.IMAGE_DIR / f"{character_id}.png"
-    index_file_path = config.CHAR_DIR / "index.json" # Assuming index is in CHAR_DIR
+    index_file_path = config.CHAR_DIR / "index.json"  # Assuming index is in CHAR_DIR
 
-    deleted_something = False # Flag to track if any file was actually deleted
+    deleted_something = False  # Flag to track if any file was actually deleted
 
     # 1. Update Index
     if index_file_path.exists():
         try:
             # Use a lock or more robust mechanism in a high-concurrency scenario
-            with open(index_file_path, 'r', encoding='utf-8') as f:
+            with open(index_file_path, "r", encoding="utf-8") as f:
                 # Ensure index_data is treated as a list of dicts
                 index_data: List[dict] = json.load(f)
                 if not isinstance(index_data, list):
-                    log.error(f"Index file {index_file_path} does not contain a valid JSON list. Aborting index update.")
-                    index_data = [] # Reset to empty list to avoid errors below
-                
+                    log.error(
+                        f"Index file {index_file_path} does not contain a valid JSON list. Aborting index update."
+                    )
+                    index_data = []  # Reset to empty list to avoid errors below
+
             initial_length = len(index_data)
             # Filter out the character to be deleted
-            updated_index_data = [char for char in index_data if isinstance(char, dict) and char.get("id") != character_id]
+            updated_index_data = [
+                char
+                for char in index_data
+                if isinstance(char, dict) and char.get("id") != character_id
+            ]
 
             if len(updated_index_data) < initial_length:
                 log.info(f"Removing character {character_id} from index.")
-                with open(index_file_path, 'w', encoding='utf-8') as f:
+                with open(index_file_path, "w", encoding="utf-8") as f:
                     json.dump(updated_index_data, f, indent=2)
                 log.info(f"Character index updated successfully at {index_file_path}")
-                deleted_something = True # Considered deletion if index was modified
+                deleted_something = True  # Considered deletion if index was modified
             else:
-                log.warning(f"Character ID {character_id} not found in index file {index_file_path}.")
+                log.warning(
+                    f"Character ID {character_id} not found in index file {index_file_path}."
+                )
 
         except (json.JSONDecodeError, IOError, Exception) as e:
             log.error(f"Error processing character index {index_file_path}: {e}", exc_info=True)
@@ -506,7 +588,9 @@ async def delete_character(character_id: str):
     # If nothing was found (neither in index nor files), maybe return 404?
     # For now, redirecting anyway as the goal is to ensure it's gone.
     if not deleted_something:
-        log.warning(f"No files or index entry found for character ID {character_id}. Still redirecting.")
+        log.warning(
+            f"No files or index entry found for character ID {character_id}. Still redirecting."
+        )
         # Optionally raise HTTPException(status_code=404, detail="Character not found") instead
 
     # 4. Redirect to the browser list
@@ -517,26 +601,29 @@ async def delete_character(character_id: str):
 
 # --- AI Service API ---
 
-@app.post("/generate_description", response_model=models.GenerateDescriptionResponse, tags=["AI Services"])
+
+@app.post(
+    "/generate_description", response_model=models.GenerateDescriptionResponse, tags=["AI Services"]
+)
 async def generate_description(request_data: models.GenerateDescriptionRequest):
     """Generates an AI character description using the AI service."""
     log.info(f"Received request to generate AI description for: {request_data.name or 'Unnamed'}")
     if not ai_services.client:
-         raise HTTPException(status_code=503, detail="AI Service is not available.")
+        raise HTTPException(status_code=503, detail="AI Service is not available.")
 
     status, result = await ai_services.generate_ai_description(request_data)
 
-    if status == 'success':
-        return models.GenerateDescriptionResponse(status='success', description=result)
+    if status == "success":
+        return models.GenerateDescriptionResponse(status="success", description=result)
     else:
         # Return 500 for internal AI errors, 400 or other appropriate code if it was a bad request to AI
         # For simplicity, returning 500 for now, but could refine based on 'result' content
         log.error(f"AI description generation failed: {result}")
         # Check if it was a block reason to potentially return 400/422
         if "blocked" in result.lower():
-             raise HTTPException(status_code=400, detail=result) # Bad request due to content
+            raise HTTPException(status_code=400, detail=result)  # Bad request due to content
         else:
-             raise HTTPException(status_code=500, detail=result) # Internal AI service error
+            raise HTTPException(status_code=500, detail=result)  # Internal AI service error
 
 
 @app.post("/generate_image", response_model=models.GenerateImageResponse, tags=["AI Services"])
@@ -544,21 +631,24 @@ async def generate_image(request_data: models.GenerateImageRequest):
     """Generates a character image using the AI service."""
     log.info("Received request to generate AI image.")
     if not ai_services.client:
-         raise HTTPException(status_code=503, detail="AI Service is not available.")
+        raise HTTPException(status_code=503, detail="AI Service is not available.")
 
     status, result, mime_type = await ai_services.generate_ai_image(request_data)
 
-    if status == 'success':
-        return models.GenerateImageResponse(status='success', image_data=result, mime_type=mime_type)
+    if status == "success":
+        return models.GenerateImageResponse(
+            status="success", image_data=result, mime_type=mime_type
+        )
     else:
         log.error(f"AI image generation failed: {result}")
         if "blocked" in result.lower():
-             raise HTTPException(status_code=400, detail=result) # Bad request due to content
+            raise HTTPException(status_code=400, detail=result)  # Bad request due to content
         else:
-             raise HTTPException(status_code=500, detail=result) # Internal AI service error
+            raise HTTPException(status_code=500, detail=result)  # Internal AI service error
 
 
 # --- Misc Routes ---
+
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
@@ -571,6 +661,7 @@ async def favicon():
 # --------------------------
 if __name__ == "__main__":
     import uvicorn
+
     # Startup event handles ensure_dirs and loading
     log.info("Starting Gamma World Character Generator FastAPI app...")
     # Run with reload=True for development, False for production

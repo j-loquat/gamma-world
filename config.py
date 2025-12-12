@@ -1,6 +1,7 @@
 # config.py
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Load environment variables from .env file if it exists
@@ -11,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent
 CHAR_DIR = BASE_DIR / "characters"
 IMAGE_DIR = BASE_DIR / "images"
 TEMPLATE_DIR = BASE_DIR / "templates"
-STATIC_DIR = BASE_DIR # Assuming static files are served from the root
+STATIC_DIR = BASE_DIR  # Assuming static files are served from the root
 
 # --- Data Files ---
 PHYSICAL_MUTATIONS_FILE = BASE_DIR / "Physical-Mutations.json"
@@ -34,11 +35,11 @@ if not GEMINI_API_KEY:
     # raise ValueError("GOOGLE_API_KEY environment variable not set.")
 
 # --- Image Generation ---
-STYLE_IMAGE_PATH = IMAGE_DIR / "evil-robot.png" # Reference image for style transfer
-MAX_IMAGE_BYTES = 2 * 1024 * 1024 # 2MB limit for uploaded/generated images
+STYLE_IMAGE_PATH = IMAGE_DIR / "evil-robot.png"  # Reference image for style transfer
+MAX_IMAGE_BYTES = 2 * 1024 * 1024  # 2MB limit for uploaded/generated images
 
 # --- Character Generation ---
-MAX_REROLL_ATTEMPTS = 10 # Max attempts to find a unique mutation on reroll
+MAX_REROLL_ATTEMPTS = 10  # Max attempts to find a unique mutation on reroll
 
 # --- Global Data (Loaded at Startup) ---
 # These will be populated by the startup event in main.py

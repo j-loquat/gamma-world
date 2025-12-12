@@ -1,33 +1,41 @@
 # models.py
-from pydantic import (
-    BaseModel, Field, field_validator, ConfigDict, validator
-)
-from typing import Any, Dict, List, Optional, Tuple, Union
 from enum import Enum
+from typing import Any, Dict, List, Optional, Union
+
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # --- Enums ---
 
+
 class CharacterType(str, Enum):
     """Enumeration for the different character types."""
+
     PSH = "Pure Strain Human"
     HUMANOID = "Humanoid"
     MUTATED_ANIMAL = "Mutated Animal"
 
+
 class AttributeRollMethod(str, Enum):
     """Enumeration for attribute rolling methods."""
+
     STANDARD_3D6 = "Standard (3d6)"
     HEROIC_4D6_DROP_LOWEST = "Heroic (4d6 drop lowest)"
 
+
 class MutationSelectionMethod(str, Enum):
     """Enumeration for mutation selection methods."""
+
     RANDOM_ROLL = "Random Roll (Method 1)"
     PLAYER_CHOICE_DEFECT_ASSIGN = "Player Choice + Referee Defect Assignment (Method 2)"
+
 
 class MutationType(str, Enum):
     PHYSICAL = "Physical"
     MENTAL = "Mental"
 
+
 # --- Core Models ---
+
 
 class MutationTableEntry(BaseModel):
     # Making fields optional as they vary between tables
@@ -56,8 +64,9 @@ class MutationTableEntry(BaseModel):
 class MutationTable(BaseModel):
     title: str
     columns: List[str]
-    rows: List[Dict[str, Any]] # Keep as dict initially, parse later if needed
+    rows: List[Dict[str, Any]]  # Keep as dict initially, parse later if needed
     notes: Optional[str] = None
+
 
 class Mutation(BaseModel):
     number: Optional[int] = None
@@ -68,7 +77,8 @@ class Mutation(BaseModel):
     description: str
     hasTable: Optional[bool] = False
     # Keep raw table data for now, specific parsing can happen if needed
-    tables: Optional[List[MutationTable]] = None # Renamed from tableData for clarity
+    tables: Optional[List[MutationTable]] = None  # Renamed from tableData for clarity
+
 
 class Attributes(BaseModel):
     # Using aliases to match JSON and allow snake_case in Python
@@ -80,9 +90,10 @@ class Attributes(BaseModel):
     physical_strength: int = Field(..., ge=3, le=18, alias="physicalStrength")
 
     model_config = ConfigDict(
-        populate_by_name=True, # Allow creating from dicts with original keys
-        alias_generator=lambda x: x # Keep snake_case for internal use
+        populate_by_name=True,  # Allow creating from dicts with original keys
+        alias_generator=lambda x: x,  # Keep snake_case for internal use
     )
+
 
 class Character(BaseModel):
     name: Optional[str] = None
@@ -97,9 +108,12 @@ class Character(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-        alias_generator=lambda x: x # Keep snake_case for internal use
+        alias_generator=lambda x: x,  # Keep snake_case for internal use
     )
+
+
 # --- Creature Models ---
+
 
 class CreatureStats(BaseModel):
     armor_class: Optional[str] = Field(None, alias="armorClass")
@@ -109,9 +123,11 @@ class CreatureStats(BaseModel):
 
     model_config = ConfigDict(populate_by_name=True)
 
+
 class CreatureAbility(BaseModel):
     name: str
     description: str
+
 
 class Creature(BaseModel):
     name: str
@@ -122,7 +138,9 @@ class Creature(BaseModel):
 
     model_config = ConfigDict(populate_by_name=True)
 
+
 # --- API Request/Response Models ---
+
 
 class CharacterSummary(BaseModel):
     id: str
@@ -132,6 +150,7 @@ class CharacterSummary(BaseModel):
     saved: int
     image: Optional[str] = None
 
+
 class SaveCharacterRequest(BaseModel):
     character: Character
     image_data: Optional[str] = None
@@ -140,8 +159,9 @@ class SaveCharacterRequest(BaseModel):
     def _validate_character(cls, v):
         # Basic check, detailed validation is in Character model itself
         if not v.character_type or not v.attributes or v.hit_points is None:
-             raise ValueError("Character data is incomplete (type, attributes, hp required).")
+            raise ValueError("Character data is incomplete (type, attributes, hp required).")
         return v
+
 
 class MutationSlot(BaseModel):
     slot_id: str = Field(..., alias="slotId")
@@ -153,11 +173,16 @@ class MutationSlot(BaseModel):
 
     model_config = ConfigDict(populate_by_name=True)
 
+
 class GenerateCharacterRequest(BaseModel):
     name: Optional[str] = None
     character_type: CharacterType = Field(..., alias="characterType")
-    attribute_method: AttributeRollMethod = Field(AttributeRollMethod.HEROIC_4D6_DROP_LOWEST, alias="attributeMethod")
-    mutation_method: MutationSelectionMethod = Field(MutationSelectionMethod.RANDOM_ROLL, alias="mutationMethod")
+    attribute_method: AttributeRollMethod = Field(
+        AttributeRollMethod.HEROIC_4D6_DROP_LOWEST, alias="attributeMethod"
+    )
+    mutation_method: MutationSelectionMethod = Field(
+        MutationSelectionMethod.RANDOM_ROLL, alias="mutationMethod"
+    )
     base_animal_species: Optional[str] = Field(None, alias="baseAnimalSpecies")
 
     @field_validator("base_animal_species")
@@ -166,7 +191,7 @@ class GenerateCharacterRequest(BaseModel):
         if info.data.get("character_type") == CharacterType.MUTATED_ANIMAL and not v:
             raise ValueError("base_animal_species is required for Mutated Animal")
         if info.data.get("character_type") != CharacterType.MUTATED_ANIMAL:
-            return None # Ensure it's None if not Mutated Animal
+            return None  # Ensure it's None if not Mutated Animal
         return v
 
     model_config = ConfigDict(populate_by_name=True)
@@ -181,14 +206,18 @@ class IntermediateCharacterState(BaseModel):
     mutation_slots: List[MutationSlot] = Field(default_factory=list, alias="mutationSlots")
     assigned_mutation_names: List[str] = Field(default_factory=list, alias="assignedMutationNames")
     generation_log: List[str] = Field(default_factory=list, alias="generationLog")
-    original_request: GenerateCharacterRequest = Field(..., alias="originalRequest") # Store the original request
+    original_request: GenerateCharacterRequest = Field(
+        ..., alias="originalRequest"
+    )  # Store the original request
 
     model_config = ConfigDict(populate_by_name=True)
 
 
 class GenerateCharacterResponse(BaseModel):
     needs_mutation_selection: bool = Field(..., alias="needsMutationSelection")
-    intermediate_state: Optional[IntermediateCharacterState] = Field(None, alias="intermediateState")
+    intermediate_state: Optional[IntermediateCharacterState] = Field(
+        None, alias="intermediateState"
+    )
     character: Optional[Character] = None
 
     model_config = ConfigDict(populate_by_name=True)
@@ -203,7 +232,7 @@ class SelectableMutationsResponse(BaseModel):
 
 class FinalizeMutationsRequest(BaseModel):
     intermediate_state: IntermediateCharacterState
-    selected_mutations: Dict[str, str] # Maps slot_id (camelCase from JS) to selected mutation name
+    selected_mutations: Dict[str, str]  # Maps slot_id (camelCase from JS) to selected mutation name
 
 
 class GenerateDescriptionRequest(BaseModel):
@@ -214,19 +243,23 @@ class GenerateDescriptionRequest(BaseModel):
     physical_mutations: List[Mutation]
     mental_mutations: List[Mutation]
 
+
 class GenerateDescriptionResponse(BaseModel):
-    status: str # 'success' or 'error'
+    status: str  # 'success' or 'error'
     description: Optional[str] = None
-    message: Optional[str] = None # For error details
+    message: Optional[str] = None  # For error details
+
 
 class GenerateImageRequest(BaseModel):
     description: str = Field(..., min_length=10)
 
+
 class GenerateImageResponse(BaseModel):
-    status: str # 'success' or 'error'
-    image_data: Optional[str] = None # Base64 encoded image data
-    mime_type: Optional[str] = None # e.g., 'image/png'
-    message: Optional[str] = None # For error details
+    status: str  # 'success' or 'error'
+    image_data: Optional[str] = None  # Base64 encoded image data
+    mime_type: Optional[str] = None  # e.g., 'image/png'
+    message: Optional[str] = None  # For error details
+
 
 class SaveCharacterResponse(BaseModel):
     id: str
