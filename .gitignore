@@ -1,6 +1,9 @@
 # Environment variables - DO NOT COMMIT API KEYS!
 .env
 
+# Documents
+*.pdf
+
 # Python cache files
 __pycache__/
 *.pyc
