@@ -17,6 +17,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
+# Local image-generation candidates, review notes, and browser-check artifacts
+/output/
+
 # VS Code specific
 .vscode/
 .clinerules

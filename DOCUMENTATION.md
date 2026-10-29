@@ -31,6 +31,14 @@ To read about and install uv, refer to: https://docs.astral.sh/uv/getting-starte
 *   `images/`: Stores generated or static images (`.png` files) associated with characters, creatures, or used for AI style reference.
 *   `templates/`: Contains Jinja2 HTML templates used for the web user interface.
 
+### Standalone Creature Browser
+
+Open `creature-browser.html` in the repository root directly in a modern browser. It needs no FastAPI server, API key, internet connection, or external styling libraries. Keep the adjacent `images/` folder in place: the page loads the 48 creature PNGs by relative filename. To share it, include the HTML file and those images together with the same folder structure.
+
+The page displays an alphabetical, scrollable portrait grid with name/species search. Selecting a card opens that creature's image, description, four statistics, and special abilities in a centered modal. Close with the top-right X, Escape, or a click outside the modal. Keyboard focus stays inside the modal and returns to the selected card on closing. The layout adapts to narrow screens, and portraits retain their full square composition.
+
+Creature data is an embedded snapshot of `Creatures.json`, including explicit relative image filenames, so direct `file://` opening does not need JSON fetch permissions. Future data changes must also be reflected in the embedded `creature-data` JSON block. Images continue to load from `images/`, so replacing a PNG updates the artwork without rebuilding the page. The existing FastAPI browser is unchanged.
+
 ## 2. Module Summaries
 
 *   **`main.py`**: Initializes the FastAPI application, defines all API endpoints for UI rendering, character generation/management, creature browsing, and AI interactions, and handles application startup logic like loading data.

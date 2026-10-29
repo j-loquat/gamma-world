@@ -8,6 +8,14 @@
 
 This project is a web application built with Python and FastAPI to generate characters for the 1st Edition Gamma World role-playing game. It implements the core rules for attribute generation, HP calculation, and mutation determination (both random and player-choice methods). Key features include a character generator UI, a browser for saved characters and creatures, and integration with Google Gemini AI to automatically generate character descriptions and images.
 
+## Standalone Creature Browser
+
+Open [creature-browser.html](creature-browser.html) directly in a modern browser to explore all 48 creatures with their refreshed artwork. No installation, server, API key, or internet connection is needed.
+
+Scroll through the portrait cards or search by name or species. Click a card to open its image, description, statistics, and special abilities in a centered popup. Close it with the top-right **X**, **Escape**, or a click outside the popup. The layout supports desktop and mobile screens.
+
+Keep the `images/` folder beside the HTML file. To share the browser, include both in the same folder structure. Creature text is embedded from `Creatures.json`; future text/data changes must also be reflected in the HTML's `creature-data` block. Image replacements load directly from `images/`.
+
 ## Installation
 
 Follow these steps to set up the project locally:
